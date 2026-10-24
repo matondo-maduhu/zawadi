@@ -1,0 +1,20 @@
+[
+  {
+    "id": "book",
+    "n": "Kitabu",
+    "e": "📖",
+    "d": "Kurasa za kugeuza"
+  },
+  {
+    "id": "cards",
+    "n": "Kadi",
+    "e": "🎟️",
+    "d": "Kadi za kukwangua"
+  },
+  {
+    "id": "phone",
+    "n": "Simu",
+    "e": "📱",
+    "d": "Ujumbe na simu ya kushtukiza"
+  }
+]
