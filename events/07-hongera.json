@@ -1,0 +1,70 @@
+{
+  "id": "hongera",
+  "e": "🎓",
+  "n": "Hongera (Kuhitimu/Mafanikio)",
+  "th": [
+    "#0f5132",
+    "#052e1f",
+    "#ffd34d"
+  ],
+  "f": [
+    "Alichofanikisha",
+    "Jinsi nilivyomwona akijitahidi",
+    "Matakwa yangu kwa mbele"
+  ],
+  "P": [
+    [
+      "🎓",
+      "Hongera, {to}!",
+      "Nimepata habari njema za mafanikio yako, na nimekuandalia zawadi hii."
+    ],
+    [
+      "🏆",
+      "Ulichofanikisha",
+      "Umefanikisha: {m1}. Hongera sana!"
+    ],
+    [
+      "💪",
+      "Bidii Yako",
+      "Nimeona jinsi ulivyojitahidi: {m2}."
+    ],
+    [
+      "🌟",
+      "Unastahili",
+      "Mafanikio haya ni matokeo ya jasho lako. Unastahili kila sifa."
+    ],
+    [
+      "🚀",
+      "Mbele Yako",
+      "Natamani kwako: {m3}."
+    ],
+    [
+      "🙏",
+      "Mungu Akubariki",
+      "Mungu akufungulie milango zaidi. Najivunia wewe! — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "🎉",
+      "Sherehe",
+      "Tutasherehekea pamoja."
+    ],
+    [
+      "🍽️",
+      "Chakula cha Hongera",
+      "Chakula kwa heshima yako."
+    ],
+    [
+      "🎁",
+      "Zawadi",
+      "Zawadi ya mafanikio inakuja 🤫"
+    ]
+  ],
+  "Q": {
+    "t": "Hongera sana, {to}! 🎓",
+    "p": "Najivunia wewe. Endelea kung'ara!",
+    "y": "🎉 ASANTE SANA!",
+    "n": ""
+  }
+}

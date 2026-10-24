@@ -1,0 +1,70 @@
+{
+  "id": "msamaha",
+  "e": "🥺",
+  "n": "Kuomba Msamaha",
+  "th": [
+    "#3b3b6b",
+    "#14142e",
+    "#9d8cff"
+  ],
+  "f": [
+    "Nilichokosea",
+    "Nilichojifunza",
+    "Ahadi yangu kwake"
+  ],
+  "P": [
+    [
+      "🥺",
+      "Naomba Nikuambie",
+      "{to}, nimekuandalia hii kwa moyo wa unyenyekevu."
+    ],
+    [
+      "😔",
+      "Nilichokosea",
+      "Najua nilikosea: {m1}. Nakubali kosa langu."
+    ],
+    [
+      "🌱",
+      "Nimejifunza",
+      "Nimejifunza: {m2}."
+    ],
+    [
+      "🤝",
+      "Ahadi Yangu",
+      "Nakuahidi: {m3}."
+    ],
+    [
+      "💙",
+      "Thamani Yako",
+      "Wewe ni wa thamani kwangu kuliko kiburi changu."
+    ],
+    [
+      "🙏",
+      "Naomba Msamaha",
+      "Tafadhali nisamehe. — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "☕",
+      "Tuzungumze",
+      "Tukutane tuzungumze kwa utulivu."
+    ],
+    [
+      "🍽️",
+      "Chakula",
+      "Nitakualika chakula kama ishara ya upatanisho."
+    ],
+    [
+      "🤍",
+      "Nitakusikiliza",
+      "Nitakusikiliza bila kukatiza."
+    ]
+  ],
+  "Q": {
+    "t": "{to}, utanisamehe? 🙏",
+    "p": "Nakuomba kwa moyo wote.",
+    "y": "🤍 NAKUSAMEHE",
+    "n": "Bado sijapoa"
+  }
+}

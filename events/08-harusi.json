@@ -1,0 +1,70 @@
+{
+  "id": "harusi",
+  "e": "💒",
+  "n": "Harusi / Hongera Wanandoa",
+  "th": [
+    "#6b1f4a",
+    "#2a0b1f",
+    "#ffd98a"
+  ],
+  "f": [
+    "Kumbukumbu nzuri nao",
+    "Ninachowatakia",
+    "Ushauri mfupi kwao"
+  ],
+  "P": [
+    [
+      "💒",
+      "Hongera, {to}!",
+      "Leo mnaanza safari mpya ya maisha pamoja, na nimewaandalia zawadi hii."
+    ],
+    [
+      "💞",
+      "Upendo Wenu",
+      "Nimeshuhudia upendo wenu, na nakumbuka: {m1}."
+    ],
+    [
+      "🙏",
+      "Baraka",
+      "Mungu awabariki kwa amani, upendo, subira na afya njema."
+    ],
+    [
+      "🌟",
+      "Nawatakia",
+      "Nawatakia: {m2}."
+    ],
+    [
+      "🤝",
+      "Ushauri Wangu",
+      "Kumbukeni: {m3}."
+    ],
+    [
+      "💐",
+      "Heri ya Ndoa",
+      "Heri ya ndoa njema! — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "🍽️",
+      "Chakula cha Pamoja",
+      "Nitawaalika chakula baada ya sherehe."
+    ],
+    [
+      "🎁",
+      "Zawadi",
+      "Zawadi maalum kwa ndoa yenu 🤫"
+    ],
+    [
+      "📸",
+      "Picha",
+      "Tutapiga picha nyingi pamoja!"
+    ]
+  ],
+  "Q": {
+    "t": "Heri ya Ndoa, {to}! 💒",
+    "p": "Mungu awabariki sana.",
+    "y": "💐 ASANTE SANA",
+    "n": ""
+  }
+}

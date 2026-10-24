@@ -1,0 +1,70 @@
+{
+  "id": "sikukuu",
+  "e": "🎄",
+  "n": "Sikukuu (Krismasi/Eid/Mwaka Mpya)",
+  "th": [
+    "#14532d",
+    "#052e16",
+    "#f59e0b"
+  ],
+  "f": [
+    "Kumbukumbu ya sikukuu zilizopita",
+    "Ninachomshukuru",
+    "Ninachomtakia mwaka ujao"
+  ],
+  "P": [
+    [
+      "🎄",
+      "Heri ya Sikukuu, {to}!",
+      "Nakutakia sikukuu njema yenye furaha na amani."
+    ],
+    [
+      "🎁",
+      "Kumbukumbu",
+      "Nakumbuka sikukuu zilizopita: {m1}."
+    ],
+    [
+      "💖",
+      "Shukrani",
+      "Nashukuru kwa: {m2}."
+    ],
+    [
+      "🙏",
+      "Dua",
+      "Mungu akupe afya, amani na baraka tele."
+    ],
+    [
+      "🌟",
+      "Mwaka Ujao",
+      "Nakutakia: {m3}."
+    ],
+    [
+      "🥳",
+      "Heri",
+      "Heri ya sikukuu na mwaka mpya! — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "🍽️",
+      "Chakula cha Sikukuu",
+      "Tutakula pamoja."
+    ],
+    [
+      "🎁",
+      "Zawadi",
+      "Zawadi ya sikukuu inakuja 🤫"
+    ],
+    [
+      "🎶",
+      "Sherehe",
+      "Tutacheza na kufurahi pamoja!"
+    ]
+  ],
+  "Q": {
+    "t": "Heri ya Sikukuu, {to}! 🎄",
+    "p": "Mungu akubariki wewe na familia yako.",
+    "y": "🥳 HERI PIA!",
+    "n": ""
+  }
+}

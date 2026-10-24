@@ -1,0 +1,70 @@
+{
+  "id": "kuzaliwa",
+  "e": "🎂",
+  "n": "Siku ya Kuzaliwa",
+  "th": [
+    "#6a1b9a",
+    "#2a0b4a",
+    "#ff4fa8"
+  ],
+  "f": [
+    "Kumbukumbu moja nzuri nawe",
+    "Kitu ninachopenda kwako",
+    "Matakwa yangu kwake mwaka huu"
+  ],
+  "P": [
+    [
+      "🎂",
+      "Heri ya Kuzaliwa, {to}!",
+      "Leo ni siku yako maalum, na nimekuandalia zawadi hii kutoka moyoni."
+    ],
+    [
+      "🌟",
+      "Wewe ni wa Pekee",
+      "Nakupenda na kukuthamini kwa sababu {m2}."
+    ],
+    [
+      "😊",
+      "Kumbukumbu Yetu",
+      "Sitasahau hii: {m1}."
+    ],
+    [
+      "🙏",
+      "Dua Yangu Kwako",
+      "Mungu akupe afya, amani, furaha na mafanikio. Mwaka huu uwe bora kuliko yote."
+    ],
+    [
+      "🎁",
+      "Matakwa Yangu",
+      "Natamani kwako: {m3}."
+    ],
+    [
+      "💐",
+      "Asante Kuwepo",
+      "Asante kwa kuwa sehemu ya maisha yangu. Heri ya kuzaliwa tena! — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "🎁",
+      "Zawadi Maalum",
+      "Kuna zawadi yako inakuja. Subiri tu 🤫"
+    ],
+    [
+      "🍰",
+      "Keki na Chakula",
+      "Tutakula keki pamoja siku hii."
+    ],
+    [
+      "🎉",
+      "Siku Yako",
+      "Leo wewe ndiye wa kwanza, utafanyiwa kila unachotaka."
+    ]
+  ],
+  "Q": {
+    "t": "Heri ya Kuzaliwa, {to}! 🎂",
+    "p": "Asante kwa kuwa wewe. Tufurahie siku hii pamoja!",
+    "y": "🎉 ASANTE!",
+    "n": ""
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "mapenzi",
+  "e": "💞",
+  "n": "Mapenzi / Pendekezo",
+  "th": [
+    "#7b1f5a",
+    "#2a0b2a",
+    "#ff2d95"
+  ],
+  "f": [
+    "Jinsi/siku tulivyokutana",
+    "Ninachopenda kwake",
+    "Ndoto yangu naye"
+  ],
+  "P": [
+    [
+      "💞",
+      "Kwa {to}",
+      "Nimekuandalia zawadi ya moyo wangu."
+    ],
+    [
+      "🌅",
+      "Mwanzo Wetu",
+      "Nakumbuka: {m1}."
+    ],
+    [
+      "😍",
+      "Ninachopenda",
+      "Napenda kwako: {m2}."
+    ],
+    [
+      "🤲",
+      "Ndoto Yangu",
+      "Ndoto yangu nawe: {m3}."
+    ],
+    [
+      "🙏",
+      "Shukrani",
+      "Asante kwa kunijali na kunipenda. Mungu akubariki."
+    ],
+    [
+      "💍",
+      "Swali Langu",
+      "Kuna kitu nataka kukuuliza... — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "🍽️",
+      "Chakula cha Usiku",
+      "Chakula cha wawili, mahali utakapochagua."
+    ],
+    [
+      "🌅",
+      "Matembezi",
+      "Matembezi ya jioni, wewe na mimi tu."
+    ],
+    [
+      "💆",
+      "Masaji",
+      "Dakika 30 za kukupumzisha."
+    ]
+  ],
+  "Q": {
+    "t": "{to}, utanipa maisha yangu yote? 💍",
+    "p": "Nakupenda kwa moyo wote.",
+    "y": "💖 NDIYO, MILELE",
+    "n": "Ngoja kwanza"
+  },
+  "dodge": 1
+}

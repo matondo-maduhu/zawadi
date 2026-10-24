@@ -1,0 +1,70 @@
+{
+  "id": "shukrani",
+  "e": "💐",
+  "n": "Shukrani kwa Mzazi",
+  "th": [
+    "#6b2447",
+    "#2a0f24",
+    "#e8743b"
+  ],
+  "f": [
+    "Jambo alilonifanyia nisilolisahau",
+    "Tabia yake ninayoipenda",
+    "Ninachomwahidi"
+  ],
+  "P": [
+    [
+      "💐",
+      "Asante, {to}",
+      "Nimekuandalia zawadi ya shukrani kutoka moyoni."
+    ],
+    [
+      "🤱",
+      "Ulinilea",
+      "Asante kwa kunilea kwa upendo. Sitasahau hili: {m1}."
+    ],
+    [
+      "🌟",
+      "Sifa Yako",
+      "Ninachopenda kwako: {m2}."
+    ],
+    [
+      "🙏",
+      "Maombi Yako",
+      "Maombi yako yamenilinda mahali ambapo macho yangu hayakuona."
+    ],
+    [
+      "🤝",
+      "Ahadi Yangu",
+      "Nakuahidi: {m3}."
+    ],
+    [
+      "❤️",
+      "Nakupenda",
+      "Nakupenda sana, {to}. Mungu akubariki. — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "🍽️",
+      "Chakula Pamoja",
+      "Nitakupeleka mahali unapopenda kula."
+    ],
+    [
+      "🛌",
+      "Siku ya Kupumzika",
+      "Siku nzima usifanye kazi, mimi nitachukua."
+    ],
+    [
+      "🎁",
+      "Zawadi Maalum",
+      "Zawadi ya shukrani inakuja kwako 🤫"
+    ]
+  ],
+  "Q": {
+    "t": "Asante, {to}! 💐",
+    "p": "Nakupenda na kukuheshimu daima.",
+    "y": "❤️ NAKUPENDA PIA",
+    "n": ""
+  }
+}

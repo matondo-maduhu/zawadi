@@ -1,0 +1,70 @@
+{
+  "id": "pole",
+  "e": "🤍",
+  "n": "Pole (Mgonjwa / Mwenye Shida)",
+  "th": [
+    "#3b4a6b",
+    "#161b2e",
+    "#7dd3fc"
+  ],
+  "f": [
+    "Jinsi ninavyomjali",
+    "Kitu cha kumtia moyo",
+    "Ninachoweza kumsaidia"
+  ],
+  "P": [
+    [
+      "🤍",
+      "Pole, {to}",
+      "Nimesikia unapitia wakati mgumu, na nimekuandalia zawadi hii."
+    ],
+    [
+      "🫂",
+      "Niko Nawe",
+      "Nakujali sana: {m1}."
+    ],
+    [
+      "🌈",
+      "Kumbuka",
+      "{m2}"
+    ],
+    [
+      "🙏",
+      "Dua Yangu",
+      "Mungu akupe nafuu, nguvu na amani. Kila kitu kitapita."
+    ],
+    [
+      "🤝",
+      "Nitakusaidia",
+      "Naweza kukusaidia: {m3}."
+    ],
+    [
+      "💙",
+      "Hauko Peke Yako",
+      "Nakuombea kila siku. — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "📞",
+      "Nipigie",
+      "Nipigie wakati wowote, nitasikiliza."
+    ],
+    [
+      "🍲",
+      "Chakula",
+      "Nitakuletea chakula."
+    ],
+    [
+      "🤍",
+      "Kukutembelea",
+      "Nitakuja kukusalimia."
+    ]
+  ],
+  "Q": {
+    "t": "Pole, {to}. Nakuombea 🤍",
+    "p": "Utapona na kupata nguvu tena.",
+    "y": "🙏 AMINA, ASANTE",
+    "n": ""
+  }
+}

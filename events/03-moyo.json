@@ -1,0 +1,70 @@
+{
+  "id": "moyo",
+  "e": "🙏",
+  "n": "Kumtia Moyo (Mtihani/Changamoto)",
+  "th": [
+    "#0f3d6b",
+    "#0a1a35",
+    "#2d8cff"
+  ],
+  "f": [
+    "Anachokabiliana nacho (mtihani, kazi, n.k.)",
+    "Kwa nini ninamwamini",
+    "Kitu cha kumkumbusha"
+  ],
+  "P": [
+    [
+      "🙏",
+      "Nakuombea, {to}",
+      "Najua una mengi yanayokuhangaisha. Nimekuandalia zawadi hii ikutie moyo."
+    ],
+    [
+      "📝",
+      "Unachokabiliana Nacho",
+      "Najua unajitahidi kwenye: {m1}. Najivunia bidii yako."
+    ],
+    [
+      "💪",
+      "Nakuamini",
+      "Nakuamini kwa sababu {m2}."
+    ],
+    [
+      "🌬️",
+      "Pumua Polepole",
+      "Vuta pumzi kwa sekunde 4, shikilia 4, toa polepole. Utulie, kila kitu kitaenda vizuri."
+    ],
+    [
+      "🌟",
+      "Kumbuka",
+      "{m3}"
+    ],
+    [
+      "🤍",
+      "Hauko Peke Yako",
+      "Mungu yu pamoja nawe, na mimi pia. Utafaulu! — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "💧",
+      "Kunywa Maji",
+      "Pumzika kidogo na unywe maji."
+    ],
+    [
+      "📖",
+      "Kipindi Kimoja",
+      "Soma kipindi kimoja tu, kisha pumzika."
+    ],
+    [
+      "🎉",
+      "Ushindi Ukija",
+      "Ukimaliza, tutasherehekea pamoja!"
+    ]
+  ],
+  "Q": {
+    "t": "Utafaulu, {to}! 🌟",
+    "p": "Nakuombea na kukuamini. Hatua kwa hatua.",
+    "y": "🙏 AMINA, ASANTE",
+    "n": ""
+  }
+}

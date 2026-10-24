@@ -1,0 +1,71 @@
+{
+  "id": "rafiki",
+  "e": "💙",
+  "n": "Kumkumbuka Rafiki",
+  "th": [
+    "#0b5563",
+    "#062a33",
+    "#2dc4b6"
+  ],
+  "f": [
+    "Kumbukumbu moja nzuri ya urafiki wetu",
+    "Alichonifanyia nisichosahau",
+    "Namkaribisha wapi/lini?"
+  ],
+  "P": [
+    [
+      "💙",
+      "Nimekukumbuka, {to}",
+      "Nimekukumbuka sana, na nimekuandalia zawadi hii."
+    ],
+    [
+      "😂",
+      "Kumbukumbu Zetu",
+      "Nakumbuka: {m1}."
+    ],
+    [
+      "🤝",
+      "Rafiki wa Kweli",
+      "Sitasahau hili ulilonifanyia: {m2}."
+    ],
+    [
+      "🌙",
+      "Muda Umepita",
+      "Muda umepita, lakini urafiki wetu haujabadilika kwangu."
+    ],
+    [
+      "🏠",
+      "Karibu",
+      "Nakukaribisha: {m3}."
+    ],
+    [
+      "💙",
+      "Asante Rafiki",
+      "Asante kwa kuwa rafiki wa kweli. — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "☕",
+      "Stori Pamoja",
+      "Tukutane tupige stori kama zamani."
+    ],
+    [
+      "🍗",
+      "Chakula",
+      "Nitakukaribisha chakula."
+    ],
+    [
+      "🎁",
+      "Zawadi",
+      "Usisahau kuja na zawadi yangu 😄"
+    ]
+  ],
+  "Q": {
+    "t": "Utakuja, {to}? 🏠",
+    "p": "Nakusubiri kwa hamu. Usisahau zawadi yangu 😄🎁",
+    "y": "🏠 NITAKUJA!",
+    "n": "Nina kazi 😅"
+  },
+  "dodge": 1
+}
