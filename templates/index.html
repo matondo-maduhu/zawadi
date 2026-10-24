@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sw"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zawadi Kiganjani 🎁 | Tengeneza surprise ya kugusa moyo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 0,#3a1c6b,#12082e 60%,#05030f);min-height:100vh;overflow-x:hidden}
+.w{max-width:560px;margin:0 auto;padding:36px 18px 60px;text-align:center;position:relative;z-index:2}
+h1{font-size:clamp(34px,10vw,52px);line-height:1.15;background:linear-gradient(90deg,#ffd98a,#ff9bd2,#ffd98a);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:-250% 0}}
+.big{font-size:70px;margin-bottom:6px}
+p.lead{margin-top:12px;font-size:17px;line-height:1.7;opacity:.9}
+h2{margin:34px 0 12px;font-size:21px;color:#ffd98a}
+.cta{display:inline-block;margin-top:24px;padding:16px 34px;border-radius:50px;background:linear-gradient(100deg,#9d00ff,#ee1a8f);color:#fff;font-weight:800;font-size:17px;text-decoration:none;box-shadow:0 0 28px #e32bff77}
+.steps{display:grid;gap:10px;text-align:left}
+.st{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:#ffffff12;border:1px solid #ffffff22}
+.st b{font-size:28px}
+.g{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.c{padding:14px 8px;border-radius:16px;background:#ffffff12;border:1px solid #ffffff22;font-size:14px}
+.c b{display:block;font-size:30px;margin-bottom:4px}
+footer{margin-top:40px;font-size:12px;opacity:.6}
+.fl{position:fixed;font-size:22px;opacity:.25;animation:up linear infinite;pointer-events:none;z-index:1}
+@keyframes up{from{transform:translateY(105vh)}to{transform:translateY(-10vh)}}
+</style></head><body>
+<div class="w">
+<div class="big">🎁</div>
+<h1>Zawadi Kiganjani</h1>
+<p class="lead">Tengeneza surprise ya kugusa moyo kwa dakika chache, kwa Kiswahili. Mpe mama, rafiki, mpenzi au mtu yeyote zawadi atakayoikumbuka.</p>
+<a class="cta" href="/create">✨ Anza Kutengeneza</a>
+
+<h2>Jinsi inavyofanya kazi</h2>
+<div class="steps">
+<div class="st"><b>1️⃣</b><span>Chagua tukio unalotaka</span></div>
+<div class="st"><b>2️⃣</b><span>Jaza jina, kumbukumbu, picha na sauti yako</span></div>
+<div class="st"><b>3️⃣</b><span>Chagua mtindo, kisha upakue faili na umtumie kwa WhatsApp</span></div>
+</div>
+
+<h2>Matukio</h2>
+<div class="g">{% for e in events %}<div class="c"><b>{{ e.e }}</b>{{ e.n }}</div>{% endfor %}</div>
+
+<h2>Mitindo</h2>
+<div class="g">{% for s in styles %}<div class="c"><b>{{ s.e }}</b>{{ s.n }}<br><small>{{ s.d }}</small></div>{% endfor %}</div>
+
+<a class="cta" href="/create">🎁 Tengeneza Sasa</a>
+<footer>Zawadi Kiganjani &middot; imetengenezwa kwa upendo</footer>
+</div>
+<script>
+// emoji zinazoelea nyuma
+["💖","🌸","✨","🎁","💙","🌹","⭐","🎉"].forEach(function(e,i){for(var k=0;k<2;k++){var s=document.createElement("span");s.className="fl";s.textContent=e;s.style.left=(Math.random()*95)+"%";s.style.animationDuration=(9+Math.random()*10)+"s";s.style.animationDelay=(-Math.random()*12)+"s";document.body.appendChild(s)}});
+</script>
+</body></html>
