@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sw"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Zawadi kwa {{ to_raw }} {{ cfg.ev.e }}</title>
+<style>
+/* ===== MISINGI (inatumika na mitindo yote) ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,serif;color:#fff;background:radial-gradient(ellipse at 50% 15%,var(--b1),var(--b2) 60%,#05030a)}
+#stars{position:fixed;inset:0;pointer-events:none}
+.st{position:absolute;background:#fff;border-radius:50%;animation:tw 1.8s infinite alternate;opacity:.6}
+@keyframes tw{to{opacity:.15;transform:scale(.5)}}
+#fw{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:60}
+#app{position:fixed;inset:0;overflow-y:auto;padding:calc(18px + env(safe-area-inset-top,0px)) 16px 40px;display:flex;z-index:2}
+.box{width:100%;max-width:440px;margin:auto;text-align:center;padding:22px 18px;border:1px solid #ffffff3a;border-radius:26px;background:#0000007a;box-shadow:0 10px 50px #000a,0 0 50px var(--ac);backdrop-filter:blur(10px);animation:pop .6s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.95)}to{opacity:1;transform:none}}
+h1{font-size:clamp(28px,8.5vw,42px);margin:8px 0;line-height:1.2;background:linear-gradient(90deg,#ffd98a,#fff,#ffd98a);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 5s linear infinite}
+@keyframes sh{to{background-position:-250% 0}}
+p{font-size:clamp(15px,4.2vw,18px);line-height:1.8;color:#fff3ea}
+.em{font-size:clamp(40px,12vw,58px);margin:6px 0}
+.hero{display:block;width:110px;height:110px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid #ffd98a;box-shadow:0 0 30px var(--ac);margin:8px auto}
+.btn{display:block;width:100%;max-width:320px;margin:14px auto 0;padding:14px 12px;border:2px solid #ffffff88;border-radius:50px;background:linear-gradient(100deg,var(--ac),#9d4edd);color:#fff;font:800 16px system-ui,sans-serif;cursor:pointer;box-shadow:0 0 22px var(--ac)}
+.btn.gh{background:#ffffff18;box-shadow:none;font-weight:600}
+.hearts{position:fixed;pointer-events:none;z-index:65;animation:rise 3s ease-out forwards}
+@keyframes rise{0%{transform:translateY(0) scale(.5);opacity:0}15%{opacity:1}100%{transform:translateY(-85vh) rotate(380deg) scale(1.4);opacity:0}}
+#mute{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px;z-index:80;width:38px;height:38px;border-radius:50%;border:1px solid #fff5;background:#0006;color:#fff;font-size:17px;cursor:pointer}
+#now{position:fixed;left:50%;top:calc(12px + env(safe-area-inset-top,0px));transform:translateX(-50%);z-index:80;padding:6px 14px;border-radius:30px;background:#000a;font:12px system-ui,sans-serif;color:#ffe9a8;opacity:0;transition:opacity .5s;white-space:nowrap}
+#now.on{opacity:1}
+#st0{position:fixed;inset:0;z-index:70;background:radial-gradient(circle at 50% 30%,var(--b1),#05030a);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+
+/* ===== KADI ZA KUKWANGUA ===== */
+.tk{position:relative;margin:16px auto;width:100%;height:170px;border-radius:20px;background:linear-gradient(135deg,var(--b1),var(--b2));border:2px solid #ffd98a;overflow:hidden}
+.pz{position:absolute;inset:0;display:flex;align-items:center;gap:14px;padding:14px 18px;text-align:left}
+.pe{font-size:46px}.pz small{letter-spacing:3px;font-size:10px;opacity:.7}.pz h3{font-size:18px;color:#ffd98a;margin:3px 0}.pz p{font-size:13px;line-height:1.5}
+canvas.f{position:absolute;inset:0;width:100%;height:100%;z-index:2;touch-action:none;transition:opacity .7s}
+</style></head>
+<body>
+<div id="stars"></div><canvas id="fw"></canvas>
+<button id="mute" type="button" style="display:none" aria-label="Sauti">🔊</button><div id="now"></div>
+<div id="app"></div><div id="st0"></div>
+<script>
+// ===== INJINI YA MUZIKI NA FATAKI (partials/engine.js) =====
+{% include "partials/engine.js" %}
+
+// ===== DATA YA ZAWADI (inajazwa na app.py) =====
+const CFG={{ cfg|tojson }};
+
+// ===== MSAADA WA PAMOJA (maandishi, vitufe, sauti, mwisho) =====
+
+const m=CFG.m,FB=["kila kitu tulichopitia pamoja","moyo wako mwema","kwamba tutaendelea pamoja"];
+const T=s=>s.replace(/\{to\}/g,CFG.to).replace(/\{from\}/g,CFG.from||"Rafiki yako").replace(/\{m(\d)\}/g,(a,k)=>m[k-1]||FB[k-1]);
+const app=$("app"),ph=CFG.ph||[],ev=CFG.ev;
+const st=document.documentElement.style;st.setProperty("--b1",ev.th[0]);st.setProperty("--b2",ev.th[1]);st.setProperty("--ac",ev.th[2]);
+const btn=(t,f,g)=>{const b=document.createElement("button");b.className="btn"+(g?" gh":"");b.textContent=t;b.onclick=f;return b};
+let au=null;
+function voice(){return btn("🎤 Sikiliza sauti yangu",()=>{if(!au)au=new Audio(CFG.au);if(bus)bus.gain.setTargetAtTime(.15,AC.currentTime,.2);au.onended=()=>{if(bus)bus.gain.setTargetAtTime(1,AC.currentTime,.4)};au.play()},1)}
+const heroH=()=>ph[0]?'<img class="hero" src="'+ph[0]+'">':"";
+function finale(h){
+  const Q=CFG.Q;h.innerHTML='<div class="em">'+ev.e+'</div>'+heroH()+'<h1>'+T(Q.t)+'</h1><p>'+T(Q.p)+'</p>';
+  h.appendChild(btn(T(Q.y),()=>{fireworks(24);hearts(80);play(3);
+    h.innerHTML='<div class="em">🎆🎉🎆</div>'+heroH()+'<h1>Asante, '+CFG.to+'! 💖</h1><p>Zawadi hii imetoka moyoni mwa '+(CFG.from||"mtumaji")+'.</p>';
+    h.appendChild(btn("🔁 Tazama tena",()=>location.reload(),1));if(CFG.au)h.appendChild(voice());
+    setInterval(()=>{fireworks(5);hearts(20)},5000)}));
+  if(Q.n){const n=btn(T(Q.n),()=>{},1);h.appendChild(n);
+    if(ev.dodge){const mv=e=>{e.preventDefault();n.style.transform="translate("+rnd(-100,100)+"px,"+rnd(-60,60)+"px)"};n.addEventListener("pointerenter",mv);n.addEventListener("touchstart",mv,{passive:false});n.onclick=mv}
+    else n.onclick=()=>toast("Sawa, nitasubiri kwa subira 🙏")}
+  if(CFG.au)h.appendChild(voice());
+}
+
+// ===== MTINDO: KADI ZA KUKWANGUA =====
+const dpr=Math.min(devicePixelRatio||1,2);
+function chime(){if(!AC)return;const t=AC.currentTime;[84,88,91,96].forEach((k,q)=>note(mtof(k),t+q*.09,.7,"sine",.16,master))}
+function scratch(cv,done,t2){
+  const w=cv.parentNode.clientWidth,h=cv.parentNode.clientHeight;cv.width=w*dpr;cv.height=h*dpr;cv.className="f";const c=cv.getContext("2d");c.scale(dpr,dpr);
+  const g=c.createLinearGradient(0,0,w,h);g.addColorStop(0,"#b8860b");g.addColorStop(.3,"#ffe08a");g.addColorStop(.55,"#c9981c");g.addColorStop(.8,"#fff1b8");g.addColorStop(1,"#a67c00");c.fillStyle=g;c.fillRect(0,0,w,h);
+  for(let i=0;i<400;i++){c.fillStyle="rgba("+(Math.random()<.5?"255,255,255":"90,60,0")+","+rnd(.05,.3)+")";c.fillRect(rnd(0,w),rnd(0,h),rnd(1,3),rnd(1,3))}
+  c.fillStyle="#5a3d00";c.textAlign="center";c.font="800 19px system-ui";c.fillText("✨ KWAZA HAPA ✨",w/2,h/2-2);c.font="600 12px system-ui";c.fillText(t2,w/2,h/2+22);
+  let dn=false,lx,ly,ls=0,mv=0,fin=false;
+  const pos=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*w/r.width,(e.clientY-r.top)*h/r.height]};
+  const chk=()=>{if(fin)return;const d=c.getImageData(0,0,cv.width,cv.height).data;let a=0,t=0;for(let k=3;k<d.length;k+=64){t++;if(d[k]<100)a++}if(a/t>.5){fin=true;cv.style.opacity=0;setTimeout(()=>cv.style.display="none",750);hearts(12);chime();done()}};
+  const dr=e=>{const [x,y]=pos(e);c.globalCompositeOperation="destination-out";c.lineCap="round";c.lineWidth=36;c.beginPath();c.moveTo(lx,ly);c.lineTo(x,y);c.stroke();lx=x;ly=y;const n=performance.now();if(AC&&!muted&&n-ls>80){ls=n;noise(AC.currentTime,.07,"bandpass",2800+rnd(0,1800),.12)}if(++mv%6===0)chk()};
+  cv.addEventListener("pointerdown",e=>{dn=true;cv.setPointerCapture(e.pointerId);[lx,ly]=pos(e);dr(e)});cv.addEventListener("pointermove",e=>{if(dn)dr(e)});
+  const up=()=>{dn=false;chk()};cv.addEventListener("pointerup",up);cv.addEventListener("pointercancel",up);
+}
+function cards(){
+  const C=CFG.C.map(c=>c.map(T));
+  app.innerHTML='<div class="box"><div class="em">'+ev.e+'</div>'+heroH()+'<h1>Kwa '+CFG.to+'</h1><p style="font-size:15px">Kwaruza kwa kidole kuona zawadi zako 🎟️</p><div id="cl"></div><div id="cf"></div></div>';
+  let got=0;
+  C.forEach((c,i)=>{const t=document.createElement("div");t.className="tk";t.innerHTML='<div class="pz"><div class="pe">'+c[0]+'</div><div><small>KUPONI #'+(i+1)+'</small><h3>'+c[1]+'</h3><p>'+c[2]+'</p></div></div>';
+    const cv=document.createElement("canvas");t.appendChild(cv);$("cl").appendChild(t);
+    scratch(cv,()=>{if(++got===C.length){fireworks(6);const b=btn("🎁 ZAWADI KUU ▶",()=>finale($("cf")));$("cf").appendChild(b);b.scrollIntoView({behavior:"smooth"})}},"Kuponi #"+(i+1))});
+}
+
+// ===== KUANZA =====
+function begin(){$("st0").style.display="none";$("mute").style.display="block";play(0);cards()}
+$("st0").innerHTML='<div style="font-size:64px">'+ev.e+'</div><h1>Una zawadi, '+CFG.to+'</h1><p style="max-width:300px">Washa sauti kisha ufungue zawadi yako.</p>';
+$("st0").appendChild(btn("🎁 FUNGUA",begin));
+
+</script>
+</body></html>
