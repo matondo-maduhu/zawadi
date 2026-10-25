@@ -7,7 +7,8 @@ na anapata faili moja la HTML la kumtumia mtu wake (WhatsApp n.k.).
 
 ```
 zawadi-project/
-├── app.py                  # seva ya Flask (njia: /, /create, /api/generate)
+├── app.py                  # seva ya Flask (kurasa, link za zawadi, API)
+├── db.py                   # hifadhidata ya SQLite (kuhifadhi zawadi)
 ├── styles.json             # orodha ya mitindo (kitabu, kadi, simu)
 ├── events/                 # kila tukio ni faili lake la JSON
 │   ├── 01-kuzaliwa.json
@@ -16,6 +17,8 @@ zawadi-project/
 ├── templates/
 │   ├── index.html          # ukurasa wa mwanzo (CSS + JS zake ndani)
 │   ├── create.html         # ukurasa wa kutengeneza (CSS + JS zake ndani)
+│   ├── manage.html         # ukurasa wa mmiliki: ameifungua? futa zawadi
+│   ├── 404.html            # ukurasa wa "haipatikani"
 │   ├── gifts/
 │   │   ├── book.html       # mtindo wa kitabu   (CSS + JS zake ndani)
 │   │   ├── cards.html      # mtindo wa kadi     (CSS + JS zake ndani)
@@ -49,14 +52,39 @@ Hakuna haja ya kugusa code. Vitu vya kuandika:
 **Mtindo mpya**: tengeneza `templates/gifts/jina.html` (nakili `book.html` kama mfano), kisha
 ongeza mstari kwenye `styles.json`.
 
+## Link za zawadi
+
+Mtumiaji akibonyeza **"Tengeneza Link ya Kutuma"**, zawadi huhifadhiwa kwenye hifadhidata na anapata:
+- **Link ya mpokeaji**: `https://tovuti-yako/g/abc123` (inafunguka moja kwa moja, bila kupakua faili)
+- **Link ya mmiliki**: `/m/abc123?t=...` (kuona kama amefungua, mara ngapi, na kufuta zawadi)
+
+Zawadi hufutwa yenyewe baada ya siku 90. Hesabu ya "amefungua" haihesabu roboti za onyesho la link
+(WhatsApp, Facebook n.k.). Kikomo: zawadi 15 kwa saa kwa kila IP.
+
+### Mazingira (environment variables)
+| Jina | Maana | Kawaida |
+|---|---|---|
+| `DATABASE_PATH` | njia ya faili la hifadhidata | `data/zawadi.db` |
+| `GIFT_TTL_DAYS` | zawadi hufutwa baada ya siku ngapi | `90` |
+
 ## Kuweka mtandaoni
 
-GitHub Pages haiwezi kuendesha Flask (inaweka tovuti za kudumu tu). Tumia mojawapo:
-- **Render.com** (bure): New Web Service, unganisha repo ya GitHub,
-  Build Command `pip install -r requirements.txt`, Start Command `gunicorn app:app`.
-- **PythonAnywhere** (bure): pakia mafaili, tengeneza Web App ya Flask, elekeza kwenye `app.py`.
+GitHub Pages haiwezi kuendesha Flask (inaweka tovuti za kudumu tu). Tumia mwenyeji wa Python.
+
+**MUHIMU: hifadhidata inahitaji diski ya kudumu.** Kwenye mipango ya bure ya baadhi ya huduma
+(mfano Render bure), mafaili hupotea kila seva inapoanzishwa upya, na zawadi zote zingefutika.
+
+- **PythonAnywhere** (mpango wa bure una diski ya kudumu): pakia mafaili, tengeneza Web App ya Flask
+  (Python 3.10+), elekeza WSGI kwenye `app.py` (`from app import app as application`).
+  Njia nyepesi kuanzia.
+- **Render** (mpango wa kulipia wenye Persistent Disk): Build `pip install -r requirements.txt`,
+  Start `gunicorn app:app`, ongeza Disk iliyofungwa kwenye `/var/data`, kisha weka
+  `DATABASE_PATH=/var/data/zawadi.db`.
+- **VPS** (DigitalOcean, Hetzner n.k.): gunicorn + Nginx, na hifadhi nakala ya `data/` mara kwa mara.
+
+Ukikua, badilisha SQLite kuwa Postgres (badilisha `db.py` pekee).
 
 ## Hatua zinazofuata
 - Malipo (M-Pesa/Tigo Pesa/Airtel Money kupitia ClickPesa, Selcom au Flutterwave)
-- Kikomo cha maombi (Flask-Limiter) ili kuzuia matumizi mabaya
 - Akaunti za watumiaji na historia ya zawadi
+- Matukio na mitindo zaidi
