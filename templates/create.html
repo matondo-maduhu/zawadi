@@ -22,6 +22,7 @@ input[type=file]{margin-top:6px;font-size:14px;color:#ddd;max-width:100%}
 iframe{width:100%;height:68vh;border:2px solid #ffd98a;border-radius:18px;background:#000;margin-top:12px}
 .note{font-size:12px;opacity:.7;margin-top:14px;line-height:1.6;text-align:center}
 
+.card2{margin-top:16px;padding:16px;border-radius:18px;background:#ffffff12;border:1px solid #ffd98a88}
 .ev small{font-weight:400;opacity:.7;font-size:12px}
 a.top{display:inline-block;margin-bottom:10px;color:#ffd98a;text-decoration:none;font-size:14px}
 </style></head><body><div class="w">
@@ -42,11 +43,20 @@ a.top{display:inline-block;margin-bottom:10px;color:#ffd98a;text-decoration:none
 <h2>3. Chagua mtindo</h2>
 <div class="g" id="sty" style="grid-template-columns:1fr 1fr 1fr"></div>
 <button class="btn" id="go">✨ TENGENEZA ZAWADI</button>
-<p class="note">Picha na sauti hutumwa kwenye seva kwa muda mfupi ili kutengeneza faili, kisha hazihifadhiwi.</p>
+<p class="note">Picha na sauti hutumwa kwenye seva. Ukipakua faili tu, hazihifadhiwi. Ukitengeneza link, zawadi huhifadhiwa kwa siku {{ ttl }} kisha hufutwa.</p>
 </div></div>
 <div id="b" class="hide"><h1>Zawadi iko tayari 🎉</h1><p class="s">Hiki ndicho atakachoona. Gusa ndani ya kisanduku kujaribu.</p>
 <iframe id="pf" sandbox="allow-scripts" allow="autoplay"></iframe>
-<button class="btn" id="dl">⬇️ Pakua faili</button>
+<button class="btn" id="lk">🔗 Tengeneza Link ya Kutuma</button>
+<div id="lkbox" class="hide card2">
+<b>Link yako iko tayari 🎉</b>
+<input type="text" id="lkurl" readonly onclick="this.select()">
+<button class="btn" id="cp">📋 Nakili link</button>
+<a class="btn" id="wa" target="_blank" rel="noopener" style="text-decoration:none;text-align:center">📤 Tuma kwa WhatsApp</a>
+<a class="btn gh" id="mg" target="_blank" rel="noopener" style="text-decoration:none;text-align:center">👁️ Angalia kama amefungua</a>
+<p class="note">⚠️ Hifadhi kiungo cha "Angalia kama amefungua" (bookmark). Zawadi hufutwa baada ya siku {{ ttl }}.</p>
+</div>
+<button class="btn gh" id="dl">⬇️ Pakua faili</button>
 <button class="btn gh" id="sh">📤 Shiriki moja kwa moja</button>
 <button class="btn gh" id="bk">↩ Badilisha</button></div>
 </div>
@@ -64,12 +74,13 @@ function pick(i){
 $("ph").onchange=async e=>{photos=[];$("pv").innerHTML="";for(const f of [...e.target.files].slice(0,3)){const u=await shrink(f);photos.push(u);const im=new Image();im.src=u;$("pv").appendChild(im)}};
 function shrink(f){return new Promise(r=>{const im=new Image();im.onload=()=>{const k=Math.min(1,640/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);r(c.toDataURL("image/jpeg",.72))};im.src=URL.createObjectURL(f)})}
 $("au").onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>2e6){alert("Sauti ni kubwa mno. Chagua rekodi fupi (chini ya sekunde 60).");e.target.value="";return}const r=new FileReader();r.onload=()=>audio=r.result;r.readAsDataURL(f)};
+const payload=()=>({event:ev.id,style:mode,to:$("to").value.trim(),from:$("fr").value.trim(),m:[$("f0").value,$("f1").value,$("f2").value],ph:photos,au:audio});
 $("go").onclick=async()=>{
   if(!ev){alert("Chagua tukio kwanza");return}
   const to=$("to").value.trim();if(!to){alert("Andika jina la mpokeaji");$("to").focus();return}
   const b=$("go");b.disabled=true;b.textContent="⏳ Inatengeneza...";
   try{
-    const r=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({event:ev.id,style:mode,to:to,from:$("fr").value.trim(),m:[$("f0").value,$("f1").value,$("f2").value],ph:photos,au:audio})});
+    const r=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload())});
     if(!r.ok){const j=await r.json().catch(()=>({}));throw new Error(j.error||("Hitilafu "+r.status))}
     html=await r.text();fname="zawadi-"+(to.replace(/[^\w\-]+/g,"_")||"yako")+".html";
     $("pf").srcdoc=html;$("a").classList.add("hide");$("b").classList.remove("hide");window.scrollTo(0,0);
@@ -77,5 +88,15 @@ $("go").onclick=async()=>{
 };
 $("dl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([html],{type:"text/html"}));a.download=fname;document.body.appendChild(a);a.click();a.remove()};
 $("sh").onclick=async()=>{const f=new File([html],fname,{type:"text/html"});try{if(navigator.canShare&&navigator.canShare({files:[f]}))await navigator.share({files:[f],title:"Zawadi kwako"});else alert("Kifaa chako hakiruhusu kushiriki moja kwa moja. Tumia 'Pakua faili', kisha utume kwa WhatsApp.")}catch(e){}};
+$("lk").onclick=async()=>{
+  const b=$("lk");b.disabled=true;b.textContent="⏳ Inaunda link...";
+  try{
+    const r=await fetch("/api/gifts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload())});
+    const j=await r.json();if(!r.ok)throw new Error(j.error||("Hitilafu "+r.status));
+    $("lkurl").value=j.url;$("wa").href="https://wa.me/?text="+encodeURIComponent("🎁 Nimekuandalia zawadi, ibonyeze kuifungua: "+j.url);$("mg").href=j.manage_url;
+    $("lkbox").classList.remove("hide");$("lkbox").scrollIntoView({behavior:"smooth"});b.style.display="none";
+  }catch(e){alert(e.message)}finally{b.disabled=false;b.textContent="🔗 Tengeneza Link ya Kutuma"}
+};
+$("cp").onclick=async()=>{try{await navigator.clipboard.writeText($("lkurl").value);$("cp").textContent="✅ Imenakiliwa"}catch(e){$("lkurl").select();document.execCommand("copy")}};
 $("bk").onclick=()=>{$("b").classList.add("hide");$("a").classList.remove("hide");$("pf").srcdoc=""};
 </script></body></html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Zawadi yako | Zawadi Kiganjani</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 0,#3a1c6b,#12082e 60%,#05030f);min-height:100vh}
+.w{max-width:460px;margin:0 auto;padding:26px 16px 60px}
+h1{font-size:28px;color:#ffd98a;margin:6px 0}
+.card{margin-top:16px;padding:18px;border-radius:20px;background:#ffffff12;border:1px solid #ffffff28}
+.st{font-size:22px;font-weight:700;margin-bottom:8px}.ok{color:#6dffb0}.wait{color:#ffd98a}
+.row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #ffffff18;font-size:14px}.row span:first-child{opacity:.7}
+input{width:100%;padding:12px;border-radius:12px;border:1px solid #ffffff44;background:#ffffff14;color:#fff;font:14px system-ui;margin-top:8px}
+.btn{display:block;width:100%;margin-top:12px;padding:14px;border:none;border-radius:50px;background:linear-gradient(100deg,#9d00ff,#ee1a8f);color:#fff;font:800 15px system-ui;cursor:pointer;text-align:center;text-decoration:none}
+.btn.gh{background:#ffffff1c;border:1px solid #ffffff55;font-weight:600}.btn.red{background:#c0264d}
+.note{font-size:12px;opacity:.65;margin-top:14px;line-height:1.6}
+a.top{color:#ffd98a;text-decoration:none;font-size:14px}
+</style></head><body><div class="w">
+<a class="top" href="/">← Nyumbani</a>
+<h1>{{ ev.e }} Zawadi ya {{ g.to_raw }}</h1>
+<div class="card">
+{% if g.views %}<div class="st ok">✅ Amefungua zawadi</div>{% else %}<div class="st wait">⏳ Bado hajafungua</div>{% endif %}
+<div class="row"><span>Mara alizofungua</span><span>{{ g.views }}</span></div>
+<div class="row"><span>Mara ya kwanza</span><span>{{ first }}</span></div>
+<div class="row"><span>Mara ya mwisho</span><span>{{ last }}</span></div>
+<div class="row"><span>Imetengenezwa</span><span>{{ created }}</span></div>
+<p class="note">Muda ni wa Afrika Mashariki (EAT). Hesabu ni ya takriban: huenda ikahesabu pia ukifungua mwenyewe.</p>
+</div>
+<div class="card"><b>Link ya kumtumia</b>
+<input id="u" value="{{ url }}" readonly onclick="this.select()">
+<button class="btn" id="cp">📋 Nakili link</button>
+<a class="btn gh" id="wa" target="_blank" rel="noopener">📤 Tuma kwa WhatsApp</a>
+<a class="btn gh" href="{{ url }}" target="_blank" rel="noopener">👁️ Fungua zawadi</a></div>
+<div class="card"><b>Futa zawadi</b><p class="note">Zawadi hufutwa yenyewe baada ya siku {{ ttl }}. Unaweza pia kuifuta sasa, na link itaacha kufanya kazi.</p>
+<button class="btn red" id="del">🗑️ Futa sasa</button></div>
+<p class="note">⚠️ Hifadhi ukurasa huu (bookmark). Link yake ndiyo ufunguo wako wa kuona hali ya zawadi.</p>
+</div>
+<script>
+const GID={{ gid|tojson }},TOK={{ token|tojson }},URLG={{ url|tojson }};
+document.getElementById("wa").href="https://wa.me/?text="+encodeURIComponent("🎁 Nimekuandalia zawadi, ibonyeze kuifungua: "+URLG);
+document.getElementById("cp").onclick=async()=>{try{await navigator.clipboard.writeText(URLG);document.getElementById("cp").textContent="✅ Imenakiliwa"}catch(e){document.getElementById("u").select();document.execCommand("copy")}};
+document.getElementById("del").onclick=async()=>{
+  if(!confirm("Una uhakika unataka kufuta zawadi hii?"))return;
+  const r=await fetch("/api/gifts/"+GID+"/delete",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({t:TOK})});
+  if(r.ok){alert("Imefutwa.");location.href="/"}else alert("Imeshindikana kufuta.");
+};
+</script></body></html>
