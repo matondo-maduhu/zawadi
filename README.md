@@ -8,7 +8,7 @@ na anapata faili moja la HTML la kumtumia mtu wake (WhatsApp n.k.).
 ```
 zawadi-project/
 ├── app.py                  # seva ya Flask (kurasa, link za zawadi, API)
-├── db.py                   # hifadhidata ya SQLite (kuhifadhi zawadi)
+├── db.py                   # hifadhidata (SQLite au Postgres) kuhifadhi zawadi
 ├── styles.json             # orodha ya mitindo (kitabu, kadi, simu)
 ├── events/                 # kila tukio ni faili lake la JSON
 │   ├── 01-kuzaliwa.json
@@ -64,25 +64,53 @@ Zawadi hufutwa yenyewe baada ya siku 90. Hesabu ya "amefungua" haihesabu roboti 
 ### Mazingira (environment variables)
 | Jina | Maana | Kawaida |
 |---|---|---|
-| `DATABASE_PATH` | njia ya faili la hifadhidata | `data/zawadi.db` |
+| `DATABASE_URL` | anwani ya Postgres (ikiwekwa, Postgres inatumika) | haipo |
+| `DATABASE_PATH` | njia ya faili la SQLite (kama hakuna DATABASE_URL) | `data/zawadi.db` |
 | `GIFT_TTL_DAYS` | zawadi hufutwa baada ya siku ngapi | `90` |
 
-## Kuweka mtandaoni
+## Kuweka mtandaoni kwenye Render (SQLite + diski ya kudumu)
 
-GitHub Pages haiwezi kuendesha Flask (inaweka tovuti za kudumu tu). Tumia mwenyeji wa Python.
+Faili `render.yaml` linaeleza kila kitu (Starter, diski ya GB 1, `DATABASE_PATH=/var/data/zawadi.db`).
 
-**MUHIMU: hifadhidata inahitaji diski ya kudumu.** Kwenye mipango ya bure ya baadhi ya huduma
-(mfano Render bure), mafaili hupotea kila seva inapoanzishwa upya, na zawadi zote zingefutika.
+1. Weka **mafaili yaliyofunguliwa** kwenye GitHub (`app.py` na `render.yaml` ziwe kwenye folda kuu, folda `events/` na `templates/` zibaki kama zilivyo).
+2. Fungua render.com na ujiunge kwa GitHub.
+3. **New +**, kisha **Blueprint**, chagua repository yako, kisha **Apply**.
+4. Render itaomba taarifa za malipo (Starter ni mpango wa kulipia). Thibitisha.
+5. Subiri dakika 3 hadi 5. Link itakuwa `https://zawadi.onrender.com` (au jina lililo karibu nalo).
+6. Jaribu: tengeneza zawadi, fungua link yake, fungua ukurasa wa mmiliki.
+7. Hakikisha diski inafanya kazi: bonyeza **Manual Deploy**, kisha angalia kama zawadi yako ya jaribio bado ipo.
 
-- **PythonAnywhere** (mpango wa bure una diski ya kudumu): pakia mafaili, tengeneza Web App ya Flask
-  (Python 3.10+), elekeza WSGI kwenye `app.py` (`from app import app as application`).
-  Njia nyepesi kuanzia.
-- **Render** (mpango wa kulipia wenye Persistent Disk): Build `pip install -r requirements.txt`,
-  Start `gunicorn app:app`, ongeza Disk iliyofungwa kwenye `/var/data`, kisha weka
-  `DATABASE_PATH=/var/data/zawadi.db`.
-- **VPS** (DigitalOcean, Hetzner n.k.): gunicorn + Nginx, na hifadhi nakala ya `data/` mara kwa mara.
+### Bila Blueprint (kwa mkono)
+New +, Web Service, chagua repo. Runtime `Python 3`, Build `pip install -r requirements.txt`,
+Start `gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 60`, Instance Type `Starter`.
+Kisha **Disks**, Add Disk: Mount Path `/var/data`, Size 1 GB. Kisha **Environment**:
+`DATABASE_PATH=/var/data/zawadi.db`.
 
-Ukikua, badilisha SQLite kuwa Postgres (badilisha `db.py` pekee).
+### Kujaribu bure (zawadi hupotea)
+Chagua Instance Type `Free` na usiweke diski. Tovuti itafanya kazi, lakini itakuwa inalala baada ya dakika 15
+na zawadi zote hupotea ikianzishwa upya. Ni kwa kuona muonekano tu.
+
+## Mbadala: Railway (programu + Postgres mahali pamoja)
+
+1. Weka **mafaili yaliyofunguliwa** kwenye GitHub (`app.py` iwe kwenye folda kuu ya repository), si faili la ZIP.
+2. Fungua railway.com, ingia kwa GitHub.
+3. **New Project**, kisha **Deploy from GitHub repo**, chagua repository yako.
+4. Kwenye mradi huo bonyeza **+ New**, kisha **Database**, kisha **Add PostgreSQL**.
+5. Fungua huduma ya programu yako, kisha **Variables**, ongeza `DATABASE_URL` yenye thamani `${{Postgres.DATABASE_URL}}` (Railway inaunganisha yenyewe).
+6. **Settings**, kisha **Networking**, kisha **Generate Domain** kupata link ya tovuti.
+7. **Settings**, kisha **Usage limit**: weka kikomo cha matumizi ili usishangazwe na bili.
+
+Programu inajua yenyewe kutumia Postgres ikiwa `DATABASE_URL` ipo, na SQLite ikiwa haipo.
+
+### Bei (angalia railway.com/pricing kabla ya kulipa)
+- Trial: mkopo wa dola 5 mara moja, kwa majaribio.
+- Free: dola 1 ya matumizi kwa mwezi (haitoshi kuendesha programu saa 24).
+- Hobby: dola 5 kwa mwezi, inajumuisha dola 5 za matumizi.
+- Pro: dola 20 kwa mwezi, Railway inapendekeza kwa programu za kibiashara.
+
+### Mwenyeji mwingine
+Mradi huo huo unafanya kazi Render (Start Command `gunicorn app:app`), PythonAnywhere (SQLite, weka `DATABASE_PATH`),
+au VPS. Weka `DATABASE_URL` kama una Postgres, au `DATABASE_PATH` kama unatumia SQLite kwenye diski ya kudumu.
 
 ## Hatua zinazofuata
 - Malipo (M-Pesa/Tigo Pesa/Airtel Money kupitia ClickPesa, Selcom au Flutterwave)

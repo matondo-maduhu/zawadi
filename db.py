@@ -1,7 +1,8 @@
 """Hifadhidata ya zawadi (SQLite). Kila zawadi huhifadhiwa kama safu moja yenye data yote ya JSON.
 
 Mazingira (environment variables):
-    DATABASE_PATH   njia ya faili la hifadhidata (kawaida: data/zawadi.db)
+    DATABASE_URL    anwani ya Postgres (mfano kwenye Railway/Render). Ikiwekwa, Postgres inatumika.
+    DATABASE_PATH   njia ya faili la SQLite (kawaida: data/zawadi.db). Hutumika DATABASE_URL isipokuwepo.
     GIFT_TTL_DAYS   zawadi hufutwa baada ya siku ngapi (kawaida: 90)
 """
 import json
@@ -14,6 +15,14 @@ from pathlib import Path
 
 BASE = Path(__file__).parent
 DB_PATH = os.environ.get("DATABASE_PATH", str(BASE / "data" / "zawadi.db"))
+DATABASE_URL = os.environ.get("DATABASE_URL")
+PG = bool(DATABASE_URL)
+if PG:
+    import psycopg2
+    import psycopg2.extras
+    IntegrityError = psycopg2.IntegrityError
+else:
+    IntegrityError = sqlite3.IntegrityError
 TTL_DAYS = int(os.environ.get("GIFT_TTL_DAYS", "90"))
 
 SCHEMA = """
@@ -42,6 +51,8 @@ def _conn():
 
 
 def _run(sql, args=(), fetch=False):
+    if PG:
+        return _run_pg(sql, args, fetch)
     with closing(_conn()) as c:
         cur = c.execute(sql, args)
         rows = cur.fetchall() if fetch else None
@@ -49,8 +60,21 @@ def _run(sql, args=(), fetch=False):
         return rows
 
 
+def _run_pg(sql, args, fetch):
+    """Postgres: '?' hubadilishwa kuwa '%s', na INTEGER ya muda kuwa BIGINT."""
+    sql = sql.replace("?", "%s")
+    conn = psycopg2.connect(DATABASE_URL)
+    try:
+        with conn:
+            with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+                cur.execute(sql, args)
+                return cur.fetchall() if fetch else None
+    finally:
+        conn.close()
+
+
 def init():
-    _run(SCHEMA)
+    _run(SCHEMA.replace("INTEGER", "BIGINT") if PG else SCHEMA)
     purge()
 
 
@@ -69,7 +93,7 @@ def create_gift(style, event, to_raw, from_raw, cfg):
             _run("INSERT INTO gifts(id,token,style,event,to_raw,from_raw,cfg,created) VALUES(?,?,?,?,?,?,?,?)",
                  (gid, token, style, event, to_raw, from_raw, json.dumps(cfg, ensure_ascii=False), int(time.time())))
             return gid, token
-        except sqlite3.IntegrityError:
+        except IntegrityError:
             continue
     raise RuntimeError("Imeshindwa kutengeneza kitambulisho cha zawadi")
 
