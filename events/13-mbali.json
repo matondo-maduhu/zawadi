@@ -1,0 +1,70 @@
+{
+  "id": "mbali",
+  "e": "🌍",
+  "n": "Nakukumbuka (Niko Mbali)",
+  "th": [
+    "#12395c",
+    "#07182b",
+    "#58b4ff"
+  ],
+  "f": [
+    "Kumbukumbu moja tuliyoipenda",
+    "Kitu ninachokikosa kwako",
+    "Tutaonana lini/wapi?"
+  ],
+  "P": [
+    [
+      "🌍",
+      "Nakukumbuka, {to}",
+      "Ingawa tuko mbali, nimekuandalia zawadi hii."
+    ],
+    [
+      "🌅",
+      "Tulichoishi",
+      "Nakumbuka: {m1}."
+    ],
+    [
+      "🥺",
+      "Ninachokikosa",
+      "Nakosa kwako: {m2}."
+    ],
+    [
+      "📞",
+      "Umbali Hauondoi Upendo",
+      "Umbali hauondoi uhusiano wetu, unauimarisha."
+    ],
+    [
+      "🗓️",
+      "Tutaonana",
+      "{m3}"
+    ],
+    [
+      "💙",
+      "Hadi Tutakapokutana",
+      "Nakufikiria kila siku. — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "📞",
+      "Nipigie",
+      "Tupige simu ya video wikendi hii."
+    ],
+    [
+      "💌",
+      "Ujumbe",
+      "Nitakutumia ujumbe kila siku."
+    ],
+    [
+      "✈️",
+      "Kutembelea",
+      "Nitapanga kuja kukutembelea."
+    ]
+  ],
+  "Q": {
+    "t": "Nakukumbuka, {to} 🌍",
+    "p": "Tutaonana hivi karibuni, Mungu akipenda.",
+    "y": "💙 NAKUKUMBUKA PIA",
+    "n": ""
+  }
+}

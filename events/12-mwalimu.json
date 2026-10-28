@@ -1,0 +1,70 @@
+{
+  "id": "mwalimu",
+  "e": "🍎",
+  "n": "Asante Mwalimu / Mlezi",
+  "th": [
+    "#7a4a12",
+    "#2b1a06",
+    "#ffcf6b"
+  ],
+  "f": [
+    "Jambo alilonifundisha nisilolisahau",
+    "Jinsi alivyonisaidia",
+    "Ninachotamani kumwambia"
+  ],
+  "P": [
+    [
+      "🍎",
+      "Asante, {to}",
+      "Nimekuandalia zawadi ya shukrani kwa yote uliyonifundisha."
+    ],
+    [
+      "📚",
+      "Ulinifundisha",
+      "Sitasahau hili: {m1}."
+    ],
+    [
+      "🤝",
+      "Ulinisaidia",
+      "Ulinisaidia kwa: {m2}."
+    ],
+    [
+      "🌟",
+      "Athari Yako",
+      "Maisha yangu yamebadilika kwa sababu yako."
+    ],
+    [
+      "💬",
+      "Ninachotaka Kusema",
+      "{m3}"
+    ],
+    [
+      "🙏",
+      "Mungu Akubariki",
+      "Mungu akubariki kwa kazi yako njema. — {from}"
+    ]
+  ],
+  "C": [
+    [
+      "☕",
+      "Chai Pamoja",
+      "Nitakualika chai kama shukrani."
+    ],
+    [
+      "🎁",
+      "Zawadi ya Shukrani",
+      "Kuna zawadi ndogo inakuja 🤫"
+    ],
+    [
+      "📞",
+      "Nitakupigia",
+      "Nitakupigia kukusalimu mara kwa mara."
+    ]
+  ],
+  "Q": {
+    "t": "Asante sana, {to}! 🍎",
+    "p": "Mchango wako hautasahaulika.",
+    "y": "💐 KARIBU SANA",
+    "n": ""
+  }
+}
