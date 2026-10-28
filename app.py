@@ -228,6 +228,12 @@ def service_worker():
     return resp
 
 
+@app.route("/pwa-check")
+def pwa_check():
+    """Ukurasa wa kuchunguza kwa nini app haisakinishwi."""
+    return render_template("pwa_check.html")
+
+
 @app.route("/offline")
 def offline():
     return render_template("offline.html")

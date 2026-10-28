@@ -75,6 +75,8 @@ Tovuti inaweza kusakinishwa kama app (ikoni kwenye skrini ya mwanzo, inafunguka 
 - **Faragha**: zawadi (`/g/`), ukurasa wa mmiliki (`/m/`) na `/api/` **hazihifadhiwi** kamwe na service worker.
 - **Kusakinisha**: Android/Chrome inaonyesha kitufe cha "Weka"; iPhone: Share, kisha Add to Home Screen.
 - **Masharti**: lazima tovuti iwe na HTTPS (Render inatoa). Haifanyi kazi kwenye `http://` ya kawaida isipokuwa `localhost`.
+- **Kitufe cha "📲 Weka app"** kinaonekana kila mara. Chrome ikiruhusu, kinasakinisha moja kwa moja. Isiporuhusu, kinaonyesha maelekezo kulingana na simu (Android, iPhone, au ndani ya WhatsApp/Facebook).
+- **Ukaguzi**: fungua `/pwa-check` kwenye simu. Ukurasa huo unaangalia HTTPS, manifest, ikoni, service worker na kama Chrome imeruhusu kusakinisha, kisha unaonyesha ✅ au ❌.
 - **Kupima ubora**: kwenye Chrome (kompyuta) fungua DevTools, kisha Lighthouse, kisha chagua "Progressive Web App".
 
 ## Link za zawadi

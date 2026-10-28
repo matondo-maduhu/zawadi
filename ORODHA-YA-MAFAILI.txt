@@ -1,0 +1,62 @@
+ORODHA YA MAFAILI YA KUPAKIA (kila moja liwe kwenye folda yake kama ilivyoandikwa)
+======================================================================
+
+
+FOLDA: (folda kuu ya repository)
+   - Procfile   -> amri ya kuanzisha gunicorn
+   - README.md   -> maelezo ya mradi
+   - app.py   -> kuu: link za zawadi, majibu, tarehe maalum, PWA, masharti
+   - db.py   -> hifadhidata (SQLite/Postgres) + majibu + tarehe maalum
+   - requirements.txt   -> inaongeza psycopg2-binary
+
+FOLDA: events
+   - 11-mtoto.json   -> MPYA: tukio jipya
+   - 12-mwalimu.json   -> MPYA: tukio jipya
+   - 13-mbali.json   -> MPYA: tukio jipya
+
+FOLDA: static
+   - manifest.webmanifest   -> MPYA: manifest ya PWA
+
+FOLDA: static/icons
+   - apple-touch-icon.png   -> MPYA: ikoni ya app
+   - favicon-32.png   -> MPYA: ikoni ya app
+   - icon-192.png   -> MPYA: ikoni ya app
+   - icon-512.png   -> MPYA: ikoni ya app
+   - icon-maskable-512.png   -> MPYA: ikoni ya app
+
+FOLDA: templates
+   - 404.html   -> ukurasa wa haipatikani
+   - create.html   -> kutengeneza: kurekodi sauti, tarehe, makubaliano, link
+   - index.html   -> ukurasa wa mwanzo + kitufe cha kusakinisha
+   - legal.html   -> MPYA: masharti na faragha
+   - manage.html   -> ukurasa wa mmiliki: majibu na tarehe
+   - offline.html   -> MPYA: ukurasa wa mtandao ukikatika
+   - pwa_check.html   -> MPYA: ukaguzi wa PWA
+   - sw.js   -> MPYA: service worker (PWA)
+   - waiting.html   -> MPYA: kuhesabu muda kabla ya zawadi kufunguka
+
+FOLDA: templates/gifts
+   - book.html   -> mtindo wa kitabu (+ kisanduku cha majibu)
+   - cards.html   -> mtindo wa kadi (+ kisanduku cha majibu)
+   - phone.html   -> mtindo wa simu (+ kisanduku cha majibu)
+
+USIPAKIE (tayari unavyo, havijabadilika):
+   - .gitignore
+   - events/01-kuzaliwa.json
+   - events/02-shukrani.json
+   - events/03-moyo.json
+   - events/04-rafiki.json
+   - events/05-mapenzi.json
+   - events/06-msamaha.json
+   - events/07-hongera.json
+   - events/08-harusi.json
+   - events/09-sikukuu.json
+   - events/10-pole.json
+   - render.paid.yaml
+   - render.yaml
+   - static/.gitkeep
+   - styles.json
+   - templates/partials/engine.js
+
+MUHIMU: usipakie folda ya "data/" wala "__pycache__/". Usibadilishe render.yaml uliyoweka tayari.
+Baada ya kupakia, Render itajenga upya yenyewe (dakika 3 hadi 5).
