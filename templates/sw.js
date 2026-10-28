@@ -9,7 +9,12 @@ const SHELL = ["/", "/create", "/offline", "/manifest.webmanifest",
 const PAGES = ["/", "/create", "/terms", "/privacy"];
 
 self.addEventListener("install", e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  // Kila faili linaongezwa peke yake: likishindwa moja, service worker bado inasakinishwa.
+  e.waitUntil(
+    caches.open(CACHE)
+      .then(c => Promise.all(SHELL.map(u => c.add(u).catch(() => null))))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener("activate", e => {

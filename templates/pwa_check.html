@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#3a1c6b">
+<title>Ukaguzi wa PWA | Zawadi Kiganjani</title>
+<script>window.__dp=null;window.__bip=false;addEventListener("beforeinstallprompt",function(e){e.preventDefault();window.__dp=e;window.__bip=true});</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 0,#3a1c6b,#12082e 60%,#05030f);min-height:100vh}
+.w{max-width:520px;margin:0 auto;padding:24px 16px 60px}h1{font-size:26px;color:#ffd98a;margin:8px 0}
+p.s{opacity:.8;line-height:1.6;margin-bottom:14px;font-size:14px}
+.r{padding:12px 14px;border-radius:14px;margin-top:8px;background:#ffffff12;border-left:4px solid #888;font-size:15px}
+.r span{display:block;font-size:13px;opacity:.8;margin-top:4px;line-height:1.5;word-break:break-word}
+.r.ok{border-color:#3ddc84}.r.bad{border-color:#ff5c7a}.r.warn{border-color:#ffd98a}
+button{width:100%;margin-top:16px;padding:14px;border:none;border-radius:50px;background:linear-gradient(100deg,#9d00ff,#ee1a8f);color:#fff;font:800 15px system-ui;cursor:pointer}
+a{color:#ffd98a}
+</style></head><body><div class="w">
+<a href="/">← Nyumbani</a><h1>🔎 Ukaguzi wa PWA</h1>
+<p class="s">Ukurasa huu unaangalia kama app inaweza kusakinishwa kwenye kifaa chako. Subiri sekunde 4. Ukipata ❌, nitumie picha ya skrini hii.</p>
+<div id="out"></div>
+<button id="go" hidden>📲 Jaribu kusakinisha sasa</button>
+<script>
+var out=document.getElementById("out");
+function add(ok,t,d){out.insertAdjacentHTML("beforeend",'<div class="r '+(ok===true?"ok":ok===false?"bad":"warn")+'"><b>'+(ok===true?"✅":ok===false?"❌":"⚠️")+" "+t+"</b>"+(d?"<span>"+d+"</span>":"")+"</div>")}
+(async function(){
+  var ua=navigator.userAgent;
+  add(isSecureContext,"HTTPS (muunganiko salama)",isSecureContext?"":"Tovuti lazima ifunguliwe kwa https://");
+  var inapp=/FBAN|FBAV|Instagram|WhatsApp|TikTok|Snapchat|MicroMessenger|; wv\)/i.test(ua);
+  add(!inapp,"Kivinjari",inapp?"Umefungua ndani ya app nyingine (WhatsApp/Facebook...). Fungua kwenye Chrome.":/iphone|ipad|ipod/i.test(ua)?"Safari/iPhone: tumia Share, kisha Add to Home Screen":/Chrome/.test(ua)?"Chrome/Chromium":"Kivinjari kingine, jaribu Chrome");
+  try{
+    var l=document.querySelector("link[rel=manifest]");if(!l)throw new Error("hakuna kiungo cha manifest kwenye ukurasa");
+    var r=await fetch(l.href,{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);
+    var m=await r.json();add(true,"Manifest ipo na inasomeka",m.name+" ("+m.display+")");
+    for(var k=0;k<m.icons.length;k++){await new Promise(function(res){var ic=m.icons[k],im=new Image();
+      im.onload=function(){add(im.naturalWidth+"x"+im.naturalHeight===ic.sizes,"Ikoni "+ic.sizes+" ("+ic.purpose+")",ic.src);res()};
+      im.onerror=function(){add(false,"Ikoni "+ic.sizes+" haipakiwi",ic.src+" - angalia kama folda static/icons ilipakiwa GitHub");res()};
+      im.src=ic.src+"?t="+Date.now()})}
+  }catch(e){add(false,"Manifest",String(e.message)+" - angalia kama /manifest.webmanifest inafunguka")}
+  if(!("serviceWorker" in navigator))add(false,"Service worker","Kivinjari hakiungi mkono");
+  else{try{
+    var reg=await navigator.serviceWorker.getRegistration();if(!reg)reg=await navigator.serviceWorker.register("/sw.js");
+    await navigator.serviceWorker.ready;var st=reg.active?reg.active.state:"?";
+    add(st==="activated","Service worker","hali: "+st+" | scope: "+reg.scope);
+    add(navigator.serviceWorker.controller?true:null,"Inadhibiti ukurasa huu",navigator.serviceWorker.controller?"":"Pakia upya ukurasa mara moja, kisha jaribu tena (kawaida kwa mara ya kwanza)");
+  }catch(e){add(false,"Service worker","Imeshindwa kusajili: "+e.message+" - fungua /sw.js kuona kama inapakia")}}
+  var sa=matchMedia("(display-mode: standalone)").matches||navigator.standalone;
+  add(sa?true:null,"Hali ya app",sa?"Tayari unatumia kama app":"Bado uko kwenye kivinjari (si app)");
+  await new Promise(function(r){setTimeout(r,3500)});
+  add(window.__bip?true:null,"Chrome imeruhusu kusakinisha",window.__bip?"Bonyeza kitufe hapo chini":"Ishara haijatokea. Si lazima kosa: tumia menyu ⋮, kisha Install app au Add to Home screen. Haitokei pia kama ulikataa mara kadhaa au app imeshasakinishwa.");
+  if(window.__dp){var b=document.getElementById("go");b.hidden=false;b.onclick=function(){window.__dp.prompt()}}
+})();
+</script></div></body></html>
