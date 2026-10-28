@@ -1,0 +1,21 @@
+# Render Blueprint (TOLEO LA KULIPIA): Starter + diski ya GB 1 + SQLite, takriban dola 7.25 kwa mwezi.
+# Ili kulitumia, libadilishe jina kuwa render.yaml. Angalia bei kwenye render.com/pricing.
+services:
+  - type: web
+    name: zawadi
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 60
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: DATABASE_PATH
+        value: /var/data/zawadi.db
+      - key: GIFT_TTL_DAYS
+        value: "90"
+    disk:
+      name: zawadi-data
+      mountPath: /var/data
+      sizeGB: 1

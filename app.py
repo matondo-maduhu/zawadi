@@ -14,6 +14,7 @@ Njia kuu:
     POST /api/gifts/<id>/delete   hufuta zawadi (inahitaji token)
 """
 import html
+import os
 import re
 import secrets
 import time
@@ -37,6 +38,9 @@ MAX_AUDIO = 3_000_000   # herufi kwa sauti
 MAX_PHOTOS = 3
 BOTS = ("whatsapp", "facebookexternalhit", "twitterbot", "telegrambot", "slackbot",
         "googlebot", "bingbot", "linkedinbot", "discordbot", "crawler", "preview", "bot/")
+EAT = timezone(timedelta(hours=3))
+EMOJIS = ["❤️", "😍", "🥹", "😂", "🙏", "🎉", "💙", "🤗"]
+CONTACT = os.environ.get("CONTACT_EMAIL", "")
 RATE_LIMIT, RATE_WINDOW = 15, 3600   # zawadi 15 kwa saa kwa kila IP
 _hits = {}
 
@@ -73,6 +77,22 @@ def rate_ok(ip):
     hits.append(now)
     _hits[ip] = hits
     return True
+
+
+def parse_open(value):
+    """Hubadilisha 'YYYY-MM-DDTHH:MM' (saa za EAT) kuwa sekunde. Hurudisha (ts, kosa)."""
+    if not value:
+        return None, None
+    try:
+        ts = int(datetime.fromisoformat(str(value)[:16]).replace(tzinfo=EAT).timestamp())
+    except ValueError:
+        return None, "Tarehe si sahihi."
+    now = int(time.time())
+    if ts <= now + 60:
+        return None, "Chagua tarehe iliyo mbele."
+    if ts > now + (db.TTL_DAYS - 1) * 86400:
+        return None, "Tarehe ni mbali mno. Kikomo ni siku %d kuanzia leo." % (db.TTL_DAYS - 1)
+    return ts, None
 
 
 def build_cfg(data):
@@ -147,10 +167,18 @@ def view_gift(gid):
     g = db.get_gift(gid)
     if not g:
         abort(404)
+    now = int(time.time())
+    if g.get("open_at") and now < g["open_at"]:        # bado imefungwa: onyesha kuhesabu muda
+        page = render_template("waiting.html", to=g["to_raw"], frm=g["from_raw"], open_at=g["open_at"],
+                               now=now, og_title=og_title(g["to_raw"], g["from_raw"]))
+        resp = app.response_class(page, mimetype="text/html")
+        resp.headers["X-Robots-Tag"] = "noindex"
+        return no_cache(resp)
     ua = (request.headers.get("User-Agent") or "").lower()
     if not any(b in ua for b in BOTS):          # usihesabu roboti za onyesho la link
         db.record_view(gid)
-    resp = app.response_class(render_gift(g["style"], g["cfg"], g["to_raw"], g["from_raw"]), mimetype="text/html")
+    cfg = dict(g["cfg"], gid=gid)
+    resp = app.response_class(render_gift(g["style"], cfg, g["to_raw"], g["from_raw"]), mimetype="text/html")
     resp.headers["X-Robots-Tag"] = "noindex"
     return no_cache(resp)
 
@@ -167,7 +195,19 @@ def manage(gid):
         "manage.html", gid=gid, token=token, g=g, ev=ev,
         url=url_for("view_gift", gid=gid, _external=True),
         created=eat(g["created"]), first=eat(g["first_view"]), last=eat(g["last_view"]),
+        opens=eat(g["open_at"]) if g.get("open_at") else None,
+        replies=[dict(r, time=eat(r["created"])) for r in db.list_replies(gid)],
         ttl=db.TTL_DAYS), mimetype="text/html"))
+
+
+@app.route("/terms")
+def terms():
+    return render_template("legal.html", page="terms", contact=CONTACT, ttl=db.TTL_DAYS)
+
+
+@app.route("/privacy")
+def privacy():
+    return render_template("legal.html", page="privacy", contact=CONTACT, ttl=db.TTL_DAYS)
 
 
 @app.route("/robots.txt")
@@ -194,10 +234,14 @@ def create_gift():
     built, err = build_cfg(request.get_json(silent=True) or {})
     if err:
         return jsonify(error=err), 400
+    open_at, err = parse_open((request.get_json(silent=True) or {}).get("open"))
+    if err:
+        return jsonify(error=err), 400
     db.purge()
-    gid, token = db.create_gift(built["style"], built["event"], built["to_raw"], built["from_raw"], built["cfg"])
+    gid, token = db.create_gift(built["style"], built["event"], built["to_raw"], built["from_raw"],
+                                built["cfg"], open_at)
     return jsonify(
-        id=gid,
+        id=gid, open_at=open_at,
         url=url_for("view_gift", gid=gid, _external=True),
         manage_url=url_for("manage", gid=gid, t=token, _external=True),
         days=db.TTL_DAYS), 201
@@ -211,6 +255,24 @@ def delete_gift(gid):
         return jsonify(error="Haikupatikana."), 404
     db.delete_gift(gid)
     return jsonify(ok=True)
+
+
+@app.post("/api/gifts/<gid>/reply")
+def reply(gid):
+    """Mpokeaji hutuma jibu (emoji na/au ujumbe) kwa mtumaji."""
+    g = db.get_gift(gid)
+    if not g or (g.get("open_at") and time.time() < g["open_at"]):
+        return jsonify(error="Haikupatikana."), 404
+    if not rate_ok("reply:" + (request.remote_addr or "?")):
+        return jsonify(error="Umetuma majibu mengi. Jaribu tena baadaye."), 429
+    data = request.get_json(silent=True) or {}
+    msg = clean(data.get("m"), 300)
+    emoji = data.get("e") if data.get("e") in EMOJIS else ""
+    if not msg and not emoji:
+        return jsonify(error="Chagua emoji au andika ujumbe."), 400
+    if not db.add_reply(gid, msg, emoji):
+        return jsonify(error="Umeshatuma majibu mengi kwa zawadi hii."), 429
+    return jsonify(ok=True), 201
 
 
 # ---------------------------------------------------------------- makosa

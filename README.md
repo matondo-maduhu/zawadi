@@ -52,6 +52,15 @@ Hakuna haja ya kugusa code. Vitu vya kuandika:
 **Mtindo mpya**: tengeneza `templates/gifts/jina.html` (nakili `book.html` kama mfano), kisha
 ongeza mstari kwenye `styles.json`.
 
+## Vipengele vikuu
+
+- **Link za zawadi** (`/g/<id>`) na **ukurasa wa mmiliki** (`/m/<id>?t=...`): hali ya zawadi, majibu, kufuta.
+- **Majibu ya mpokeaji**: baada ya kuona zawadi, mpokeaji anatuma emoji na/au ujumbe (hadi 10 kwa zawadi). Mtumaji anayaona kwenye ukurasa wake.
+- **Zawadi ya tarehe maalum**: mtumaji anachagua tarehe na saa (EAT). Kabla ya hapo mpokeaji anaona kuhesabu muda tu, na zawadi haionekani wala haihesabiwi kama imefunguliwa.
+- **Kurekodi sauti** moja kwa moja kwenye ukurasa wa kutengeneza (hadi sekunde 60).
+- **Masharti na Faragha** (`/terms`, `/privacy`). Weka `CONTACT_EMAIL` ili barua pepe ya kuripoti ionekane.
+- Matukio 13, mitindo 3.
+
 ## Link za zawadi
 
 Mtumiaji akibonyeza **"Tengeneza Link ya Kutuma"**, zawadi huhifadhiwa kwenye hifadhidata na anapata:
@@ -67,20 +76,24 @@ Zawadi hufutwa yenyewe baada ya siku 90. Hesabu ya "amefungua" haihesabu roboti 
 | `DATABASE_URL` | anwani ya Postgres (ikiwekwa, Postgres inatumika) | haipo |
 | `DATABASE_PATH` | njia ya faili la SQLite (kama hakuna DATABASE_URL) | `data/zawadi.db` |
 | `GIFT_TTL_DAYS` | zawadi hufutwa baada ya siku ngapi | `90` |
+| `CONTACT_EMAIL` | barua pepe ya kuripoti (inaonekana kwenye Masharti/Faragha) | haipo |
 
-## Kuweka mtandaoni kwenye Render (SQLite + diski ya kudumu)
+## Kuweka mtandaoni kwenye Render BURE (Render Free + Neon Postgres)
 
-Faili `render.yaml` linaeleza kila kitu (Starter, diski ya GB 1, `DATABASE_PATH=/var/data/zawadi.db`).
+`render.yaml` (toleo la bure) linatumia web service ya **Free** na hifadhidata ya **Neon** (bure, bila kadi, GB 0.5).
 
-1. Weka **mafaili yaliyofunguliwa** kwenye GitHub (`app.py` na `render.yaml` ziwe kwenye folda kuu, folda `events/` na `templates/` zibaki kama zilivyo).
-2. Fungua render.com na ujiunge kwa GitHub.
-3. **New +**, kisha **Blueprint**, chagua repository yako, kisha **Apply**.
-4. Render itaomba taarifa za malipo (Starter ni mpango wa kulipia). Thibitisha.
-5. Subiri dakika 3 hadi 5. Link itakuwa `https://zawadi.onrender.com` (au jina lililo karibu nalo).
-6. Jaribu: tengeneza zawadi, fungua link yake, fungua ukurasa wa mmiliki.
-7. Hakikisha diski inafanya kazi: bonyeza **Manual Deploy**, kisha angalia kama zawadi yako ya jaribio bado ipo.
+1. Fungua **neon.com**, jiunge (kwa GitHub), **Create project**. Nakili **connection string** (huanza na `postgresql://`).
+2. Weka mafaili kwenye GitHub (`app.py` na `render.yaml` kwenye folda kuu).
+3. Render: **New +**, **Blueprint**, chagua repository, **Apply**.
+4. Render itakuuliza thamani ya `DATABASE_URL`. Bandika connection string ya Neon.
+5. Subiri dakika chache. Link itakuwa `https://zawadi.onrender.com`.
 
-### Bila Blueprint (kwa mkono)
+Mipaka ya bure: huduma hulala baada ya dakika 15 (ya kwanza hufunguka polepole), saa 750 za bure kwa mwezi
+kwa akaunti nzima ya Render, na zawadi hufutwa baada ya siku 30 (`GIFT_TTL_DAYS`) ili GB 0.5 isijae.
+
+Toleo la kulipia (Starter + diski + SQLite, takriban dola 7.25) liko kwenye `render.paid.yaml`.
+
+### Toleo la kulipia, bila Blueprint (kwa mkono)
 New +, Web Service, chagua repo. Runtime `Python 3`, Build `pip install -r requirements.txt`,
 Start `gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 60`, Instance Type `Starter`.
 Kisha **Disks**, Add Disk: Mount Path `/var/data`, Size 1 GB. Kisha **Environment**:
