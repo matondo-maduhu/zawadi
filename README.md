@@ -61,6 +61,22 @@ ongeza mstari kwenye `styles.json`.
 - **Masharti na Faragha** (`/terms`, `/privacy`). Weka `CONTACT_EMAIL` ili barua pepe ya kuripoti ionekane.
 - Matukio 13, mitindo 3.
 
+## PWA (app inayosakinishwa kwenye simu)
+
+Tovuti inaweza kusakinishwa kama app (ikoni kwenye skrini ya mwanzo, inafunguka bila upau wa kivinjari).
+
+| Faili | Kazi |
+|---|---|
+| `static/manifest.webmanifest` | jina, rangi, ikoni, njia ya mkato ya "Tengeneza zawadi" |
+| `templates/sw.js` | service worker (inatolewa kwenye `/sw.js`, toleo lake linabadilika lenyewe mafaili yakibadilika) |
+| `templates/offline.html` | ukurasa unaoonekana mtandao ukikatika |
+| `static/icons/` | ikoni 192, 512, maskable, apple-touch, favicon |
+
+- **Faragha**: zawadi (`/g/`), ukurasa wa mmiliki (`/m/`) na `/api/` **hazihifadhiwi** kamwe na service worker.
+- **Kusakinisha**: Android/Chrome inaonyesha kitufe cha "Weka"; iPhone: Share, kisha Add to Home Screen.
+- **Masharti**: lazima tovuti iwe na HTTPS (Render inatoa). Haifanyi kazi kwenye `http://` ya kawaida isipokuwa `localhost`.
+- **Kupima ubora**: kwenye Chrome (kompyuta) fungua DevTools, kisha Lighthouse, kisha chagua "Progressive Web App".
+
 ## Link za zawadi
 
 Mtumiaji akibonyeza **"Tengeneza Link ya Kutuma"**, zawadi huhifadhiwa kwenye hifadhidata na anapata:

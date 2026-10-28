@@ -13,6 +13,7 @@ Njia kuu:
     POST /api/gifts           huhifadhi zawadi na kurudisha link
     POST /api/gifts/<id>/delete   hufuta zawadi (inahitaji token)
 """
+import hashlib
 import html
 import os
 import re
@@ -21,7 +22,7 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from flask import Flask, abort, jsonify, render_template, request, url_for
+from flask import Flask, abort, jsonify, render_template, request, send_from_directory, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 import db
@@ -43,6 +44,17 @@ EMOJIS = ["❤️", "😍", "🥹", "😂", "🙏", "🎉", "💙", "🤗"]
 CONTACT = os.environ.get("CONTACT_EMAIL", "")
 RATE_LIMIT, RATE_WINDOW = 15, 3600   # zawadi 15 kwa saa kwa kila IP
 _hits = {}
+
+def _asset_version():
+    """Kitambulisho cha toleo: hubadilika mafaili ya kurasa yakibadilika, ili simu zipakue toleo jipya."""
+    h = hashlib.md5()
+    for name in ("templates/index.html", "templates/create.html", "templates/offline.html",
+                 "templates/sw.js", "static/manifest.webmanifest"):
+        h.update((BASE / name).read_bytes())
+    return h.hexdigest()[:10]
+
+
+ASSET_VERSION = _asset_version()
 
 db.init()
 
@@ -198,6 +210,27 @@ def manage(gid):
         opens=eat(g["open_at"]) if g.get("open_at") else None,
         replies=[dict(r, time=eat(r["created"])) for r in db.list_replies(gid)],
         ttl=db.TTL_DAYS), mimetype="text/html"))
+
+
+# ---------------------------------------------------------------- PWA
+@app.route("/manifest.webmanifest")
+def manifest():
+    resp = send_from_directory(BASE / "static", "manifest.webmanifest", mimetype="application/manifest+json")
+    resp.headers["Cache-Control"] = "no-cache"
+    return resp
+
+
+@app.route("/sw.js")
+def service_worker():
+    resp = app.response_class(render_template("sw.js", version=ASSET_VERSION), mimetype="application/javascript")
+    resp.headers["Cache-Control"] = "no-cache"            # simu zisikae na service worker ya zamani
+    resp.headers["Service-Worker-Allowed"] = "/"
+    return resp
+
+
+@app.route("/offline")
+def offline():
+    return render_template("offline.html")
 
 
 @app.route("/terms")
