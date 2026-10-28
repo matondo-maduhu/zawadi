@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% if page == "terms" %}Masharti{% else %}Faragha{% endif %} | Zawadi Kiganjani</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 0,#3a1c6b,#12082e 60%,#05030f);min-height:100vh}
+.w{max-width:620px;margin:0 auto;padding:26px 18px 60px;line-height:1.75}
+h1{font-size:30px;color:#ffd98a;margin:10px 0 14px}h2{font-size:18px;color:#ffb6e1;margin:22px 0 6px}
+p,li{opacity:.92;font-size:15px}ul{padding-left:20px}a{color:#ffd98a}
+.n{margin-top:30px;font-size:12px;opacity:.6}
+</style></head><body><div class="w">
+<a href="/">← Nyumbani</a>
+{% if page == "terms" %}
+<h1>Masharti ya Matumizi</h1>
+<h2>1. Huduma</h2><p>Zawadi Kiganjani hukusaidia kutengeneza zawadi za kidijitali (kitabu, kadi, simu) na kuzituma kwa link.</p>
+<h2>2. Wajibu wako</h2>
+<ul><li>Tumia picha, sauti na maandishi ambavyo una haki navyo, au una ruhusa ya mhusika.</li>
+<li>Usitumie huduma kwa unyanyasaji, vitisho, ulaghai, kuiga mtu mwingine, maudhui ya ngono, au kitu chochote kinachomdhuru mtoto.</li>
+<li>Ukivunja masharti, zawadi inaweza kufutwa na matumizi yako kuzuiwa.</li></ul>
+<h2>3. Link na faragha ya zawadi</h2><p>Yeyote mwenye link ya zawadi anaweza kuiona. Hakikisha unaituma kwa mtu sahihi. Link ya "Angalia kama amefungua" ni ya siri yako, usiishiriki.</p>
+<h2>4. Muda wa kuhifadhi</h2><p>Zawadi zilizohifadhiwa kwa link hufutwa baada ya siku {{ ttl }}. Unaweza kuifuta mapema wakati wowote.</p>
+<h2>5. Dhamana</h2><p>Huduma inatolewa kama ilivyo. Hatuahidi kwamba itapatikana bila kukatika wakati wote.</p>
+{% else %}
+<h1>Sera ya Faragha</h1>
+<h2>Tunakusanya nini</h2>
+<ul><li>Majina uliyoandika, maneno ya zawadi, picha na sauti ulizoweka.</li>
+<li>Majibu anayotuma mpokeaji (emoji na ujumbe).</li>
+<li>Idadi ya mara na muda zawadi ilipofunguliwa.</li>
+<li>Anwani ya IP hutumika kwa muda mfupi kuzuia matumizi mabaya (kikomo cha maombi). Haihifadhiwi kwenye hifadhidata.</li></ul>
+<h2>Tunafanya nini nazo</h2><p>Tunazitumia kuonyesha zawadi kwa mpokeaji na kukuonyesha hali yake. Hatuziuzi na hatuzitumii kwa matangazo.</p>
+<h2>Zinahifadhiwa wapi na kwa muda gani</h2><p>Kwenye seva na hifadhidata za watoa huduma wa mwenyeji wetu. Hufutwa kiotomatiki baada ya siku {{ ttl }}, au ukizifuta mwenyewe kupitia ukurasa wako wa mmiliki, ambapo link huacha kufanya kazi.</p>
+<h2>Picha za watu</h2><p>Weka picha za watu wenye ruhusa yao tu.</p>
+{% endif %}
+<h2>Mawasiliano na kuripoti</h2><p>{% if contact %}Ripoti zawadi inayokiuka masharti au omba ifutwe: <a href="mailto:{{ contact }}">{{ contact }}</a>.{% else %}Barua pepe ya mawasiliano itawekwa hapa.{% endif %}</p>
+<p class="n">Ukurasa huu ni wa jumla na unaweza kubadilika. Kabla ya kufungua kwa umma na kukusanya malipo, mshauri mwanasheria akague.</p>
+</div></body></html>

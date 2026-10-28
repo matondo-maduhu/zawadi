@@ -40,8 +40,12 @@ a.top{display:inline-block;margin-bottom:10px;color:#ffd98a;text-decoration:none
 <label>-<textarea id="f2" maxlength="300"></textarea></label>
 <label>Picha (hadi 3, hiari)<input type="file" id="ph" accept="image/*" multiple></label><div class="pv" id="pv"></div>
 <label>Ujumbe wa sauti (hiari, rekodi fupi)<input type="file" id="au" accept="audio/*"></label>
+<button class="btn gh" id="rec" type="button" style="margin-top:8px">🎙️ Au rekodi sauti hapa</button>
+<audio id="pa" controls class="hide" style="width:100%;margin-top:8px"></audio>
+<label>Fungua tarehe (hiari). Zawadi itabaki imefungwa hadi muda huu (saa za Afrika Mashariki)<input type="datetime-local" id="op"></label>
 <h2>3. Chagua mtindo</h2>
 <div class="g" id="sty" style="grid-template-columns:1fr 1fr 1fr"></div>
+<label style="display:flex;gap:8px;align-items:flex-start;margin-top:16px"><input type="checkbox" id="ok" style="margin-top:3px"><span>Nakubali <a href="/terms" target="_blank" style="color:#ffd98a">Masharti</a> na <a href="/privacy" target="_blank" style="color:#ffd98a">Faragha</a></span></label>
 <button class="btn" id="go">✨ TENGENEZA ZAWADI</button>
 <p class="note">Picha na sauti hutumwa kwenye seva. Ukipakua faili tu, hazihifadhiwi. Ukitengeneza link, zawadi huhifadhiwa kwa siku {{ ttl }} kisha hufutwa.</p>
 </div></div>
@@ -74,7 +78,7 @@ function pick(i){
 $("ph").onchange=async e=>{photos=[];$("pv").innerHTML="";for(const f of [...e.target.files].slice(0,3)){const u=await shrink(f);photos.push(u);const im=new Image();im.src=u;$("pv").appendChild(im)}};
 function shrink(f){return new Promise(r=>{const im=new Image();im.onload=()=>{const k=Math.min(1,640/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);r(c.toDataURL("image/jpeg",.72))};im.src=URL.createObjectURL(f)})}
 $("au").onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>2e6){alert("Sauti ni kubwa mno. Chagua rekodi fupi (chini ya sekunde 60).");e.target.value="";return}const r=new FileReader();r.onload=()=>audio=r.result;r.readAsDataURL(f)};
-const payload=()=>({event:ev.id,style:mode,to:$("to").value.trim(),from:$("fr").value.trim(),m:[$("f0").value,$("f1").value,$("f2").value],ph:photos,au:audio});
+const payload=()=>({event:ev.id,style:mode,to:$("to").value.trim(),from:$("fr").value.trim(),m:[$("f0").value,$("f1").value,$("f2").value],ph:photos,au:audio,open:$("op").value||""});
 $("go").onclick=async()=>{
   if(!ev){alert("Chagua tukio kwanza");return}
   const to=$("to").value.trim();if(!to){alert("Andika jina la mpokeaji");$("to").focus();return}
@@ -89,6 +93,7 @@ $("go").onclick=async()=>{
 $("dl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([html],{type:"text/html"}));a.download=fname;document.body.appendChild(a);a.click();a.remove()};
 $("sh").onclick=async()=>{const f=new File([html],fname,{type:"text/html"});try{if(navigator.canShare&&navigator.canShare({files:[f]}))await navigator.share({files:[f],title:"Zawadi kwako"});else alert("Kifaa chako hakiruhusu kushiriki moja kwa moja. Tumia 'Pakua faili', kisha utume kwa WhatsApp.")}catch(e){}};
 $("lk").onclick=async()=>{
+  if(!$("ok").checked){alert("Kubali Masharti na Faragha kwanza.");return}
   const b=$("lk");b.disabled=true;b.textContent="⏳ Inaunda link...";
   try{
     const r=await fetch("/api/gifts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload())});
@@ -98,5 +103,18 @@ $("lk").onclick=async()=>{
   }catch(e){alert(e.message)}finally{b.disabled=false;b.textContent="🔗 Tengeneza Link ya Kutuma"}
 };
 $("cp").onclick=async()=>{try{await navigator.clipboard.writeText($("lkurl").value);$("cp").textContent="✅ Imenakiliwa"}catch(e){$("lkurl").select();document.execCommand("copy")}};
+let rec=null,chunks=[],recT=null;
+$("rec").onclick=async()=>{
+  if(rec){rec.stop();return}
+  try{
+    const st=await navigator.mediaDevices.getUserMedia({audio:true});
+    chunks=[];rec=new MediaRecorder(st);
+    rec.ondataavailable=e=>chunks.push(e.data);
+    rec.onstop=()=>{clearTimeout(recT);st.getTracks().forEach(t=>t.stop());const b=new Blob(chunks,{type:rec.mimeType||"audio/webm"});rec=null;$("rec").textContent="🎙️ Rekodi tena";
+      if(b.size>1.8e6){alert("Rekodi ni ndefu mno. Jaribu chini ya sekunde 60.");return}
+      const r=new FileReader();r.onload=()=>{audio=r.result;$("pa").src=audio;$("pa").classList.remove("hide")};r.readAsDataURL(b)};
+    rec.start();$("rec").textContent="⏹ Simamisha rekodi";recT=setTimeout(()=>rec&&rec.stop(),60000);
+  }catch(e){alert("Siwezi kutumia kipaza sauti. Ruhusu kipaza sauti kwenye kivinjari, au chagua faili la sauti.")}
+};
 $("bk").onclick=()=>{$("b").classList.add("hide");$("a").classList.remove("hide");$("pf").srcdoc=""};
 </script></body></html>

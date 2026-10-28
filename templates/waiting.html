@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sw"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zawadi inakusubiri 🎁</title>
+<meta property="og:title" content="{{ og_title }}"><meta property="og:description" content="Zawadi yako itafunguka hivi karibuni 🎁"><meta name="robots" content="noindex">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;font-family:system-ui,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 0,#3a1c6b,#12082e 60%,#05030f);padding:24px}
+.big{font-size:80px;animation:b 1.6s ease-in-out infinite alternate}@keyframes b{to{transform:translateY(-12px) rotate(6deg)}}
+h1{font-size:clamp(26px,8vw,38px);margin:12px 0;background:linear-gradient(90deg,#ffd98a,#ff9bd2);-webkit-background-clip:text;background-clip:text;color:transparent}
+p{opacity:.85;line-height:1.7;max-width:340px;margin:0 auto}
+.t{display:flex;gap:10px;justify-content:center;margin:26px 0}
+.t div{min-width:70px;padding:14px 8px;border-radius:16px;background:#ffffff14;border:1px solid #ffffff28}
+.t b{display:block;font-size:30px;color:#ffd98a}.t span{font-size:12px;opacity:.7}
+</style></head><body><div>
+<div class="big">🎁</div>
+<h1>Zawadi inakusubiri, {{ to }}</h1>
+<p>{% if frm %}{{ frm }} amekuandalia zawadi.{% else %}Kuna mtu amekuandalia zawadi.{% endif %} Itafunguka muda ukifika. Subiri kidogo!</p>
+<div class="t"><div><b id="d">0</b><span>siku</span></div><div><b id="h">0</b><span>saa</span></div><div><b id="m">0</b><span>dakika</span></div><div><b id="s">0</b><span>sekunde</span></div></div>
+<p style="font-size:13px">Ukurasa huu utafunguka wenyewe. Unaweza pia kuuweka wazi.</p>
+</div>
+<script>
+const OPEN={{ open_at|tojson }}*1000,OFF=Date.now()-{{ now|tojson }}*1000;
+function tick(){
+  let r=Math.floor((OPEN-(Date.now()-OFF))/1000);
+  if(r<=0){location.reload();return}
+  document.getElementById("d").textContent=Math.floor(r/86400);document.getElementById("h").textContent=Math.floor(r%86400/3600);
+  document.getElementById("m").textContent=Math.floor(r%3600/60);document.getElementById("s").textContent=r%60;
+}
+tick();setInterval(tick,1000);
+</script></body></html>

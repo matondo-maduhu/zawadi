@@ -26,6 +26,9 @@ a.top{color:#ffd98a;text-decoration:none;font-size:14px}
 <div class="row"><span>Imetengenezwa</span><span>{{ created }}</span></div>
 <p class="note">Muda ni wa Afrika Mashariki (EAT). Hesabu ni ya takriban: huenda ikahesabu pia ukifungua mwenyewe.</p>
 </div>
+{% if opens %}<div class="card"><b>⏰ Imepangwa kufunguka</b><p class="note" style="font-size:14px;opacity:.9">{{ opens }} (EAT)</p></div>{% endif %}
+<div class="card"><b>💌 Majibu ya mpokeaji</b>
+{% for r in replies %}<div class="row" style="display:block"><div style="font-size:15px;opacity:1">{{ r.emoji }} {{ r.msg }}</div><div style="font-size:11px;opacity:.5;margin-top:3px">{{ r.time }}</div></div>{% else %}<p class="note">Bado hajajibu.</p>{% endfor %}</div>
 <div class="card"><b>Link ya kumtumia</b>
 <input id="u" value="{{ url }}" readonly onclick="this.select()">
 <button class="btn" id="cp">📋 Nakili link</button>
