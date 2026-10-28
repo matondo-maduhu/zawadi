@@ -58,11 +58,23 @@ const btn=(t,f,g)=>{const b=document.createElement("button");b.className="btn"+(
 let au=null;
 function voice(){return btn("🎤 Sikiliza sauti yangu",()=>{if(!au)au=new Audio(CFG.au);if(bus)bus.gain.setTargetAtTime(.15,AC.currentTime,.2);au.onended=()=>{if(bus)bus.gain.setTargetAtTime(1,AC.currentTime,.4)};au.play()},1)}
 const heroH=()=>ph[0]?'<img class="hero" src="'+ph[0]+'">':"";
+function replyBox(){
+  const d=document.createElement("div");d.style.cssText="margin-top:18px;padding:14px;border-radius:16px;background:#ffffff14;text-align:left";
+  d.innerHTML='<p style="font-size:15px;margin-bottom:8px">💌 Mjibu '+(CFG.from||"mtumaji")+':</p><div id="re" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px"></div><textarea id="rm" maxlength="300" placeholder="Andika ujumbe wako (hiari)" style="width:100%;min-height:60px;padding:10px;border-radius:12px;border:1px solid #ffffff55;background:#ffffff14;color:#fff;font:16px system-ui"></textarea>';
+  let sel="";
+  ["❤️","😍","🥹","😂","🙏","🎉","💙","🤗"].forEach(e=>{const b=document.createElement("button");b.textContent=e;b.style.cssText="font-size:24px;padding:6px 10px;border-radius:12px;border:2px solid #ffffff44;background:none;cursor:pointer";b.onclick=()=>{sel=e;d.querySelectorAll("#re button").forEach(x=>x.style.borderColor="#ffffff44");b.style.borderColor="#ffd98a"};d.querySelector("#re").appendChild(b)});
+  d.appendChild(btn("📨 Tuma jibu",async()=>{
+    const m=d.querySelector("#rm").value.trim();if(!sel&&!m){toast("Chagua emoji au andika ujumbe");return}
+    try{const r=await fetch("/api/gifts/"+CFG.gid+"/reply",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({m:m,e:sel})});
+      if(r.ok)d.innerHTML='<p style="text-align:center">✅ Jibu lako limetumwa. Asante! 💙</p>';else{const j=await r.json().catch(()=>({}));toast(j.error||"Imeshindikana")}}
+    catch(e){toast("Hakuna mtandao")}}));
+  return d;
+}
 function finale(h){
   const Q=CFG.Q;h.innerHTML='<div class="em">'+ev.e+'</div>'+heroH()+'<h1>'+T(Q.t)+'</h1><p>'+T(Q.p)+'</p>';
   h.appendChild(btn(T(Q.y),()=>{fireworks(24);hearts(80);play(3);
     h.innerHTML='<div class="em">🎆🎉🎆</div>'+heroH()+'<h1>Asante, '+CFG.to+'! 💖</h1><p>Zawadi hii imetoka moyoni mwa '+(CFG.from||"mtumaji")+'.</p>';
-    h.appendChild(btn("🔁 Tazama tena",()=>location.reload(),1));if(CFG.au)h.appendChild(voice());
+    if(CFG.gid)h.appendChild(replyBox());h.appendChild(btn("🔁 Tazama tena",()=>location.reload(),1));if(CFG.au)h.appendChild(voice());
     setInterval(()=>{fireworks(5);hearts(20)},5000)}));
   if(Q.n){const n=btn(T(Q.n),()=>{},1);h.appendChild(n);
     if(ev.dodge){const mv=e=>{e.preventDefault();n.style.transform="translate("+rnd(-100,100)+"px,"+rnd(-60,60)+"px)"};n.addEventListener("pointerenter",mv);n.addEventListener("touchstart",mv,{passive:false});n.onclick=mv}
