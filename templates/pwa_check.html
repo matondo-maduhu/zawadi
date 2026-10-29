@@ -32,7 +32,7 @@ function add(ok,t,d){out.insertAdjacentHTML("beforeend",'<div class="r '+(ok===t
     var m=await r.json();add(true,"Manifest ipo na inasomeka",m.name+" ("+m.display+")");
     for(var k=0;k<m.icons.length;k++){await new Promise(function(res){var ic=m.icons[k],im=new Image();
       im.onload=function(){add(im.naturalWidth+"x"+im.naturalHeight===ic.sizes,"Ikoni "+ic.sizes+" ("+ic.purpose+")",ic.src);res()};
-      im.onerror=function(){add(false,"Ikoni "+ic.sizes+" haipakiwi",ic.src+" - angalia kama folda static/icons ilipakiwa GitHub");res()};
+      im.onerror=function(){add(false,"Ikoni "+ic.sizes+" haipakiwi",ic.src+" - angalia kama pwa.py ilipakiwa GitHub");res()};
       im.src=ic.src+"?t="+Date.now()})}
   }catch(e){add(false,"Manifest",String(e.message)+" - angalia kama /manifest.webmanifest inafunguka")}
   if(!("serviceWorker" in navigator))add(false,"Service worker","Kivinjari hakiungi mkono");

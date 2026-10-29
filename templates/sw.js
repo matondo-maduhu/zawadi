@@ -1,11 +1,11 @@
 /* Service worker ya Zawadi Kiganjani.
    - Kurasa kuu (/, /create, /terms, /privacy): mtandao kwanza, kisha nakala iliyohifadhiwa, kisha /offline.
-   - Picha na mafaili ya /static: nakala kwanza.
+   - Ikoni (/icons) na /static: nakala kwanza.
    - Zawadi (/g/), ukurasa wa mmiliki (/m/) na /api/ HAZIHIFADHIWI kamwe (faragha). */
 const VERSION = "{{ version }}";
 const CACHE = "zawadi-" + VERSION;
 const SHELL = ["/", "/create", "/offline", "/manifest.webmanifest",
-               "/static/icons/icon-192.png", "/static/icons/icon-512.png"];
+               "/icons/icon-192.png", "/icons/icon-512.png"];
 const PAGES = ["/", "/create", "/terms", "/privacy"];
 
 self.addEventListener("install", e => {
@@ -40,7 +40,7 @@ self.addEventListener("fetch", e => {
     return;
   }
 
-  if (p.startsWith("/static/") || p === "/manifest.webmanifest") {
+  if (p.startsWith("/static/") || p.startsWith("/icons/") || p === "/manifest.webmanifest") {
     e.respondWith(
       caches.match(r).then(m => m || fetch(r).then(res => {
         if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(r, copy)); }
