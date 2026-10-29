@@ -22,14 +22,16 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from flask import Flask, abort, jsonify, render_template, request, send_from_directory, url_for
+from flask import Flask, abort, jsonify, render_template, request, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 import db
+from pwa import bp as pwa_bp
 
 BASE = Path(__file__).parent
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)  # nyuma ya Render/Nginx
+app.register_blueprint(pwa_bp)                      # manifest + ikoni (angalia pwa.py)
 app.config["MAX_CONTENT_LENGTH"] = 12 * 1024 * 1024  # ukubwa wa juu wa ombi (12 MB)
 
 IMG_RE = re.compile(r"data:image/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+")
@@ -49,7 +51,7 @@ def _asset_version():
     """Kitambulisho cha toleo: hubadilika mafaili ya kurasa yakibadilika, ili simu zipakue toleo jipya."""
     h = hashlib.md5()
     for name in ("templates/index.html", "templates/create.html", "templates/offline.html",
-                 "templates/sw.js", "static/manifest.webmanifest"):
+                 "templates/sw.js", "pwa.py"):
         h.update((BASE / name).read_bytes())
     return h.hexdigest()[:10]
 
@@ -213,13 +215,6 @@ def manage(gid):
 
 
 # ---------------------------------------------------------------- PWA
-@app.route("/manifest.webmanifest")
-def manifest():
-    resp = send_from_directory(BASE / "static", "manifest.webmanifest", mimetype="application/manifest+json")
-    resp.headers["Cache-Control"] = "no-cache"
-    return resp
-
-
 @app.route("/sw.js")
 def service_worker():
     resp = app.response_class(render_template("sw.js", version=ASSET_VERSION), mimetype="application/javascript")
