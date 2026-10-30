@@ -1,0 +1,4845 @@
+{
+ "themes": {
+  "usiku": [
+   "#120c2e",
+   "#2b1a63",
+   "#ffd98a",
+   "#8bc4ff"
+  ],
+  "waridi": [
+   "#2a0a1e",
+   "#7a1f4d",
+   "#ffc2dc",
+   "#ff7eb6"
+  ],
+  "dhahabu": [
+   "#1c1203",
+   "#5a3a08",
+   "#ffe08a",
+   "#ffb300"
+  ],
+  "bahari": [
+   "#04162b",
+   "#0b4d78",
+   "#bfeaff",
+   "#35c2ff"
+  ],
+  "msitu": [
+   "#06180f",
+   "#165a35",
+   "#d4ffd0",
+   "#5ee08a"
+  ]
+ },
+ "cats": [
+  {
+   "id": "all",
+   "n": "Zote"
+  },
+  {
+   "id": "sz",
+   "n": "🤯 Za Kushangaza"
+  },
+  {
+   "id": "mp",
+   "n": "💖 Mapenzi"
+  },
+  {
+   "id": "sh",
+   "n": "🎉 Sherehe"
+  },
+  {
+   "id": "mc",
+   "n": "🎮 Michezo"
+  },
+  {
+   "id": "hs",
+   "n": "🏅 Heshima"
+  },
+  {
+   "id": "bz",
+   "n": "💼 Biashara"
+  }
+ ],
+ "templates": [
+  {
+   "id": "barua",
+   "e": "💌",
+   "n": "Barua ya Bahasha",
+   "d": "Bahasha inafunguka, barua inaandikwa herufi kwa herufi, na picha ya hiari mwishoni.",
+   "cats": [
+    "mp",
+    "hs"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 2
+   },
+   "fields": [
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "letter",
+     "l": "Barua yako",
+     "t": "textarea",
+     "d": "Mpendwa wangu,\n\nNimekuandikia barua hii kukuambia kwamba ninakuthamini sana. Kila siku ukiwepo, maisha yanakuwa mazuri zaidi.\n\nAsante kwa kila kitu.",
+     "max": 1500,
+     "r": 7
+    },
+    {
+     "k": "ps",
+     "l": "P.S. (hiari)",
+     "t": "text",
+     "d": "Usisahau kutabasamu leo 😊",
+     "max": 120
+    },
+    {
+     "k": "photo",
+     "l": "Picha (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mwaliko",
+   "e": "🎟️",
+   "n": "Tiketi ya Mwaliko",
+   "d": "Mwaliko wa sherehe, harusi au tukio kama tiketi. Mgeni anajibu moja kwa moja kwa WhatsApp.",
+   "cats": [
+    "sh",
+    "bz"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ev",
+     "l": "Jina la tukio",
+     "t": "text",
+     "d": "Sherehe ya Kuzaliwa ya Jesca",
+     "max": 60
+    },
+    {
+     "k": "guest",
+     "l": "Jina la mgeni",
+     "t": "text",
+     "d": "Mgeni Maalum",
+     "max": 40
+    },
+    {
+     "k": "host",
+     "l": "Mwenyeji",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 40
+    },
+    {
+     "k": "date",
+     "l": "Tarehe na saa",
+     "t": "text",
+     "d": "Jumamosi, 12 Desemba • 6:00 Mchana",
+     "max": 60
+    },
+    {
+     "k": "place",
+     "l": "Mahali",
+     "t": "text",
+     "d": "Ukumbi wa Mlimani, Dar es Salaam",
+     "max": 80
+    },
+    {
+     "k": "dress",
+     "l": "Mavazi (hiari)",
+     "t": "text",
+     "d": "Bluu & Dhahabu 💙",
+     "max": 50
+    },
+    {
+     "k": "note",
+     "l": "Ujumbe",
+     "t": "textarea",
+     "d": "Tafadhali thibitisha kuja kabla ya tarehe 5. Karibu sana!",
+     "max": 240,
+     "r": 3
+    },
+    {
+     "k": "phone",
+     "l": "Namba ya WhatsApp ya mwenyeji",
+     "t": "tel",
+     "d": "",
+     "max": 15,
+     "ph": "255712345678"
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kadi",
+   "e": "🎁",
+   "n": "Kadi za Kufungua",
+   "d": "Kadi nyingi za ujumbe. Zinaweza kufunguka zote, au moja kwa siku kuanzia tarehe unayochagua.",
+   "cats": [
+    "mp",
+    "sh"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 1
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Siku 7 za Mshangao",
+     "max": 40
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "items",
+     "l": "Ujumbe (mstari mmoja = kadi moja, hadi 31)",
+     "t": "textarea",
+     "d": "Wewe ni wa pekee, na dunia inajua hilo.\nAsante kwa kila kicheko ulichoniletea.\nUna nguvu kuliko unavyofikiri.\nLeo nakuombea amani moyoni.\nNinajivunia wewe.\nNdoto zako zinawezekana.\nSiku ya mwisho: nakupenda sana! 💙",
+     "max": 3000,
+     "r": 8
+    },
+    {
+     "k": "start",
+     "l": "Tarehe ya kuanza (acha wazi = zote zifunguke)",
+     "t": "date",
+     "d": ""
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "picha",
+   "e": "🎞️",
+   "n": "Slideshow ya Kumbukumbu",
+   "d": "Picha zako zinapita kama Stories zenye mwendo wa sinema na maelezo kwa kila picha, kisha ujumbe wa mwisho.",
+   "cats": [
+    "mp",
+    "sh"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Kumbukumbu Zetu",
+     "max": 40
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "photos",
+     "l": "Picha (hadi 8)",
+     "t": "images",
+     "d": []
+    },
+    {
+     "k": "caps",
+     "l": "Maelezo ya picha (mstari mmoja kwa picha)",
+     "t": "textarea",
+     "d": "Siku tulipokutana\nSafari ile isiyosahaulika\nVicheko visivyoisha",
+     "max": 800,
+     "r": 5
+    },
+    {
+     "k": "end",
+     "l": "Ujumbe wa mwisho",
+     "t": "textarea",
+     "d": "Asante kwa kila kumbukumbu. Nina hamu ya kutengeneza nyingine nyingi zaidi pamoja nawe. 💙",
+     "max": 400,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kukwangua",
+   "e": "🪙",
+   "n": "Kadi ya Kukwangua",
+   "d": "Ujumbe umefichwa chini ya fedha. Mpokeaji anakwangua kwa kidole ili kuusoma.",
+   "cats": [
+    "mp",
+    "mc"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 1
+   },
+   "fields": [
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "hint",
+     "l": "Maandishi juu ya kadi",
+     "t": "text",
+     "d": "Kuna kitu kimefichwa kwa ajili yako ✨",
+     "max": 60
+    },
+    {
+     "k": "secret",
+     "l": "Ujumbe uliofichwa",
+     "t": "textarea",
+     "d": "Wewe ni zawadi kubwa kuliko zote maishani mwangu. Nakupenda sana!",
+     "max": 300,
+     "r": 4
+    },
+    {
+     "k": "photo",
+     "l": "Picha chini ya fedha (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kitabu",
+   "e": "📖",
+   "n": "Kitabu cha Kurasa",
+   "d": "Kitabu chenye kurasa zinazogeuka kwa 3D, muziki wa taratibu, mioyo inayopaa na ukurasa wa mshangao wenye fataki.",
+   "cats": [
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Maisa",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "tag",
+     "l": "Maelezo chini ya jina (jalada)",
+     "t": "text",
+     "d": "Kitabu cha hisia nzuri na maneno yanayotoka moyoni",
+     "max": 80
+    },
+    {
+     "k": "intro",
+     "l": "Ujumbe wa skrini ya kwanza",
+     "t": "textarea",
+     "d": "Hadithi ndogo yenye hisia kubwa, maneno matamu na mshangao ulioandaliwa kwa ajili yako. ❤️",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "pages",
+     "l": "Kurasa (mstari mmoja = ukurasa: emoji | kichwa | maneno, hadi 12)",
+     "t": "textarea",
+     "d": "🌷 | Karibu | Kuna watu ambao uwepo wao hufanya siku iwe nzuri zaidi. Leo, kurasa hizi ni kwa ajili yako.\n✨ | Upekee Wako | Tabasamu lako linaweza kuifanya siku ya kawaida ionekane ya pekee.\n💌 | Ujumbe Kutoka Moyoni | Maneno mazuri yana thamani, na kila mtu anastahili kuthaminiwa kwa dhati.\n🌙 | Ndoto Njema | Usiku huu uwe na utulivu, mawazo mazuri na ndoto zinazokupa furaha.\n🌹 | Maua Kwa Ajili Yako | Kama maua yanavyopamba bustani, furaha na amani vipambe siku zako zote.",
+     "max": 2500,
+     "r": 9
+    },
+    {
+     "k": "surprise",
+     "l": "Ukurasa wa mshangao (acha wazi = hakuna)",
+     "t": "textarea",
+     "d": "Umefika mwisho wa kurasa hizi, lakini furaha haimaliziki hapa! Gusa kitufe upokee mshangao wa mwisho.",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "last",
+     "l": "Ujumbe wa ukurasa wa mwisho",
+     "t": "textarea",
+     "d": "Nakutakia usiku mwema, amani moyoni na kesho iliyojaa matumaini. Endelea kung’aa kwa namna yako ya kipekee.",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "waridi",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "simu",
+   "e": "📱",
+   "n": "Simu ya Ujumbe",
+   "d": "Skrini ya simu yenye ujumbe mpya, mazungumzo yanayoandikwa yenyewe, kisha simu inaingia na ujumbe wa mwisho.",
+   "cats": [
+    "mp"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 1
+   },
+   "fields": [
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "who",
+     "l": "Jina litakaloonekana kwenye simu",
+     "t": "text",
+     "d": "Rafiki Yako 💙",
+     "max": 30
+    },
+    {
+     "k": "time",
+     "l": "Saa kwenye skrini ya simu",
+     "t": "text",
+     "d": "23:59",
+     "max": 6
+    },
+    {
+     "k": "msgs",
+     "l": "Ujumbe (mstari mmoja = ujumbe mmoja, hadi 12)",
+     "t": "textarea",
+     "d": "Hujambo, bado umeamka? 🌙\nNimekuwa nikikufikiria leo.\nNataka kukuambia kitu muhimu…\nUnastahili kila la heri maishani.\nNakupigia sasa hivi 📞",
+     "max": 1200,
+     "r": 7
+    },
+    {
+     "k": "call",
+     "l": "Ujumbe baada ya kupokea simu",
+     "t": "textarea",
+     "d": "Asante kwa kuwa wewe. Siku yako iwe na baraka tele na kila ndoto yako itimie. Nakupenda sana! 💙",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hesabu",
+   "e": "⏳",
+   "n": "Hesabu ya Kurudi",
+   "d": "Saa ya kuhesabu hadi siku kubwa (harusi, kuzaliwa, safari). Muda ukifika, ujumbe wa siri unafunguka.",
+   "cats": [
+    "sh"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Siku Kubwa Inakuja",
+     "max": 50
+    },
+    {
+     "k": "at",
+     "l": "Tarehe na saa ya tukio",
+     "t": "datetime-local",
+     "d": "2026-12-31T00:00"
+    },
+    {
+     "k": "teaser",
+     "l": "Ujumbe wa kusubiri",
+     "t": "textarea",
+     "d": "Kuna kitu kizuri kinakuja… subiri kidogo tu!",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "reveal",
+     "l": "Ujumbe utakaofunguka muda ukifika",
+     "t": "textarea",
+     "d": "Hongera! Siku imefika. Heri ya sikukuu, na tuifurahie pamoja! 🎉",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quiz",
+   "e": "🧠",
+   "n": "Unanijua Kiasi Gani?",
+   "d": "Maswali uliyotunga mwenyewe kuhusu wewe. Rafiki au mpenzi anajibu, kisha anapata alama na ujumbe.",
+   "cats": [
+    "mc"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 1
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Unanijua Kiasi Gani?",
+     "max": 50
+    },
+    {
+     "k": "who",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "qs",
+     "l": "Maswali (mstari mmoja: swali | jibu sahihi | jibu la uongo 1 | jibu la uongo 2)",
+     "t": "textarea",
+     "d": "Chakula ninachopenda zaidi ni nini? | Pilau | Chipsi mayai | Ugali\nNimezaliwa mwezi gani? | Machi | Julai | Desemba\nRangi ninayoipenda ni ipi? | Bluu | Nyekundu | Kijani\nNdoto yangu kubwa ni ipi? | Kusafiri dunia | Kuwa tajiri | Kuwa mwalimu",
+     "max": 1800,
+     "r": 8
+    },
+    {
+     "k": "hi",
+     "l": "Ujumbe (alama 80% na zaidi)",
+     "t": "textarea",
+     "d": "Wow! Unanijua kweli. Wewe ni rafiki wa maisha! 🏆",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "mid",
+     "l": "Ujumbe (alama 50%–79%)",
+     "t": "textarea",
+     "d": "Si mbaya! Tunahitaji kukaa zaidi pamoja ili ujifunze zaidi 😄",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "lo",
+     "l": "Ujumbe (alama chini ya 50%)",
+     "t": "textarea",
+     "d": "Hmm… tunahitaji kufahamiana upya! Nitakulipia chai ☕",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hazina",
+   "e": "🗺️",
+   "n": "Ramani ya Hazina",
+   "d": "Mchezo wa vidokezo: kila jibu sahihi linafungua hatua inayofuata hadi sanduku la hazina (ujumbe wa mwisho) lifunguke.",
+   "cats": [
+    "sz",
+    "mc"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 1
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Safari ya Hazina",
+     "max": 50
+    },
+    {
+     "k": "steps",
+     "l": "Vidokezo (mstari mmoja: kidokezo | jibu)",
+     "t": "textarea",
+     "d": "Nina funguo lakini siwezi kufungua mlango. Mimi ni nini? | kinanda\nNinapanda juu bila miguu, ninashuka bila kuanguka. Ni nini? | mvua\nMwezi gani wa mwisho wa mwaka? | desemba",
+     "max": 1200,
+     "r": 6
+    },
+    {
+     "k": "reward",
+     "l": "Hazina (ujumbe wa mwisho)",
+     "t": "textarea",
+     "d": "Hongera! Umefaulu safari yote. Zawadi yako ipo kwangu: chakula cha jioni cha kifahari, mimi nalipa! 🎁",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cheti",
+   "e": "🏅",
+   "n": "Cheti cha Heshima",
+   "d": "Cheti cha kifahari cha shukrani au tuzo (mama bora, mfanyakazi bora, rafiki bora…) kinachoweza kuchapishwa.",
+   "cats": [
+    "bz",
+    "hs"
+   ],
+   "base": {
+    "__a": 1,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "kd",
+     "l": "Aina ya cheti",
+     "t": "select",
+     "d": "Cheti cha Shukrani",
+     "o": [
+      [
+       "Cheti cha Shukrani",
+       "Cheti cha Shukrani"
+      ],
+      [
+       "Cheti cha Heshima",
+       "Cheti cha Heshima"
+      ],
+      [
+       "Mama Bora wa Dunia",
+       "Mama Bora wa Dunia"
+      ],
+      [
+       "Baba Bora wa Dunia",
+       "Baba Bora wa Dunia"
+      ],
+      [
+       "Mfanyakazi Bora",
+       "Mfanyakazi Bora"
+      ],
+      [
+       "Rafiki Bora",
+       "Rafiki Bora"
+      ],
+      [
+       "Mwanafunzi Bora",
+       "Mwanafunzi Bora"
+      ],
+      [
+       "Mpenzi Bora",
+       "Mpenzi Bora"
+      ]
+     ]
+    },
+    {
+     "k": "nm",
+     "l": "Jina la anayepewa",
+     "t": "text",
+     "d": "Jesca Mushi",
+     "max": 40
+    },
+    {
+     "k": "rs",
+     "l": "Sababu",
+     "t": "textarea",
+     "d": "Kwa upendo, bidii na moyo wa ukarimu usio na kifani uliouonyesha kwetu sote.",
+     "max": 250,
+     "r": 3
+    },
+    {
+     "k": "gv",
+     "l": "Kimetolewa na",
+     "t": "text",
+     "d": "Familia Yako",
+     "max": 40
+    },
+    {
+     "k": "pd",
+     "l": "Tarehe / Mahali",
+     "t": "text",
+     "d": "Dar es Salaam, 24 Oktoba 2026",
+     "max": 50
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "galaksi",
+   "e": "🌌",
+   "n": "Galaksi ya Mapenzi",
+   "d": "Lango la siri, moyo unaozungukwa na obiti, kadi za maneno matamu, kisha ujumbe wa siri wenye fataki.",
+   "cats": [
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "gtT",
+     "l": "Kichwa cha lango",
+     "t": "text",
+     "d": "Kuna kitu maalum kwa ajili yako…",
+     "max": 60
+    },
+    {
+     "k": "gtX",
+     "l": "Maelezo ya lango",
+     "t": "textarea",
+     "d": "Gusa kitufe hiki uingie kwenye ulimwengu wa mwanga na maneno yanayotoka moyoni. 🌹",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "gtB",
+     "l": "Kitufe cha lango",
+     "t": "text",
+     "d": "✨ FUNGUA MSHANGAO",
+     "max": 30
+    },
+    {
+     "k": "lb",
+     "l": "Maandishi madogo juu",
+     "t": "text",
+     "d": "KWA NYOTA YANGU YA PEKEE",
+     "max": 40
+    },
+    {
+     "k": "hh",
+     "l": "Kichwa kikubwa",
+     "t": "text",
+     "d": "Wewe ni maajabu",
+     "max": 40
+    },
+    {
+     "k": "hs",
+     "l": "Kichwa kidogo",
+     "t": "text",
+     "d": "ambayo moyo wangu umechagua ✨",
+     "max": 60
+    },
+    {
+     "k": "ip",
+     "l": "Utangulizi",
+     "t": "textarea",
+     "d": "Kama uzuri ungekuwa galaksi, ningetumia umilele mzima nikigundua nyota zote zinazokufanya uwe wa kipekee.",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "ob",
+     "l": "Kitufe cha kufungua siri",
+     "t": "text",
+     "d": "💌 KUNA UJUMBE WAKO WA SIRI",
+     "max": 40
+    },
+    {
+     "k": "c1t",
+     "l": "Kadi: kichwa",
+     "t": "text",
+     "d": "Uzuri wako hauna nakala",
+     "max": 50
+    },
+    {
+     "k": "c1x",
+     "l": "Kadi: maneno",
+     "t": "textarea",
+     "d": "Tabasamu lako ni kama alfajiri inayofukuza giza. Macho yako ni kama nyota zenye hadithi nzuri. ❤️",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "stt",
+     "l": "Ujumbe wa siri: kichwa",
+     "t": "text",
+     "d": "Kwa mrembo wangu",
+     "max": 50
+    },
+    {
+     "k": "sx",
+     "l": "Ujumbe wa siri: maneno (mstari mtupu = aya mpya)",
+     "t": "textarea",
+     "d": "Natamani ungeweza kujiona kwa macho yanayokuona kwa thamani yako yote.\n\nUzuri wako ni zawadi, lakini thamani yako ni kubwa zaidi ya sura.\n\nDunia ina nyota nyingi, lakini hii ni njia yangu ya kukuambia kuwa wewe ni wa pekee. ❤️",
+     "max": 1200,
+     "r": 9
+    },
+    {
+     "k": "sg",
+     "l": "Sahihi",
+     "t": "text",
+     "d": "Kwa upendo, kutoka moyoni mwangu kwako. 💗",
+     "max": 80
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "waridi",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usiku",
+   "e": "🌙",
+   "n": "Usiku Mwema",
+   "d": "Mwezi unaong’aa, nyota zinazoanguka, na barua ya usiku mwema inayofunguka kwa kugusa.",
+   "cats": [
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "lb",
+     "l": "Maandishi madogo juu",
+     "t": "text",
+     "d": "KWA MTU WANGU WA THAMANI",
+     "max": 40
+    },
+    {
+     "k": "hh",
+     "l": "Kichwa kikubwa",
+     "t": "text",
+     "d": "Usiku Mwema",
+     "max": 30
+    },
+    {
+     "k": "hs",
+     "l": "Kichwa kidogo",
+     "t": "text",
+     "d": "My Queen, My Happiness 🌙",
+     "max": 50
+    },
+    {
+     "k": "ip",
+     "l": "Utangulizi",
+     "t": "textarea",
+     "d": "Usiku huu, kabla macho yako hayajafumba, nataka ujumbe huu ufike moyoni mwako na kukuacha na tabasamu zuri. ❤️",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "ob",
+     "l": "Kitufe cha kufungua",
+     "t": "text",
+     "d": "💌 FUNGUA UJUMBE WAKO",
+     "max": 40
+    },
+    {
+     "k": "c1t",
+     "l": "Kadi: kichwa",
+     "t": "text",
+     "d": "Ndoto njema, mpendwa wangu",
+     "max": 50
+    },
+    {
+     "k": "c1x",
+     "l": "Kadi: maneno",
+     "t": "textarea",
+     "d": "Mwezi uangaze dirishani mwako, nyota zikulindie ndoto zako, na utulivu wa usiku huu uufanye moyo wako upumzike kwa furaha. ✨",
+     "max": 300,
+     "r": 4
+    },
+    {
+     "k": "stt",
+     "l": "Barua: kichwa",
+     "t": "text",
+     "d": "Ujumbe kutoka moyoni mwangu",
+     "max": 50
+    },
+    {
+     "k": "sx",
+     "l": "Barua: maneno (mstari mtupu = aya mpya)",
+     "t": "textarea",
+     "d": "Usiku umefika na dunia inaanza kutulia, lakini kuna jambo moja nataka ubebe moyoni kabla hujalala:\n\nWewe ni wa thamani, na unastahili furaha inayokufanya utabasamu hata bila sababu.\n\nAcha mawazo ya leo yapumzike. Kesho ni ukurasa mpya wenye matumaini.\n\nLala salama. Good night, my beautiful star. 🌙❤️",
+     "max": 1200,
+     "r": 9
+    },
+    {
+     "k": "sg",
+     "l": "Sahihi",
+     "t": "text",
+     "d": "Kwa upendo mwingi, kutoka kwangu kwako. 💋",
+     "max": 80
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "safari",
+   "e": "🎬",
+   "n": "Safari Yetu (Sura kwa Sura)",
+   "d": "Hadithi ya sura kwa sura: utangulizi wa mistari, kila sura inahitaji kugusa moyo mara 5, kisha mwisho wenye fataki.",
+   "cats": [
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Jina la filamu",
+     "t": "text",
+     "d": "Safari Yetu",
+     "max": 40
+    },
+    {
+     "k": "intro",
+     "l": "Utangulizi",
+     "t": "textarea",
+     "d": "Filamu ya mapenzi iliyotengenezwa kwa ajili yako tu. Washa sauti, kisha anza.",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "pro",
+     "l": "Mistari ya utangulizi (mstari mmoja kwa wakati, hadi 6)",
+     "t": "textarea",
+     "d": "Siku moja…\nNiliona mtu ambaye hakusema mengi.\nLakini moyo wangu ulisikia kila kitu. 💖",
+     "max": 400,
+     "r": 4
+    },
+    {
+     "k": "chs",
+     "l": "Sura (mstari mmoja: kichwa | maneno, hadi 6)",
+     "t": "textarea",
+     "d": "Mwanzo | Siku tulipokutana, sikujua kwamba maisha yangu yangebadilika milele.\nVicheko | Tulicheka, tukashirikiana, na kila siku ilikuwa nzuri zaidi.\nDhoruba | Tulipitia magumu, lakini hatukuachana.\nLeo | Na sasa tupo hapa, tukiwa imara kuliko wakati wowote.",
+     "max": 1500,
+     "r": 7
+    },
+    {
+     "k": "nameA",
+     "l": "Jina la kwanza (picha)",
+     "t": "text",
+     "d": "Wewe",
+     "max": 20
+    },
+    {
+     "k": "phA",
+     "l": "Picha ya kwanza (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "nameB",
+     "l": "Jina la pili (picha)",
+     "t": "text",
+     "d": "Mimi",
+     "max": 20
+    },
+    {
+     "k": "phB",
+     "l": "Picha ya pili (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "fin",
+     "l": "Kichwa cha mwisho",
+     "t": "text",
+     "d": "Asante kwa kuwa wewe",
+     "max": 60
+    },
+    {
+     "k": "fm",
+     "l": "Ujumbe wa mwisho",
+     "t": "textarea",
+     "d": "Safari yetu bado haijaisha. Nakupenda leo, kesho na daima. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "waridi",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nguvu",
+   "e": "💪",
+   "n": "Kituo cha Nguvu",
+   "d": "Mini-app ya kutia moyo: ujumbe wa leo, mpango wa siku, kupumua, kipima muda cha kuzingatia, maneno ya nguvu na barua.",
+   "cats": [
+    "hs"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "gr",
+     "l": "Salamu (tumia {to} kwa jina)",
+     "t": "text",
+     "d": "Habari za leo, {to}! 💪",
+     "max": 60
+    },
+    {
+     "k": "photo",
+     "l": "Picha yake (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "dm",
+     "l": "Ujumbe wa kila siku (mstari mmoja kwa ujumbe)",
+     "t": "textarea",
+     "d": "Leo ni siku mpya, na wewe una nguvu ya kuifanya iwe nzuri.\nHatua ndogo kila siku zinakufikisha mbali.\nUnafanya vizuri kuliko unavyofikiri.",
+     "max": 600,
+     "r": 4
+    },
+    {
+     "k": "tk",
+     "l": "Mpango wa leo (mstari mmoja kwa kazi)",
+     "t": "textarea",
+     "d": "Kunywa maji ya kutosha 💧\nSoma au fanya kazi kwa makini 📚\nPumzika dakika kumi 🌿\nMwombe Mungu 🙏\nLala mapema 😴",
+     "max": 500,
+     "r": 5
+    },
+    {
+     "k": "af",
+     "l": "Maneno ya nguvu (mstari mmoja kwa neno)",
+     "t": "textarea",
+     "d": "Mimi ni hodari.\nNinaweza kufanya mambo magumu.\nNinastahili mafanikio.\nSiko peke yangu, ninapendwa.\nKila siku ninakua zaidi.",
+     "max": 600,
+     "r": 5
+    },
+    {
+     "k": "lt",
+     "l": "Barua kwako",
+     "t": "textarea",
+     "d": "Mpendwa wangu,\n\nNataka ukumbuke kwamba wewe ni hodari kuliko unavyofikiri. Pale utakapochoka, pumzika; lakini usikate tamaa. Niko nyuma yako kila hatua.\n\nNakuamini.",
+     "max": 800,
+     "r": 6
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "bahari",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kuponi",
+   "e": "🎟️",
+   "n": "Kuponi za Zawadi (Kwaruza)",
+   "d": "Kuponi nyingi za kukwaruza, kila moja ikificha zawadi. Zote zikikwaruzwa, zawadi kuu inafunguka na swali la mwisho.",
+   "cats": [
+    "mp",
+    "mc"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Umeshinda!",
+     "max": 40
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "gtx",
+     "l": "Maelezo ya mwanzo",
+     "t": "textarea",
+     "d": "Una kuponi za zawadi na zawadi moja kuu. Kwaruza kwa kidole kuona kila moja.",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "cp",
+     "l": "Kuponi (mstari mmoja: emoji | kichwa | maelezo, hadi 6)",
+     "t": "textarea",
+     "d": "🍽️ | Chakula cha Usiku cha Wawili | Mahali utakapochagua wewe. Mimi nalipa.\n💆 | Masaji ya Dakika 30 | Baada ya siku ndefu, mikono yangu ni yako.\n👨‍🍳 | Siku ya Mapumziko Jikoni | Siku hiyo mimi ndiye nitakayepika.\n🎁 | Zawadi ya Kushtukiza | Kitu cha kukufurahisha kinakuja… 🤫",
+     "max": 1200,
+     "r": 8
+    },
+    {
+     "k": "bT",
+     "l": "Zawadi kuu: kichwa",
+     "t": "text",
+     "d": "Swali Kubwa Kuliko Yote",
+     "max": 60
+    },
+    {
+     "k": "bX",
+     "l": "Zawadi kuu: maelezo",
+     "t": "textarea",
+     "d": "Nina swali moja la mwisho kwako…",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "yes",
+     "l": "Kitufe cha NDIYO",
+     "t": "text",
+     "d": "NDIYO 💖",
+     "max": 25
+    },
+    {
+     "k": "no",
+     "l": "Kitufe cha kukimbia (acha wazi = hakuna)",
+     "t": "text",
+     "d": "Ngoja kwanza",
+     "max": 25
+    },
+    {
+     "k": "after",
+     "l": "Ujumbe baada ya NDIYO",
+     "t": "textarea",
+     "d": "Asante! Umenifanya mtu mwenye furaha kuliko wote. 🎆",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "waridi",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "whatsapp",
+   "e": "💬",
+   "n": "Mazungumzo ya Simu (yenye majibu)",
+   "d": "Skrini ya kufunga yenye arifa, mazungumzo yenye chaguo za kujibu, ujumbe wa sauti, kisha simu inaingia na ujumbe wa mwisho.",
+   "cats": [
+    "sz",
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "who",
+     "l": "Jina litakaloonekana kwenye simu",
+     "t": "text",
+     "d": "Mpenzi wangu 💖",
+     "max": 30
+    },
+    {
+     "k": "photo",
+     "l": "Picha ya mtumaji (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "ntf",
+     "l": "Arifa (mstari mmoja: emoji | jina | ujumbe, hadi 3)",
+     "t": "textarea",
+     "d": "💬 | Mpenzi wangu 💖 | Uko wapi? Nina kitu cha kukuonyesha 👀\n🍲 | Jikoni | Asante kwa chakula kitamu! 😋\n🙏 | Baraka | Mungu akubariki. Umependwa sana.",
+     "max": 500,
+     "r": 4
+    },
+    {
+     "k": "scr",
+     "l": "Mazungumzo (> ujumbe wake | ? jibu1 | jibu2 | 🎤 ujumbe wa sauti | 📞 simu)",
+     "t": "textarea",
+     "d": "> Hujambo mpenzi wangu 💖\n> Nina jambo nataka kukuambia 👀\n? Niko hapa, niambie 😊 | Nakusikiliza 💕\n> Nimekuwa nikikumbuka siku ya kwanza tulipokutana…\n? Nakumbuka 🥰 | Hahaha nilikuwa kimya sana 🙈\n🎤 Mungu akubariki kwa kila wema unaonitendea. Wewe ni zawadi yangu. Nakupenda sana.\n> Kuna kitu cha mwisho… 👀\n📞",
+     "max": 1800,
+     "r": 10
+    },
+    {
+     "k": "fin",
+     "l": "Ujumbe baada ya kupokea simu",
+     "t": "textarea",
+     "d": "Asante kwa kuwa wewe. Maisha yangu ni mazuri zaidi kwa sababu yako. Nakupenda sana! 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "waridi",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "wrapped",
+   "e": "🎁",
+   "n": "Wrapped ya Mwaka",
+   "d": "Muhtasari wa mwaka kama Spotify Wrapped: takwimu zinazohesabu, sifa zenye vipimo, orodha ya 5 bora, aina ya mtu, na swali la mwisho.",
+   "cats": [
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Jina (juu)",
+     "t": "text",
+     "d": "WRAPPED",
+     "max": 25
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "yr",
+     "l": "Mwaka",
+     "t": "text",
+     "d": "2026",
+     "max": 8
+    },
+    {
+     "k": "photo",
+     "l": "Picha yake (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "intro",
+     "l": "Utangulizi",
+     "t": "textarea",
+     "d": "Muhtasari wa mwaka wetu pamoja, uliotengenezwa kwa ajili yako tu.",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "stats",
+     "l": "Takwimu (mstari mmoja: namba | maelezo | kidokezo, hadi 3)",
+     "t": "textarea",
+     "d": "1000+ | vicheko tulivyoshiriki 😂 | Hata siku mbaya zilikuwa nzuri nikiwa nawe.\n365 | siku za kukufikiria 💭 | Kila siku bila kukosa.",
+     "max": 500,
+     "r": 4
+    },
+    {
+     "k": "tr",
+     "l": "Sifa zake (mstari mmoja: sifa | asilimia, hadi 6)",
+     "t": "textarea",
+     "d": "Upole | 100\nKujali | 100\nUcheshi | 95\nUvumilivu | 99",
+     "max": 300,
+     "r": 5
+    },
+    {
+     "k": "top",
+     "l": "Mambo 5 bora yake (mstari mmoja kwa kila moja)",
+     "t": "textarea",
+     "d": "Tabasamu lako 😊\nMoyo wako wa kujali 🤍\nVicheko vyako 😂\nNguvu zako 💪\nUrafiki wako 🙏",
+     "max": 400,
+     "r": 5
+    },
+    {
+     "k": "tE",
+     "l": "Aina yake: emoji",
+     "t": "text",
+     "d": "👑",
+     "max": 6
+    },
+    {
+     "k": "tT",
+     "l": "Aina yake: jina",
+     "t": "text",
+     "d": "Malkia wa Mioyo",
+     "max": 40
+    },
+    {
+     "k": "tC",
+     "l": "Aina yake: sifa (tenganisha kwa koma)",
+     "t": "text",
+     "d": "Mpole, Mrembo, Anajali, Jasiri",
+     "max": 100
+    },
+    {
+     "k": "qE",
+     "l": "Swali la mwisho: emoji",
+     "t": "text",
+     "d": "💍",
+     "max": 6
+    },
+    {
+     "k": "qT",
+     "l": "Swali la mwisho",
+     "t": "text",
+     "d": "Je, utakubali kuendelea nami mwaka ujao?",
+     "max": 100
+    },
+    {
+     "k": "yes",
+     "l": "Kitufe NDIYO",
+     "t": "text",
+     "d": "NDIYO 💖",
+     "max": 25
+    },
+    {
+     "k": "no",
+     "l": "Kitufe cha kukimbia (acha wazi = hakuna)",
+     "t": "text",
+     "d": "Ngoja kwanza",
+     "max": 25
+    },
+    {
+     "k": "thx",
+     "l": "Ujumbe baada ya NDIYO",
+     "t": "textarea",
+     "d": "Asante! Umenifanya mtu mwenye furaha kuliko wote. Nakupenda leo, kesho na daima. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "waridi",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kitabukuu",
+   "e": "📚",
+   "n": "Kitabu Kikuu (zaidi ya kitabu)",
+   "d": "Kitabu halisi: kurasa mbili kando kwa kando kwenye skrini kubwa, majalada 5, aina 14 za kurasa (picha, shairi, siku pamoja, mstari wa muda, nyimbo, sahihi, ahadi…), yaliyomo, utepe, kuvuta ukurasa na kusoma kiotomatiki.",
+   "cats": [
+    "sz",
+    "mp",
+    "hs"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Jina la kitabu",
+     "t": "text",
+     "d": "Kitabu cha Maisha Yetu",
+     "max": 40
+    },
+    {
+     "k": "sub",
+     "l": "Maelezo chini ya jina",
+     "t": "text",
+     "d": "Hadithi, picha na ahadi",
+     "max": 60
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "cov",
+     "l": "Jalada",
+     "t": "select",
+     "d": "ngozi",
+     "o": [
+      [
+       "ngozi",
+       "🟤 Ngozi ya kahawia + dhahabu"
+      ],
+      [
+       "usiku",
+       "🔵 Ngozi ya bluu ya usiku + fedha"
+      ],
+      [
+       "kitani",
+       "🧵 Kitani cha asili"
+      ],
+      [
+       "maua",
+       "🌸 Maua ya waridi"
+      ],
+      [
+       "harusi",
+       "💍 Harusi (pembe + dhahabu)"
+      ]
+     ]
+    },
+    {
+     "k": "ded",
+     "l": "Kujitolea (ukurasa wa kwanza)",
+     "t": "textarea",
+     "d": "Kitabu hiki kimeandikwa kwa mkono wa moyo, kwa ajili ya mtu ambaye ananifanya nitabasamu kila siku.",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "photos",
+     "l": "Picha (hadi 10, zinatumika kwa mfuatano kwenye kurasa za foto na picha2)",
+     "t": "images",
+     "d": []
+    },
+    {
+     "k": "pages",
+     "l": "Kurasa (mstari mmoja = ukurasa, hadi 16). Aina:\nukurasa | kichwa | maneno\nfoto | maelezo\npicha2 | maelezo1 / maelezo2\nshairi | kichwa | mstari / mstari\nnukuu | maneno | mtu\norodha | kichwa | a; b; c\nmstari | kichwa | 2023: tukio; 2024: tukio\nsiku | kichwa | 2024-02-14 | maneno\nnyimbo | kichwa | Wimbo - Msanii; …\nbarua | kichwa | maneno\nsiri | kichwa | maneno\nahadi | kichwa | a; b; c\nsahihi | kichwa | maneno\nmshangao | kichwa | maneno",
+     "t": "textarea",
+     "d": "foto | Siku tulipokutana 📸\nukurasa | 🌷 Mwanzo | Kila hadithi nzuri ina mwanzo, na yetu ilianza kwa tabasamu dogo ambalo sitalisahau.\nsiku | Siku zetu pamoja | 2024-02-14 | Kila sekunde na wewe ni zawadi.\nmstari | Safari Yetu | 2023: Tulikutana; 2024: Tukawa marafiki; 2025: Tukapendana; 2026: Tunaendelea…\nshairi | Wewe | Wewe ni jua la asubuhi / Wewe ni mwezi wa usiku / Wewe ni sababu ya tabasamu langu / Daima, milele\nnukuu | Penzi la kweli halina mwisho, linakua kila siku. | Hekima ya moyo\norodha | Sababu 5 za kukupenda | Tabasamu lako; Moyo wako wa kujali; Vicheko vyako; Nguvu zako; Wewe tu\nnyimbo | Nyimbo Zetu | Penzi Langu - Msanii A; Usiku Mwema - Msanii B; Tupo Pamoja - Msanii C\npicha2 | Siku ya kwanza / Siku ya leo\nbarua | Barua Fupi | Mpendwa wangu, nataka ujue kwamba kila siku nashukuru kwa kuwa nawe. Asante kwa uvumilivu, upendo na vicheko. Nakupenda sana.\nsiri | Siri Yangu | Wewe ni zawadi bora kuliko zote nilizowahi kupata maishani. 💖\nahadi | Ahadi Zangu Kwako | Nitakusikiliza daima; Nitakuheshimu; Nitakupenda bila masharti; Nitakuwa nawe kila hali\nsahihi | Weka sahihi yako | Ahadi hii tuiweke pamoja. Weka sahihi yako hapa chini.\nmshangao | Mshangao! | Gusa kitufe hapa chini kuona kitu maalum kwa ajili yako.",
+     "max": 5000,
+     "r": 14
+    },
+    {
+     "k": "end",
+     "l": "Ujumbe wa ukurasa wa mwisho",
+     "t": "textarea",
+     "d": "Hii si mwisho wa hadithi yetu, ni ukurasa tu wa kwanza wa sura nyingine nzuri. Nakupenda leo, kesho na daima. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "waridi",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "keki",
+   "e": "🎂",
+   "n": "Keki na Mshumaa",
+   "d": "Keki yenye mishumaa kulingana na umri, wimbo wa Happy Birthday, kupuliza kwa mic (au kugusa), kisha maneno ya heri yanatokea moja moja na fataki.",
+   "cats": [
+    "sh"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "to",
+     "l": "Jina la mwenye siku ya kuzaliwa",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "age",
+     "l": "Umri (namba)",
+     "t": "text",
+     "d": "25",
+     "max": 3
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "wishes",
+     "l": "Maneno ya heri (mstari mmoja kwa kila moja, hadi 6)",
+     "t": "textarea",
+     "d": "Afya njema na furaha tele 🌿\nMafanikio katika kila unachofanya 🚀\nUpendo usiokwisha ❤️\nNdoto zako zote zitimie ✨",
+     "max": 500,
+     "r": 5
+    },
+    {
+     "k": "msg",
+     "l": "Ujumbe wa mwisho",
+     "t": "textarea",
+     "d": "Heri ya kuzaliwa! Mungu akubariki na kukulinda mwaka mzima na miaka yote ijayo. 🎉",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "dhahabu",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gurudumu",
+   "e": "🎡",
+   "n": "Gurudumu la Bahati",
+   "d": "Gurudumu la zawadi au ahadi linalozunguka kwa sauti ya kubofya. Mtumiaji anaweka chaguo zake na idadi ya mara za kuzungusha.",
+   "cats": [
+    "sh",
+    "mc"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Gurudumu la Bahati",
+     "max": 40
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "opts",
+     "l": "Chaguo (mstari mmoja kila moja, 3 hadi 10)",
+     "t": "textarea",
+     "d": "Chakula cha jioni 🍽️\nSiku ya kupumzika 😴\nZawadi ya kushtukiza 🎁\nSafari ndogo 🚌\nKumbatio kubwa 🤗\nIce cream 🍦\nFilamu pamoja 🎬\nPongezi 1,000 👏",
+     "max": 500,
+     "r": 8
+    },
+    {
+     "k": "spins",
+     "l": "Mara ngapi za kuzungusha",
+     "t": "select",
+     "d": "3",
+     "o": [
+      [
+       "1",
+       "Mara 1"
+      ],
+      [
+       "2",
+       "Mara 2"
+      ],
+      [
+       "3",
+       "Mara 3"
+      ],
+      [
+       "5",
+       "Mara 5"
+      ]
+     ]
+    },
+    {
+     "k": "fin",
+     "l": "Ujumbe baada ya mara zote",
+     "t": "textarea",
+     "d": "Zawadi zote ni zako! Nitazitimiza zote, ahadi. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "waridi",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "samahani",
+   "e": "🩹",
+   "n": "Samahani (Kuomba Msamaha)",
+   "d": "Moyo uliovunjika unaponywa kila sababu inapogusiwa, mvua inakoma, kisha swali la mwisho la kuomba msamaha.",
+   "cats": [
+    "sz",
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Samahani",
+     "max": 30
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "rs",
+     "l": "Sababu/maneno ya msamaha (mstari mmoja kwa kila ukurasa wa kugusa, 3 hadi 6)",
+     "t": "textarea",
+     "d": "Najua nilikukosea, na nimekuwa nikijilaumu kila siku.\nSikukusudia kukuumiza, ila najua maumivu yako ni ya kweli.\nNimejifunza, na nitajitahidi kuwa bora kwa ajili yako.\nUpo muhimu kwangu kuliko kiburi changu chochote.",
+     "max": 700,
+     "r": 6
+    },
+    {
+     "k": "q",
+     "l": "Swali la mwisho",
+     "t": "text",
+     "d": "Je, utanisamehe?",
+     "max": 60
+    },
+    {
+     "k": "yes",
+     "l": "Kitufe NDIYO",
+     "t": "text",
+     "d": "Ndiyo, nakusamehe 💖",
+     "max": 30
+    },
+    {
+     "k": "no",
+     "l": "Kitufe cha kukimbia (acha wazi = hakuna)",
+     "t": "text",
+     "d": "Bado",
+     "max": 25
+    },
+    {
+     "k": "fin",
+     "l": "Ujumbe baada ya msamaha",
+     "t": "textarea",
+     "d": "Asante kwa moyo wako mkubwa. Sitakuangusha tena. Nakupenda sana. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "harusi",
+   "e": "💒",
+   "n": "Kadi ya Harusi",
+   "d": "Mwaliko kamili wa harusi: lango la pete, majina, hesabu ya siku, hadithi yenu, ratiba, ramani, mavazi, kuthibitisha kwa WhatsApp, na namba ya michango yenye kitufe cha kunakili.",
+   "cats": [
+    "sh"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "mke",
+     "l": "Jina la bibi harusi",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "mume",
+     "l": "Jina la bwana harusi",
+     "t": "text",
+     "d": "Daudi",
+     "max": 30
+    },
+    {
+     "k": "photo",
+     "l": "Picha yenu (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "dt",
+     "l": "Tarehe na saa (kwa hesabu)",
+     "t": "datetime-local",
+     "d": "2026-12-19T15:00"
+    },
+    {
+     "k": "dtx",
+     "l": "Tarehe kwa maneno",
+     "t": "text",
+     "d": "Jumamosi, 19 Desemba 2026 • Saa 9:00 Alasiri",
+     "max": 70
+    },
+    {
+     "k": "ven",
+     "l": "Mahali pa sherehe",
+     "t": "text",
+     "d": "Ukumbi wa Mlimani, Dar es Salaam",
+     "max": 90
+    },
+    {
+     "k": "story",
+     "l": "Hadithi yenu fupi",
+     "t": "textarea",
+     "d": "Tulikutana mwaka 2020, tukawa marafiki, kisha tukapendana. Leo, mbele za Mungu na familia zetu, tunaanza safari mpya ya maisha pamoja.",
+     "max": 500,
+     "r": 4
+    },
+    {
+     "k": "prog",
+     "l": "Ratiba (mstari mmoja: saa | tukio)",
+     "t": "textarea",
+     "d": "09:00 | Ibada ya ndoa\n12:00 | Picha na familia\n14:00 | Mapokezi na chakula\n16:00 | Keki na burudani\n19:00 | Kuhitimisha",
+     "max": 600,
+     "r": 6
+    },
+    {
+     "k": "dress",
+     "l": "Mavazi (hiari)",
+     "t": "text",
+     "d": "Bluu ya bahari na dhahabu 💙",
+     "max": 60
+    },
+    {
+     "k": "phone",
+     "l": "Namba ya WhatsApp ya kuthibitisha",
+     "t": "tel",
+     "d": "",
+     "max": 15,
+     "ph": "255712345678"
+    },
+    {
+     "k": "rv",
+     "l": "Maelezo ya kuthibitisha",
+     "t": "text",
+     "d": "Tafadhali thibitisha kuhudhuria kabla ya tarehe 1 Desemba.",
+     "max": 100
+    },
+    {
+     "k": "mch",
+     "l": "Namba ya michango (Lipa namba/akaunti)",
+     "t": "text",
+     "d": "Lipa Namba 123456 - Jesca & Daudi",
+     "max": 80
+    },
+    {
+     "k": "mt",
+     "l": "Maelezo ya michango (hiari)",
+     "t": "textarea",
+     "d": "Uwepo wako ndiyo zawadi kubwa kwetu. Kwa wanaopenda kuchangia, tunashukuru kwa moyo wote.",
+     "max": 250,
+     "r": 3
+    },
+    {
+     "k": "ft",
+     "l": "Maneno ya mwisho",
+     "t": "text",
+     "d": "“Wawili wana heri kuliko mmoja.”",
+     "max": 100
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "dhahabu",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kapsuli",
+   "e": "⏳",
+   "n": "Kapsuli ya Muda",
+   "d": "Barua, picha na utabiri vilivyofungiwa kwenye kapsuli hadi tarehe uliyochagua. Ikifika, kapsuli inapasuka, barua inaandikwa yenyewe, na utabiri unaweza kuwekewa alama ya kutimia.",
+   "cats": [
+    "sz",
+    "mp",
+    "hs"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Kapsuli Yetu ya Muda",
+     "max": 40
+    },
+    {
+     "k": "to",
+     "l": "Kwa nani (jina)",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "sealed",
+     "l": "Maelezo ya kufungwa",
+     "t": "text",
+     "d": "Imefungwa tarehe 25 Oktoba 2026 💙",
+     "max": 70
+    },
+    {
+     "k": "at",
+     "l": "Itafunguka lini (tarehe na saa)",
+     "t": "datetime-local",
+     "d": "2027-10-25T00:00"
+    },
+    {
+     "k": "teaser",
+     "l": "Ujumbe wakati bado imefungwa",
+     "t": "textarea",
+     "d": "Ndani kuna barua, picha na utabiri. Rudi ukifika wakati. ⏳",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "letter",
+     "l": "Barua ya baadaye",
+     "t": "textarea",
+     "d": "Habari wewe wa baadaye,\n\nKama unasoma hii, basi mwaka mzima umepita. Natumaini umefanikiwa, una furaha, na bado tuko pamoja.\n\nKumbuka: ulikuwa na ndoto kubwa, na ulizipigania kwa moyo wote.",
+     "max": 1200,
+     "r": 7
+    },
+    {
+     "k": "photo",
+     "l": "Picha ya kuweka ndani (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "pred",
+     "l": "Utabiri/malengo (mstari mmoja kwa kila moja, hadi 6)",
+     "t": "textarea",
+     "d": "Nitakuwa nimeanza biashara yangu\nTutakuwa tumesafiri pamoja\nNitakuwa nimejifunza kupika vizuri\nBado tutakuwa tunacheka kama sasa",
+     "max": 500,
+     "r": 5
+    },
+    {
+     "k": "fin",
+     "l": "Ujumbe wa mwisho",
+     "t": "textarea",
+     "d": "Karibu kwenye wakati uliopo. Najivunia ulipofika. 💙",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "pv",
+     "l": "Hakiki: onyesha ikiwa imefunguka (kwa majaribio tu)",
+     "t": "select",
+     "d": "hapana",
+     "o": [
+      [
+       "hapana",
+       "Hapana, subiri tarehe"
+      ],
+      [
+       "ndiyo",
+       "Ndiyo, fungua sasa"
+      ]
+     ]
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "bahari",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tukio",
+   "e": "🎓",
+   "n": "Mwaliko wa Tukio la Familia",
+   "d": "Mwaliko wa ubatizo, send-off, mahafali, kitchen party, baby shower, kuzaliwa au kumbukumbu: hesabu ya siku, ratiba, ramani, kuthibitisha, kutuma pongezi na namba ya michango.",
+   "cats": [
+    "sh",
+    "bz"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "kind",
+     "l": "Aina ya tukio",
+     "t": "select",
+     "d": "kuhitimu",
+     "o": [
+      [
+       "ubatizo",
+       "🕊️ Ubatizo"
+      ],
+      [
+       "sendoff",
+       "🎁 Send-off"
+      ],
+      [
+       "kuhitimu",
+       "🎓 Mahafali / Kuhitimu"
+      ],
+      [
+       "kitchen",
+       "🍳 Kitchen Party"
+      ],
+      [
+       "baby",
+       "👶 Baby Shower"
+      ],
+      [
+       "kuzaliwa",
+       "🎂 Sherehe ya Kuzaliwa"
+      ],
+      [
+       "kumbukumbu",
+       "🕯️ Kumbukumbu / Maadhimisho"
+      ]
+     ]
+    },
+    {
+     "k": "who",
+     "l": "Jina la anayehusika",
+     "t": "text",
+     "d": "Jesca Mushi",
+     "max": 40
+    },
+    {
+     "k": "photo",
+     "l": "Picha yake (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "dt",
+     "l": "Tarehe na saa (kwa hesabu)",
+     "t": "datetime-local",
+     "d": "2026-12-12T10:00"
+    },
+    {
+     "k": "dtx",
+     "l": "Tarehe kwa maneno",
+     "t": "text",
+     "d": "Jumamosi, 12 Desemba 2026 • Saa 4:00 Asubuhi",
+     "max": 70
+    },
+    {
+     "k": "ven",
+     "l": "Mahali",
+     "t": "text",
+     "d": "Ukumbi wa Chuo, Dodoma",
+     "max": 90
+    },
+    {
+     "k": "note",
+     "l": "Ujumbe wa mwaliko",
+     "t": "textarea",
+     "d": "Tunafurahi kukualika kushiriki nasi katika siku hii maalum. Uwepo wako utatupa furaha kubwa.",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "prog",
+     "l": "Ratiba (mstari mmoja: saa | tukio)",
+     "t": "textarea",
+     "d": "10:00 | Kuwasili na kukaribishwa\n11:00 | Programu rasmi\n13:00 | Chakula na picha\n15:00 | Burudani",
+     "max": 500,
+     "r": 5
+    },
+    {
+     "k": "dress",
+     "l": "Mavazi (hiari)",
+     "t": "text",
+     "d": "Rasmi / Kijani na dhahabu",
+     "max": 60
+    },
+    {
+     "k": "phone",
+     "l": "Namba ya WhatsApp ya mwenyeji",
+     "t": "tel",
+     "d": "",
+     "max": 15,
+     "ph": "255712345678"
+    },
+    {
+     "k": "rv",
+     "l": "Maelezo ya kuthibitisha",
+     "t": "text",
+     "d": "Tafadhali thibitisha kuhudhuria kabla ya tarehe 5 Desemba.",
+     "max": 100
+    },
+    {
+     "k": "mch",
+     "l": "Namba ya michango (hiari)",
+     "t": "text",
+     "d": "Lipa Namba 123456",
+     "max": 80
+    },
+    {
+     "k": "mt",
+     "l": "Maelezo ya michango",
+     "t": "textarea",
+     "d": "Mchango wako wowote tunaupokea kwa shukrani kuu.",
+     "max": 200,
+     "r": 2
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "msitu",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "duka",
+   "e": "🛍️",
+   "n": "Duka la WhatsApp (Biashara)",
+   "d": "Ukurasa wa biashara: nembo, bidhaa zenye picha na bei, kikapu cha kuongeza vitu, kisha oda inatumwa kwa WhatsApp ikiwa na jumla, jina na mahali pa kupelekewa.",
+   "cats": [
+    "bz"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "name",
+     "l": "Jina la biashara",
+     "t": "text",
+     "d": "Zawadi Boutique",
+     "max": 40
+    },
+    {
+     "k": "tag",
+     "l": "Kauli mbiu",
+     "t": "text",
+     "d": "Mavazi mazuri kwa bei nafuu ✨",
+     "max": 70
+    },
+    {
+     "k": "logo",
+     "l": "Nembo/picha ya biashara (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "about",
+     "l": "Kuhusu sisi",
+     "t": "textarea",
+     "d": "Tunauza mavazi, viatu na mapambo ya kisasa. Tunapeleka popote Tanzania.",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "promo",
+     "l": "Tangazo/punguzo (hiari)",
+     "t": "text",
+     "d": "Punguzo la 10% kwa oda ya kwanza!",
+     "max": 80
+    },
+    {
+     "k": "items",
+     "l": "Bidhaa (mstari mmoja: jina | bei | maelezo, hadi 14)",
+     "t": "textarea",
+     "d": "Gauni la Kitenge | 45000 | Saizi zote, rangi 5\nViatu vya Ngozi | 60000 | Saizi 36–42\nMkoba wa Mkono | 35000 | Rangi nyeusi, kahawia\nSaa ya Mkono | 25000 | Dhamana ya mwezi 3",
+     "max": 1800,
+     "r": 7
+    },
+    {
+     "k": "photos",
+     "l": "Picha za bidhaa (kwa mfuatano wa orodha, hadi 14)",
+     "t": "images",
+     "d": []
+    },
+    {
+     "k": "cur",
+     "l": "Sarafu",
+     "t": "select",
+     "d": "TSh",
+     "o": [
+      [
+       "TSh",
+       "TSh (Tanzania)"
+      ],
+      [
+       "KSh",
+       "KSh (Kenya)"
+      ],
+      [
+       "USh",
+       "USh (Uganda)"
+      ],
+      [
+       "$",
+       "$ (Dola)"
+      ]
+     ]
+    },
+    {
+     "k": "phone",
+     "l": "Namba ya WhatsApp ya kupokea oda",
+     "t": "tel",
+     "d": "",
+     "max": 15,
+     "ph": "255712345678"
+    },
+    {
+     "k": "loc",
+     "l": "Mahali tulipo",
+     "t": "text",
+     "d": "Kariakoo, Dar es Salaam",
+     "max": 80
+    },
+    {
+     "k": "hrs",
+     "l": "Saa za kazi",
+     "t": "text",
+     "d": "Jumatatu–Jumamosi, 8:00 asubuhi – 7:00 jioni",
+     "max": 80
+    },
+    {
+     "k": "ig",
+     "l": "Instagram (jina bila @, hiari)",
+     "t": "text",
+     "d": "",
+     "max": 40
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "hapana",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "bahari",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "menyu",
+   "e": "🍽️",
+   "n": "Menyu ya Mgahawa",
+   "d": "Menyu ya kidijitali yenye makundi (vinywaji, vyakula…), picha na bei, wageni wanachagua na kutuma oda kwa WhatsApp wakiweka namba ya meza au mahali pa kupelekewa.",
+   "cats": [
+    "bz"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "name",
+     "l": "Jina la mgahawa/kafe",
+     "t": "text",
+     "d": "Mama Pima Café",
+     "max": 40
+    },
+    {
+     "k": "tag",
+     "l": "Kauli mbiu",
+     "t": "text",
+     "d": "Chakula cha nyumbani, ladha ya kweli 🍲",
+     "max": 70
+    },
+    {
+     "k": "logo",
+     "l": "Nembo (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "promo",
+     "l": "Pendekezo/tangazo la leo (hiari)",
+     "t": "text",
+     "d": "Leo: Pilau + soda kwa TSh 6,000 tu!",
+     "max": 80
+    },
+    {
+     "k": "items",
+     "l": "Menyu (mstari wa # = kundi jipya; vitu: jina | bei | maelezo)",
+     "t": "textarea",
+     "d": "# 🍛 Vyakula\nPilau ya Nyama | 8000 | Na kachumbari\nChipsi Mayai | 5000 | Na kachumbari\nUgali Samaki | 9000 | Samaki wa kukaanga\n# 🥤 Vinywaji\nJuisi ya Embe | 2500 | Baridi\nChai ya Maziwa | 1500 | Moto\nSoda | 1000 | Aina zote\n# 🍰 Vitamu\nKeki ya Chokoleti | 3500 | Kipande\nMandazi | 500 | Moto-moto",
+     "max": 2500,
+     "r": 11
+    },
+    {
+     "k": "photos",
+     "l": "Picha za vitu (kwa mfuatano wa vitu, bila kuhesabu makundi)",
+     "t": "images",
+     "d": []
+    },
+    {
+     "k": "cur",
+     "l": "Sarafu",
+     "t": "select",
+     "d": "TSh",
+     "o": [
+      [
+       "TSh",
+       "TSh"
+      ],
+      [
+       "KSh",
+       "KSh"
+      ],
+      [
+       "USh",
+       "USh"
+      ],
+      [
+       "$",
+       "$"
+      ]
+     ]
+    },
+    {
+     "k": "phone",
+     "l": "Namba ya WhatsApp ya kupokea oda",
+     "t": "tel",
+     "d": "",
+     "max": 15,
+     "ph": "255712345678"
+    },
+    {
+     "k": "loc",
+     "l": "Mahali",
+     "t": "text",
+     "d": "Mikocheni, Dar es Salaam",
+     "max": 80
+    },
+    {
+     "k": "hrs",
+     "l": "Saa za kazi",
+     "t": "text",
+     "d": "Kila siku, 7:00 asubuhi – 10:00 usiku",
+     "max": 80
+    },
+    {
+     "k": "wifi",
+     "l": "Wi-Fi (hiari): jina / nenosiri",
+     "t": "text",
+     "d": "",
+     "max": 60
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "hapana",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "dhahabu",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cv",
+   "e": "📄",
+   "n": "CV / Portfolio ya Kidijitali",
+   "d": "Ukurasa wa kitaalamu wenye picha, ujuzi wenye vipimo, uzoefu, elimu, miradi na mawasiliano. Unaweza kuutuma kwa kiungo au kuuchapisha kama PDF.",
+   "cats": [
+    "bz",
+    "hs"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "name",
+     "l": "Jina kamili",
+     "t": "text",
+     "d": "Jesca Mushi",
+     "max": 40
+    },
+    {
+     "k": "title",
+     "l": "Taaluma/nafasi",
+     "t": "text",
+     "d": "Mhasibu • Mchambuzi wa Fedha",
+     "max": 60
+    },
+    {
+     "k": "photo",
+     "l": "Picha yako (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "about",
+     "l": "Kuhusu mimi",
+     "t": "textarea",
+     "d": "Mhasibu mwenye uzoefu wa miaka 5 katika uandaaji wa ripoti za fedha, ukaguzi na ushauri wa biashara ndogo na za kati.",
+     "max": 500,
+     "r": 4
+    },
+    {
+     "k": "skills",
+     "l": "Ujuzi (mstari mmoja: ujuzi | asilimia)",
+     "t": "textarea",
+     "d": "Uhasibu | 90\nExcel / Fedha | 95\nUongozi wa timu | 80\nKiingereza | 85",
+     "max": 300,
+     "r": 5
+    },
+    {
+     "k": "exp",
+     "l": "Uzoefu wa kazi (mstari mmoja: kipindi | nafasi, kampuni | maelezo)",
+     "t": "textarea",
+     "d": "2023–sasa | Mhasibu Mkuu, Kampuni ABC | Ninaongoza timu ya watu 4 na kuandaa ripoti za kila mwezi.\n2020–2023 | Mhasibu, Kampuni XYZ | Nilisimamia hesabu za mauzo na malipo.",
+     "max": 900,
+     "r": 6
+    },
+    {
+     "k": "edu",
+     "l": "Elimu (mstari mmoja: kipindi | kozi | taasisi)",
+     "t": "textarea",
+     "d": "2016–2020 | Shahada ya Uhasibu | Chuo Kikuu cha Dar es Salaam\n2015 | Cheti cha Kidato cha Sita | Shule ya Sekondari Azania",
+     "max": 500,
+     "r": 4
+    },
+    {
+     "k": "proj",
+     "l": "Miradi/mafanikio (mstari mmoja: jina | maelezo | kiungo hiari)",
+     "t": "textarea",
+     "d": "Mfumo wa Ripoti | Nilibuni mfumo wa ripoti uliopunguza muda wa kufunga mwezi kwa 40%.\nMafunzo ya Wajasiriamali | Nimefundisha wajasiriamali 200 usimamizi wa fedha.",
+     "max": 600,
+     "r": 4
+    },
+    {
+     "k": "phone",
+     "l": "Namba ya simu/WhatsApp",
+     "t": "tel",
+     "d": "",
+     "max": 15,
+     "ph": "255712345678"
+    },
+    {
+     "k": "email",
+     "l": "Barua pepe",
+     "t": "text",
+     "d": "",
+     "max": 60
+    },
+    {
+     "k": "link",
+     "l": "LinkedIn / tovuti (kiungo kamili, hiari)",
+     "t": "text",
+     "d": "",
+     "max": 120
+    },
+    {
+     "k": "loc",
+     "l": "Mahali",
+     "t": "text",
+     "d": "Dar es Salaam, Tanzania",
+     "max": 60
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "hapana",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "bahari",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sikukuu",
+   "e": "🎄",
+   "n": "Kadi ya Sikukuu",
+   "d": "Kadi ya sikukuu (Krismasi, Mwaka Mpya, Eid, Pasaka, Mama, Baba, Valentine) yenye zawadi ya kugusa, mapambo yanayoanguka na ujumbe wako.",
+   "cats": [
+    "mp",
+    "sh"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "kind",
+     "l": "Sikukuu",
+     "t": "select",
+     "d": "krismasi",
+     "o": [
+      [
+       "krismasi",
+       "🎄 Krismasi"
+      ],
+      [
+       "mwaka",
+       "🎆 Mwaka Mpya"
+      ],
+      [
+       "eid",
+       "🌙 Eid Mubarak"
+      ],
+      [
+       "pasaka",
+       "🐣 Pasaka"
+      ],
+      [
+       "mama",
+       "🌸 Siku ya Akina Mama"
+      ],
+      [
+       "baba",
+       "👔 Siku ya Baba"
+      ],
+      [
+       "valentine",
+       "💘 Valentine"
+      ]
+     ]
+    },
+    {
+     "k": "to",
+     "l": "Kwa (jina, hiari)",
+     "t": "text",
+     "d": "Familia Yangu Mpendwa",
+     "max": 40
+    },
+    {
+     "k": "msg",
+     "l": "Ujumbe wako",
+     "t": "textarea",
+     "d": "Nakutakia sikukuu njema yenye amani, upendo na furaha tele. Mungu akubariki wewe na wapendwa wako wote!",
+     "max": 400,
+     "r": 4
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 40
+    },
+    {
+     "k": "photo",
+     "l": "Picha (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "dt",
+     "l": "Hesabu hadi sikukuu (hiari)",
+     "t": "datetime-local",
+     "d": ""
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "habari",
+   "e": "📺",
+   "n": "Habari Moto (Tangazo kama TV)",
+   "d": "Tangazo kubwa (uchumba, mimba, kuhitimu, kazi mpya, siku ya kuzaliwa) kama habari za TV: rangi za kupima, ving’ora, mtangazaji, mstari wa habari unaopita na hitimisho la kushtua.",
+   "cats": [
+    "sz",
+    "sh",
+    "mc",
+    "hs"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "chan",
+     "l": "Jina la kituo cha TV",
+     "t": "text",
+     "d": "ZAWADI TV",
+     "max": 20
+    },
+    {
+     "k": "head",
+     "l": "Kichwa cha habari moto",
+     "t": "text",
+     "d": "HABARI MOTO: JESCA ANAOLEWA!",
+     "max": 70
+    },
+    {
+     "k": "lines",
+     "l": "Maneno ya mtangazaji (mstari mmoja kwa kila skrini, hadi 6)",
+     "t": "textarea",
+     "d": "Wapenzi watazamaji, tunakuletea habari kubwa inayotikisa mji mzima!\nVyanzo vyetu vya kuaminika vimethibitisha tukio kubwa la mapenzi.\nMhusika mkuu amekuwa akificha siri hii kwa miezi mingi…\nNa sasa, tunakuletea tangazo rasmi moja kwa moja!",
+     "max": 700,
+     "r": 6
+    },
+    {
+     "k": "photo",
+     "l": "Picha ya habari (hiari)",
+     "t": "image",
+     "d": ""
+    },
+    {
+     "k": "ticker",
+     "l": "Mstari wa habari unaopita (tenganisha kwa ;)",
+     "t": "text",
+     "d": "Mapenzi yameshinda ; Sherehe inakuja hivi karibuni ; Kaa tayari kwa mshangao ; Tuma pongezi zako sasa",
+     "max": 240
+    },
+    {
+     "k": "big",
+     "l": "TANGAZO RASMI (hitimisho)",
+     "t": "textarea",
+     "d": "Tunaoana tarehe 19 Desemba 2026! Karibuni sote kwenye sherehe yetu. 💍",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Jesca & Daudi",
+     "max": 40
+    },
+    {
+     "k": "phone",
+     "l": "Namba ya WhatsApp ya pongezi (hiari)",
+     "t": "tel",
+     "d": "",
+     "max": 15,
+     "ph": "255712345678"
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "bahari",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "terminal",
+   "e": "💻",
+   "n": "Terminal ya Kuhack Moyo",
+   "d": "Skrini ya hacker inayojiandika yenyewe: amri, mistari, vipimo vya kuvunja ulinzi, na nywila ambazo mpokeaji lazima azijibu ili kufungua sehemu inayofuata, hadi “ACCESS GRANTED”.",
+   "cats": [
+    "sz",
+    "mp",
+    "mc"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Jina la dirisha",
+     "t": "text",
+     "d": "moyo-hack v1.0",
+     "max": 30
+    },
+    {
+     "k": "script",
+     "l": "Hati (mstari mmoja kila hatua)\n$ amri inayoandikwa\n> matokeo\n# kipimo cha maendeleo\n? kidokezo | jibu (nenosiri la kufungua)\n! ujumbe wa mwisho",
+     "t": "textarea",
+     "d": "$ ssh moyo@jesca.local\n> Inaunganisha na seva ya moyo…\n# Kuvunja ulinzi\n> ULINZI UMEVUNJWA ✔\n$ ls -la siri/\n> barua.txt   kumbukumbu.zip   ahadi.enc\n? Nenosiri la kwanza: mwezi tuliokutana (jina la mwezi) | machi\n$ cat barua.txt\n> Mpendwa, ulikuwa mwanzo wa kila kitu kizuri nilichowahi kuwa nacho.\n> Hata siku nzito, ukinitumia ujumbe mmoja, dunia inatulia.\n# Kufungua ahadi.enc\n? Nenosiri la mwisho: namba yetu ya bahati | 7\n! ACCESS GRANTED — Moyo wangu ni wako, leo, kesho na milele. 💖",
+     "max": 3000,
+     "r": 14
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "msitu",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aichat",
+   "e": "🤖",
+   "n": "AI ya Siri (Uliza Kuhusu Mimi)",
+   "d": "Msaidizi wa AI bandia anayejibu maswali kwa maandishi yanayotiririka. Maswali yanafunguka kwa hatua: ukiyamaliza ya kwanza, mapya yanafunguka hadi ujumbe wa mwisho wa siri.",
+   "cats": [
+    "sz",
+    "mp",
+    "mc"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "an",
+     "l": "Jina la msaidizi",
+     "t": "text",
+     "d": "Msaidizi wa Moyo",
+     "max": 30
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "intro",
+     "l": "Salamu ya kwanza ya AI",
+     "t": "textarea",
+     "d": "Habari {to}! Mimi ni msaidizi niliyetengenezwa na {from} kwa ajili yako tu. Una maswali? Chagua hapo chini. ✨",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "qa",
+     "l": "Maswali na majibu. Mstari mmoja: swali | jibu. Mstari wa --- unaanzisha hatua mpya (inafunguka baada ya kumaliza iliyotangulia)",
+     "t": "textarea",
+     "d": "Wewe ni nani? | Mimi ni msaidizi mdogo wa kidijitali. Kazi yangu ni kukuonyesha mambo aliyoficha {from} moyoni.\nNani ananipenda zaidi? | Nimechambua data zote: mtu mmoja anakufikiria kila siku, na jina lake linaanza na kuishia kwa {from}. 😉\n---\nAna siri gani? | Ana siri moja: alitumia usiku mrefu kutengeneza zawadi hii kwa ajili yako.\nAnakupenda kiasi gani? | Nimejaribu kupima, lakini kipimo kimeshindwa. Kinaishia kwenye infinity. ♾️\n---\nNipe ujumbe wake wa mwisho | Ruhusa imepokelewa. Soma ujumbe huu ukiwa umetulia…",
+     "max": 2500,
+     "r": 10
+    },
+    {
+     "k": "fin",
+     "l": "Ujumbe wa siri wa mwisho",
+     "t": "textarea",
+     "d": "Asante kwa kuwa wewe, {to}. Dunia ni nzuri zaidi kwa sababu yako. Nakupenda sana. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tochi",
+   "e": "🔦",
+   "n": "Gizani na Tochi",
+   "d": "Skrini nyeusi na tochi inayofuata kidole. Mpokeaji anatafuta vitu vilivyofichwa gizani, kila kimoja kikifichua ujumbe. Vyote vikipatikana, taa zinawaka na ujumbe mkuu unaandikwa.",
+   "cats": [
+    "sz",
+    "mp",
+    "mc"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Tafuta Mwanga",
+     "max": 40
+    },
+    {
+     "k": "hint",
+     "l": "Maelekezo",
+     "t": "text",
+     "d": "Sogeza kidole gizani kutafuta vitu vilivyofichwa. Vigusa ukivipata!",
+     "max": 120
+    },
+    {
+     "k": "items",
+     "l": "Vitu vilivyofichwa (mstari mmoja: emoji | ujumbe, 3 hadi 8)",
+     "t": "textarea",
+     "d": "🗝️ | Ufunguo wa moyo wangu umekuwa kwako siku zote.\n🌹 | Waridi hili lilikua siku ya kwanza nilipokuona.\n⭐ | Kila nyota usiku inakukumbusha wewe.\n💌 | Barua ambazo sikuwahi kutuma, zote zilikuwa kwako.\n🕯️ | Mwanga wako umenifundisha kutoogopa giza.",
+     "max": 900,
+     "r": 7
+    },
+    {
+     "k": "final",
+     "l": "Ujumbe mkuu taa zikiwaka",
+     "t": "textarea",
+     "d": "Ulikuwa mwanga wangu hata gizani. Asante kwa kuwa wewe. Nakupenda sana. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mnara",
+   "e": "🗼",
+   "n": "Mnara wa Viwango",
+   "d": "Mnara wenye ghorofa zilizofungwa. Kila ghorofa ina changamoto (gusa mara nyingi, kushikilia, nenosiri au swali) na ukiishinda lifti inapanda hadi ghorofa inayofuata, hadi paa lenye ujumbe mkuu.",
+   "cats": [
+    "sz",
+    "mc"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Jina la mnara",
+     "t": "text",
+     "d": "Mnara wa Siri",
+     "max": 40
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "floors",
+     "l": "Ghorofa (mstari mmoja: aina | maelezo | param | zawadi)\naina: gusa (param = idadi) • shikilia (param = sekunde) • neno (param = jibu) • chagua (param = sahihi / uongo / uongo)",
+     "t": "textarea",
+     "d": "gusa | Gusa moyo mara 10 ili kuchaji lifti | 10 | Mwanzo mzuri! Ghorofa ya kwanza imefunguka.\nshikilia | Shikilia kitufe kwa sekunde 3 bila kuachia | 3 | Una subira kubwa, mojawapo ya sifa ninazozipenda.\nneno | Neno la siri: mwezi tulipokutana (jina la mwezi) | machi | Unakumbuka! Hii inanifurahisha sana.\nchagua | Rangi ninayoipenda zaidi ni ipi? | Bluu / Nyekundu / Kijani | Unanijua vizuri kuliko wengi!",
+     "max": 1800,
+     "r": 8
+    },
+    {
+     "k": "final",
+     "l": "Ujumbe wa paa (mwisho)",
+     "t": "textarea",
+     "d": "Umefika juu kabisa! Wewe ndiye zawadi yangu kuu, {to}. Nakupenda sana. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "bahari",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nyota",
+   "e": "✨",
+   "n": "Unganisha Nyota",
+   "d": "Anga la usiku lenye nyota zinazopaswa kuguswa kwa mpangilio ili kuchora umbo (moyo, nyota, pete, infinity). Kila umbo likikamilika, ujumbe wake unaandikwa na linalofuata linafunguka.",
+   "cats": [
+    "sz",
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Anga Langu na Wewe",
+     "max": 40
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "msgs",
+     "l": "Ujumbe wa kila umbo kwa mpangilio: moyo, nyota, pete, infinity (mstari mmoja: kichwa | ujumbe, hadi 4)",
+     "t": "textarea",
+     "d": "Moyo | Umbo la kwanza ni moyo wangu, na umeshakuwa wako tangu zamani.\nNyota | Wewe ni nyota yangu ya kipekee, huangaza hata nikiwa gizani.\nPete | Pete hii ni ahadi: nitakuwa nawe katika kila msimu wa maisha.\nInfinity | Na penzi langu kwako? Halina mwisho, ni infinity. ♾️",
+     "max": 800,
+     "r": 5
+    },
+    {
+     "k": "final",
+     "l": "Ujumbe wa mwisho (nyota zote zikikamilika)",
+     "t": "textarea",
+     "d": "Anga lote ni letu, {to}. Nakupenda hadi nyota ya mwisho. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "usiku",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "slot",
+   "e": "🎰",
+   "n": "Mashine ya Ndoto (Jackpot)",
+   "d": "Mashine ya slot yenye taa na kitufe cha kuvuta. Majaribio ya kwanza yanakaribia kushinda yakiwa na jumbe za kuchekesha, kisha jackpot ya mwisho inalipuka kwa sarafu, fataki na ujumbe wako.",
+   "cats": [
+    "sz",
+    "mc"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Jina la mashine",
+     "t": "text",
+     "d": "Mashine ya Bahati",
+     "max": 30
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "sym",
+     "l": "Alama za mashine (tenganisha kwa nafasi, hadi 8)",
+     "t": "text",
+     "d": "🍒 🍋 🔔 ⭐ 7️⃣ 🍀",
+     "max": 60
+    },
+    {
+     "k": "jp",
+     "l": "Alama ya jackpot",
+     "t": "text",
+     "d": "💖",
+     "max": 6
+    },
+    {
+     "k": "tries",
+     "l": "Ujumbe wa kila jaribio lisilofanikiwa (mstari mmoja kwa kila jaribio; jackpot inatokea baada yake)",
+     "t": "textarea",
+     "d": "Karibu sana! Alama mbili zimelingana… 🍒🍒\nHmm, moja tu imekosea. Vuta tena! 🍋\nMashine inapata joto, jackpot inakaribia! 🔥",
+     "max": 500,
+     "r": 4
+    },
+    {
+     "k": "fin",
+     "l": "Ujumbe wa jackpot",
+     "t": "textarea",
+     "d": "💖💖💖 JACKPOT! Umeshinda kitu kikubwa kuliko pesa zote: upendo wangu wa milele. Nakupenda sana! 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "dhahabu",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vyumba",
+   "e": "🚪",
+   "n": "Mlango wa Vyumba (Escape Room)",
+   "d": "Nyumba yenye vyumba kadhaa. Mpokeaji anagusa vitu kupata vidokezo vya msimbo, anaingiza msimbo kufungua mlango, na kila chumba kinafungua kinachofuata hadi mlango wa mwisho.",
+   "cats": [
+    "sz",
+    "mc"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Jina la mchezo",
+     "t": "text",
+     "d": "Toka Nyumbani Kwangu",
+     "max": 40
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "rooms",
+     "l": "Vyumba (mstari mmoja: Jina | emoji: kidokezo; emoji: kidokezo; … | msimbo | ujumbe baada ya kufungua)",
+     "t": "textarea",
+     "d": "Sebule | 🛋️: Chini ya mto kuna kikaratasi chenye namba 3; 📺: Runinga inaonyesha namba 1 tu; 🕰️: Saa imesimama saa 7 kamili; 🖼️: Picha ya zamani yetu, nzuri sana | 317 | Kwaheri sebule! Mlango wa kwanza umefunguka. 🎉\nJikoni | 🍳: Kikaango kina herufi L; 🍎: Tufaha limeandikwa O; 🥄: Kijiko kimechongwa V; 🕯️: Mshumaa umeandikwa E | love | Jikoni umepita kwa ustadi! Songa mbele.\nChumba cha Kulala | 🛏️: Kitanda kimeandikwa namba 2026; 🧸: Dubu analia, anasema “mwaka tulioanza kupendana”; 💌: Barua inasema “msimbo ni mwaka” | 2026 | Umefaulu! Mlango wa mwisho upo mbele yako…",
+     "max": 2500,
+     "r": 10
+    },
+    {
+     "k": "fin",
+     "l": "Ujumbe wa mwisho (umetoka nje)",
+     "t": "textarea",
+     "d": "Umetoka! Lakini ukweli ni kwamba, nataka ubaki ndani ya moyo wangu milele. Nakupenda sana. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "msitu",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kioo",
+   "e": "👑",
+   "n": "Kamera ya Kioo (Wewe ni Zawadi)",
+   "d": "Mpokeaji anajiona kwenye kamera akiwa na taji na pongezi zinazozunguka usoni mwake, kisha anapiga picha ya kumbukumbu anayoweza kuipakua au kushiriki. Ikiwa kamera haipatikani, anachagua picha.",
+   "cats": [
+    "sz",
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Wewe ni Zawadi",
+     "max": 40
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "crown",
+     "l": "Taji",
+     "t": "select",
+     "d": "👑",
+     "o": [
+      [
+       "👑",
+       "👑 Taji"
+      ],
+      [
+       "🎀",
+       "🎀 Utepe"
+      ],
+      [
+       "🌸",
+       "🌸 Ua"
+      ],
+      [
+       "✨",
+       "✨ Nyota"
+      ],
+      [
+       "😇",
+       "😇 Halo"
+      ]
+     ]
+    },
+    {
+     "k": "comp",
+     "l": "Pongezi zinazozunguka (mstari mmoja kila moja, 4 hadi 10)",
+     "t": "textarea",
+     "d": "Wewe ni wa pekee\nUnang’aa kama nyota\nUna moyo mzuri\nTabasamu lako ni zawadi\nUnastahili kila la heri\nNakupenda sana\nWewe ni nguvu yangu",
+     "max": 400,
+     "r": 7
+    },
+    {
+     "k": "msg",
+     "l": "Maneno chini ya picha",
+     "t": "text",
+     "d": "Mfalme/Malkia wa siku",
+     "max": 40
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "waridi",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "moto",
+   "e": "🔥",
+   "n": "Barua ya Moto (Mshangao wa Chini)",
+   "d": "Barua ya kwanza inaonekana ya kutisha au ya kuchekesha. Mpokeaji anawasha kiberiti, moto unaichoma kuanzia chini hadi juu, na chini yake kunafichuka barua ya kweli ya upendo inayojiandika.",
+   "cats": [
+    "sz",
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "decoy",
+     "l": "Barua ya kwanza (ya kudanganya)",
+     "t": "textarea",
+     "d": "Mpendwa Jesca,\n\nNimeamua kukuandikia barua hii ya mwisho. Nimechoka… nimechoka kukusubiri uamini kwamba wewe ni wa ajabu.\n\nImeisha. Kwaheri.",
+     "max": 600,
+     "r": 7
+    },
+    {
+     "k": "real",
+     "l": "Barua ya kweli (inayofichuka)",
+     "t": "textarea",
+     "d": "Hahaha, nilikudanganya! 😄\n\nKweli ni kwamba nimechoka kuona hujijui thamani yako. Wewe ni mmoja wa watu bora maishani mwangu.\n\nAsante kwa kila kitu. Nakupenda sana. 💖",
+     "max": 900,
+     "r": 8
+    },
+    {
+     "k": "btn",
+     "l": "Maandishi ya kitufe cha kuwasha",
+     "t": "text",
+     "d": "🔥 WASHA KIBERITI",
+     "max": 30
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "dhahabu",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ramani",
+   "e": "🗺️",
+   "n": "Ramani ya Safari Yetu",
+   "d": "Ramani yenye njia inayochorwa unapofungua maeneo. Msafiri 🚶 anatembea kutoka eneo hadi eneo, kila kituo kikifichua kumbukumbu (na picha), hadi mahali pa mwisho penye ujumbe mkuu.",
+   "cats": [
+    "sz",
+    "mp"
+   ],
+   "base": {
+    "__a": 0,
+    "__t": 0
+   },
+   "fields": [
+    {
+     "k": "ttl",
+     "l": "Kichwa",
+     "t": "text",
+     "d": "Ramani ya Safari Yetu",
+     "max": 40
+    },
+    {
+     "k": "to",
+     "l": "Jina la mpokeaji",
+     "t": "text",
+     "d": "Jesca",
+     "max": 30
+    },
+    {
+     "k": "from",
+     "l": "Jina lako",
+     "t": "text",
+     "d": "Rafiki yako",
+     "max": 30
+    },
+    {
+     "k": "places",
+     "l": "Vituo (mstari mmoja: emoji | mahali | kumbukumbu | tarehe hiari, hadi 8)",
+     "t": "textarea",
+     "d": "☕ | Kahawa ya Kwanza | Hapa ndipo tulipoketi kwa mara ya kwanza na nikajua kuna kitu cha pekee. | Machi 2024\n🌅 | Ufukweni | Tuliangalia jua likizama bila kusema neno, na ilitosha. | Juni 2024\n🎂 | Siku ya Kuzaliwa | Ulinishangaza na keki ndogo, na nilicheka hadi machozi. | Septemba 2024\n🏠 | Nyumbani | Hapa tulianza kupanga ndoto zetu pamoja. | Desemba 2025",
+     "max": 1800,
+     "r": 7
+    },
+    {
+     "k": "photos",
+     "l": "Picha za vituo (kwa mfuatano, hiari)",
+     "t": "images",
+     "d": []
+    },
+    {
+     "k": "final",
+     "l": "Ujumbe wa mahali pa mwisho",
+     "t": "textarea",
+     "d": "Safari yetu bado inaendelea, {to}. Kituo kinachofuata ni cha ndoto zetu zote. Nakupenda sana. 💖",
+     "max": 300,
+     "r": 3
+    },
+    {
+     "k": "music",
+     "l": "Muziki",
+     "t": "select",
+     "d": "ndiyo",
+     "o": [
+      [
+       "ndiyo",
+       "🎵 Muziki wa taratibu"
+      ],
+      [
+       "hapana",
+       "🔇 Bila muziki"
+      ]
+     ]
+    },
+    {
+     "k": "theme",
+     "l": "Mandhari ya rangi",
+     "t": "select",
+     "d": "msitu",
+     "o": [
+      [
+       "usiku",
+       "🌌 Usiku"
+      ],
+      [
+       "waridi",
+       "🌸 Waridi"
+      ],
+      [
+       "dhahabu",
+       "✨ Dhahabu"
+      ],
+      [
+       "bahari",
+       "🌊 Bahari"
+      ],
+      [
+       "msitu",
+       "🌿 Msitu"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}
