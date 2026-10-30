@@ -6,16 +6,18 @@ Kuendesha kwenye kompyuta:
 
 Njia kuu:
     /                         ukurasa wa mwanzo
-    /create                   ukurasa wa kutengeneza zawadi
+    /create                   ukurasa wa kutengeneza zawadi (matukio x mitindo 3)
+    /templates                orodha ya templates 40 (kuchuja na kutafuta)
+    /t/<template>             kujaza taarifa za template moja
     /g/<id>                   zawadi yenyewe (link ya kutuma)
     /m/<id>?t=<token>         ukurasa wa mmiliki (kuona kama amefungua, kufuta)
     POST /api/generate        hutengeneza faili la HTML (onyesho/kupakua)
     POST /api/gifts           huhifadhi zawadi na kurudisha link
+    POST /api/t/<id>/generate hutengeneza HTML ya template (onyesho/kupakua)
+    POST /api/t/<id>/gifts    huhifadhi zawadi ya template na kurudisha link
     POST /api/gifts/<id>/delete   hufuta zawadi (inahitaji token)
 """
-import hashlib
 import html
-import os
 import re
 import secrets
 import time
@@ -25,13 +27,12 @@ from pathlib import Path
 from flask import Flask, abort, jsonify, render_template, request, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+import catalog
 import db
-from pwa import bp as pwa_bp
 
 BASE = Path(__file__).parent
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)  # nyuma ya Render/Nginx
-app.register_blueprint(pwa_bp)                      # manifest + ikoni (angalia pwa.py)
 app.config["MAX_CONTENT_LENGTH"] = 12 * 1024 * 1024  # ukubwa wa juu wa ombi (12 MB)
 
 IMG_RE = re.compile(r"data:image/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+")
@@ -41,22 +42,8 @@ MAX_AUDIO = 3_000_000   # herufi kwa sauti
 MAX_PHOTOS = 3
 BOTS = ("whatsapp", "facebookexternalhit", "twitterbot", "telegrambot", "slackbot",
         "googlebot", "bingbot", "linkedinbot", "discordbot", "crawler", "preview", "bot/")
-EAT = timezone(timedelta(hours=3))
-EMOJIS = ["❤️", "😍", "🥹", "😂", "🙏", "🎉", "💙", "🤗"]
-CONTACT = os.environ.get("CONTACT_EMAIL", "")
 RATE_LIMIT, RATE_WINDOW = 15, 3600   # zawadi 15 kwa saa kwa kila IP
 _hits = {}
-
-def _asset_version():
-    """Kitambulisho cha toleo: hubadilika mafaili ya kurasa yakibadilika, ili simu zipakue toleo jipya."""
-    h = hashlib.md5()
-    for name in ("templates/index.html", "templates/create.html", "templates/offline.html",
-                 "templates/sw.js", "pwa.py"):
-        h.update((BASE / name).read_bytes())
-    return h.hexdigest()[:10]
-
-
-ASSET_VERSION = _asset_version()
 
 db.init()
 
@@ -91,22 +78,6 @@ def rate_ok(ip):
     hits.append(now)
     _hits[ip] = hits
     return True
-
-
-def parse_open(value):
-    """Hubadilisha 'YYYY-MM-DDTHH:MM' (saa za EAT) kuwa sekunde. Hurudisha (ts, kosa)."""
-    if not value:
-        return None, None
-    try:
-        ts = int(datetime.fromisoformat(str(value)[:16]).replace(tzinfo=EAT).timestamp())
-    except ValueError:
-        return None, "Tarehe si sahihi."
-    now = int(time.time())
-    if ts <= now + 60:
-        return None, "Chagua tarehe iliyo mbele."
-    if ts > now + (db.TTL_DAYS - 1) * 86400:
-        return None, "Tarehe ni mbali mno. Kikomo ni siku %d kuanzia leo." % (db.TTL_DAYS - 1)
-    return ts, None
 
 
 def build_cfg(data):
@@ -166,7 +137,9 @@ def no_cache(resp):
 # ---------------------------------------------------------------- kurasa
 @app.route("/")
 def index():
-    return render_template("index.html", events=load_events(), styles=load_styles())
+    tpls = catalog.public_list()
+    return render_template("index.html", events=load_events(), styles=load_styles(),
+                           tpls=tpls[:12], tpl_total=len(tpls))
 
 
 @app.route("/create")
@@ -176,23 +149,34 @@ def create():
                            styles=load_styles(), ttl=db.TTL_DAYS)
 
 
+@app.route("/templates")
+def templates_page():
+    return render_template("catalog.html", tpls=catalog.public_list(), cats=catalog.categories())
+
+
+@app.route("/t/<tid>")
+def template_fill(tid):
+    t = catalog.get(tid)
+    if not t:
+        abort(404)
+    return render_template("fill.html", t=t, themes=catalog.catalog()["themes"], ttl=db.TTL_DAYS)
+
+
 @app.route("/g/<gid>")
 def view_gift(gid):
     g = db.get_gift(gid)
     if not g:
         abort(404)
-    now = int(time.time())
-    if g.get("open_at") and now < g["open_at"]:        # bado imefungwa: onyesha kuhesabu muda
-        page = render_template("waiting.html", to=g["to_raw"], frm=g["from_raw"], open_at=g["open_at"],
-                               now=now, og_title=og_title(g["to_raw"], g["from_raw"]))
-        resp = app.response_class(page, mimetype="text/html")
-        resp.headers["X-Robots-Tag"] = "noindex"
-        return no_cache(resp)
     ua = (request.headers.get("User-Agent") or "").lower()
     if not any(b in ua for b in BOTS):          # usihesabu roboti za onyesho la link
         db.record_view(gid)
-    cfg = dict(g["cfg"], gid=gid)
-    resp = app.response_class(render_gift(g["style"], cfg, g["to_raw"], g["from_raw"]), mimetype="text/html")
+    if g["style"] == "tpl":                      # zawadi ya template (katalogi)
+        if not catalog.get(g["event"]):
+            abort(404)
+        page = catalog.render(g["event"], g["cfg"].get("d", {}))
+    else:
+        page = render_gift(g["style"], g["cfg"], g["to_raw"], g["from_raw"])
+    resp = app.response_class(page, mimetype="text/html")
     resp.headers["X-Robots-Tag"] = "noindex"
     return no_cache(resp)
 
@@ -205,43 +189,14 @@ def manage(gid):
         abort(404)
     events = {e["id"]: e for e in load_events()}
     ev = events.get(g["event"], {})
+    if g["style"] == "tpl":
+        t = catalog.get(g["event"]) or {}
+        ev = {"e": t.get("e", "🎁"), "n": t.get("n", "Template")}
     return no_cache(app.response_class(render_template(
         "manage.html", gid=gid, token=token, g=g, ev=ev,
         url=url_for("view_gift", gid=gid, _external=True),
         created=eat(g["created"]), first=eat(g["first_view"]), last=eat(g["last_view"]),
-        opens=eat(g["open_at"]) if g.get("open_at") else None,
-        replies=[dict(r, time=eat(r["created"])) for r in db.list_replies(gid)],
         ttl=db.TTL_DAYS), mimetype="text/html"))
-
-
-# ---------------------------------------------------------------- PWA
-@app.route("/sw.js")
-def service_worker():
-    resp = app.response_class(render_template("sw.js", version=ASSET_VERSION), mimetype="application/javascript")
-    resp.headers["Cache-Control"] = "no-cache"            # simu zisikae na service worker ya zamani
-    resp.headers["Service-Worker-Allowed"] = "/"
-    return resp
-
-
-@app.route("/pwa-check")
-def pwa_check():
-    """Ukurasa wa kuchunguza kwa nini app haisakinishwi."""
-    return render_template("pwa_check.html")
-
-
-@app.route("/offline")
-def offline():
-    return render_template("offline.html")
-
-
-@app.route("/terms")
-def terms():
-    return render_template("legal.html", page="terms", contact=CONTACT, ttl=db.TTL_DAYS)
-
-
-@app.route("/privacy")
-def privacy():
-    return render_template("legal.html", page="privacy", contact=CONTACT, ttl=db.TTL_DAYS)
 
 
 @app.route("/robots.txt")
@@ -268,14 +223,37 @@ def create_gift():
     built, err = build_cfg(request.get_json(silent=True) or {})
     if err:
         return jsonify(error=err), 400
-    open_at, err = parse_open((request.get_json(silent=True) or {}).get("open"))
+    db.purge()
+    gid, token = db.create_gift(built["style"], built["event"], built["to_raw"], built["from_raw"], built["cfg"])
+    return jsonify(
+        id=gid,
+        url=url_for("view_gift", gid=gid, _external=True),
+        manage_url=url_for("manage", gid=gid, t=token, _external=True),
+        days=db.TTL_DAYS), 201
+
+
+@app.post("/api/t/<tid>/generate")
+def tpl_generate(tid):
+    """Hutengeneza HTML ya template (kwa onyesho na kupakua). Haihifadhi chochote."""
+    data, err = catalog.validate(tid, (request.get_json(silent=True) or {}).get("d"))
     if err:
         return jsonify(error=err), 400
+    return no_cache(app.response_class(catalog.render(tid, data), mimetype="text/html"))
+
+
+@app.post("/api/t/<tid>/gifts")
+def tpl_create(tid):
+    """Huhifadhi zawadi ya template na kurudisha link ya kutuma."""
+    if not rate_ok(request.remote_addr or "?"):
+        return jsonify(error="Umetengeneza zawadi nyingi kwa muda mfupi. Jaribu tena baadaye."), 429
+    data, err = catalog.validate(tid, (request.get_json(silent=True) or {}).get("d"))
+    if err:
+        return jsonify(error=err), 400
+    to_raw, from_raw = catalog.who(tid, data)
     db.purge()
-    gid, token = db.create_gift(built["style"], built["event"], built["to_raw"], built["from_raw"],
-                                built["cfg"], open_at)
+    gid, token = db.create_gift("tpl", tid, to_raw, from_raw, {"t": tid, "d": data})
     return jsonify(
-        id=gid, open_at=open_at,
+        id=gid,
         url=url_for("view_gift", gid=gid, _external=True),
         manage_url=url_for("manage", gid=gid, t=token, _external=True),
         days=db.TTL_DAYS), 201
@@ -289,24 +267,6 @@ def delete_gift(gid):
         return jsonify(error="Haikupatikana."), 404
     db.delete_gift(gid)
     return jsonify(ok=True)
-
-
-@app.post("/api/gifts/<gid>/reply")
-def reply(gid):
-    """Mpokeaji hutuma jibu (emoji na/au ujumbe) kwa mtumaji."""
-    g = db.get_gift(gid)
-    if not g or (g.get("open_at") and time.time() < g["open_at"]):
-        return jsonify(error="Haikupatikana."), 404
-    if not rate_ok("reply:" + (request.remote_addr or "?")):
-        return jsonify(error="Umetuma majibu mengi. Jaribu tena baadaye."), 429
-    data = request.get_json(silent=True) or {}
-    msg = clean(data.get("m"), 300)
-    emoji = data.get("e") if data.get("e") in EMOJIS else ""
-    if not msg and not emoji:
-        return jsonify(error="Chagua emoji au andika ujumbe."), 400
-    if not db.add_reply(gid, msg, emoji):
-        return jsonify(error="Umeshatuma majibu mengi kwa zawadi hii."), 429
-    return jsonify(ok=True), 201
 
 
 # ---------------------------------------------------------------- makosa
