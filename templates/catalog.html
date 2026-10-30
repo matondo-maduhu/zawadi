@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="sw"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Templates {{ tpls|length }} | Zawadi Kiganjani</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 0,#3a1c6b,#12082e 60%,#05030f);min-height:100vh;-webkit-tap-highlight-color:transparent}
+.w{max-width:520px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:clamp(28px,8vw,38px);background:linear-gradient(90deg,#ffd98a,#ff9bd2);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.2}
+p.s{opacity:.8;margin-top:6px;line-height:1.6}
+a.top{display:inline-block;margin-bottom:10px;color:#ffd98a;text-decoration:none;font-size:14px}
+input[type=search]{width:100%;margin-top:14px;padding:13px 14px;border-radius:14px;border:1px solid #ffffff44;background:#ffffff14;color:#fff;font:16px system-ui}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px;-webkit-overflow-scrolling:touch}
+.cats button{flex:none;padding:8px 14px;border-radius:30px;border:1px solid #ffffff33;background:#ffffff10;color:#ddd;font:600 13px system-ui;cursor:pointer}
+.cats button.on{border-color:#ffd98a;background:#ffd98a22;color:#fff}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+a.ev{display:flex;flex-direction:column;gap:5px;padding:14px 12px;border-radius:18px;border:2px solid #ffffff30;background:#ffffff12;color:#fff;text-decoration:none;font-size:14px;font-weight:700;line-height:1.25}
+a.ev:active{transform:scale(.98)}
+a.ev i{font-style:normal;font-size:30px;width:52px;height:52px;border-radius:15px;display:grid;place-items:center;margin-bottom:2px}
+a.ev span{font-weight:400;opacity:.72;font-size:12px;line-height:1.4}
+a.ev small{font-weight:600;font-size:11px;color:#ffd98a;opacity:.9}
+.none{margin-top:24px;text-align:center;opacity:.7;display:none}
+.note{font-size:12px;opacity:.7;margin-top:22px;line-height:1.6;text-align:center}
+.alt{display:block;margin-top:18px;padding:14px;border-radius:50px;text-align:center;text-decoration:none;color:#fff;background:#ffffff1c;border:1px solid #ffffff55;font-weight:600}
+</style></head><body><div class="w">
+<a class="top" href="/">← Nyumbani</a>
+<h1>🧩 Templates {{ tpls|length }}</h1>
+<p class="s">Chagua mtindo, jaza taarifa zako, kisha upate link ya kumtumia mtu wako. Kila kitu ni kwa Kiswahili.</p>
+<input type="search" id="q" placeholder="🔍 Tafuta (mfano: harusi, duka, kitabu, CV)" autocomplete="off">
+<div class="cats" id="cats"></div>
+<div class="g" id="g">
+{% for t in tpls %}<a class="ev" href="/t/{{ t.id }}" data-cats="{{ t.cats|join(' ') }}" data-q="{{ (t.n ~ ' ' ~ t.d)|lower }}"><i data-h="{{ loop.index0 }}">{{ t.e }}</i>{{ t.n }}<span>{{ t.d.split('. ')[0][:90] }}</span></a>{% endfor %}
+</div>
+<p class="none" id="none">Hakuna template inayolingana. Jaribu neno lingine.</p>
+<a class="alt" href="/create">🎁 Njia ya zamani: chagua tukio + mtindo (kitabu, kadi, simu)</a>
+<p class="note">Kila zawadi unayoitengeneza huhifadhiwa siku 90 kisha hufutwa. Unaweza kuipakua pia kama faili la HTML.</p>
+</div>
+<script>
+const CATS={{ cats|tojson }},$=id=>document.getElementById(id);let cc='all',qq='';
+document.querySelectorAll('a.ev i').forEach(i=>{const h=(+i.dataset.h*47+250)%360;i.style.background='linear-gradient(135deg,hsl('+h+' 70% 55%),hsl('+(h+50)+' 70% 40%))'});
+function chips(){const c=$('cats');c.innerHTML='';[{id:'all',n:'Zote'}].concat(CATS).forEach(x=>{const b=document.createElement('button');b.textContent=x.n;if(x.id===cc)b.className='on';b.onclick=()=>{cc=x.id;chips();filt()};c.appendChild(b)})}
+function filt(){let n=0;document.querySelectorAll('a.ev').forEach(a=>{const ok=(cc==='all'||a.dataset.cats.split(' ').includes(cc))&&(!qq||a.dataset.q.includes(qq));a.style.display=ok?'':'none';if(ok)n++});$('none').style.display=n?'none':'block'}
+$('q').oninput=e=>{qq=e.target.value.trim().toLowerCase();filt()};chips();
+</script></body></html>

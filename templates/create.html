@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="sw"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="manifest" href="/manifest.webmanifest">
-<meta name="theme-color" content="#3a1c6b">
-<link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
-<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Zawadi">
 <title>Tengeneza Zawadi | Zawadi Kiganjani</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -30,17 +25,11 @@ iframe{width:100%;height:68vh;border:2px solid #ffd98a;border-radius:18px;backgr
 .card2{margin-top:16px;padding:16px;border-radius:18px;background:#ffffff12;border:1px solid #ffd98a88}
 .ev small{font-weight:400;opacity:.7;font-size:12px}
 a.top{display:inline-block;margin-bottom:10px;color:#ffd98a;text-decoration:none;font-size:14px}
-.pwa-pill{position:fixed;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;border:none;border-radius:30px;padding:12px 18px;background:linear-gradient(100deg,#9d00ff,#ee1a8f);color:#fff;font:700 14px system-ui,sans-serif;box-shadow:0 6px 24px #000a;cursor:pointer}
-.pwa-pill[hidden]{display:none}
-.pwa-modal{position:fixed;inset:0;z-index:60;background:#000b;display:flex;align-items:flex-end;justify-content:center;padding:16px}
-.pwa-modal[hidden]{display:none}
-.pwa-card{width:100%;max-width:440px;background:#1d1040;border:1px solid #ffd98a88;border-radius:22px;padding:20px;color:#fff;font:15px/1.7 system-ui,sans-serif}
-.pwa-card h3{color:#ffd98a;margin-bottom:8px}.pwa-card ol{padding-left:20px;margin:8px 0 14px}
-.pwa-card button{width:100%;border:none;border-radius:50px;padding:13px;background:#ffffff22;color:#fff;font:700 15px system-ui;cursor:pointer}
 </style></head><body><div class="w">
 <div id="a">
 <a class="top" href="/">← Nyumbani</a>
 <h1>🎁 Tengeneza Zawadi</h1>
+<a href="/templates" style="display:block;margin-top:12px;padding:12px 14px;border-radius:14px;background:#ffd98a22;border:1px solid #ffd98a88;color:#ffd98a;text-decoration:none;font-size:14px;font-weight:600">🧩 Mpya: templates za kushangaza (harusi, kitabu, siri, duka na zaidi) →</a>
 <p class="s">Chagua tukio, jaza maelezo, kisha upakue faili la kumtumia mtu wako.</p>
 <h2>1. Chagua tukio</h2><div class="g" id="evs"></div>
 <div id="form" class="hide">
@@ -52,12 +41,8 @@ a.top{display:inline-block;margin-bottom:10px;color:#ffd98a;text-decoration:none
 <label>-<textarea id="f2" maxlength="300"></textarea></label>
 <label>Picha (hadi 3, hiari)<input type="file" id="ph" accept="image/*" multiple></label><div class="pv" id="pv"></div>
 <label>Ujumbe wa sauti (hiari, rekodi fupi)<input type="file" id="au" accept="audio/*"></label>
-<button class="btn gh" id="rec" type="button" style="margin-top:8px">🎙️ Au rekodi sauti hapa</button>
-<audio id="pa" controls class="hide" style="width:100%;margin-top:8px"></audio>
-<label>Fungua tarehe (hiari). Zawadi itabaki imefungwa hadi muda huu (saa za Afrika Mashariki)<input type="datetime-local" id="op"></label>
 <h2>3. Chagua mtindo</h2>
 <div class="g" id="sty" style="grid-template-columns:1fr 1fr 1fr"></div>
-<label style="display:flex;gap:8px;align-items:flex-start;margin-top:16px"><input type="checkbox" id="ok" style="margin-top:3px"><span>Nakubali <a href="/terms" target="_blank" style="color:#ffd98a">Masharti</a> na <a href="/privacy" target="_blank" style="color:#ffd98a">Faragha</a></span></label>
 <button class="btn" id="go">✨ TENGENEZA ZAWADI</button>
 <p class="note">Picha na sauti hutumwa kwenye seva. Ukipakua faili tu, hazihifadhiwi. Ukitengeneza link, zawadi huhifadhiwa kwa siku {{ ttl }} kisha hufutwa.</p>
 </div></div>
@@ -90,7 +75,7 @@ function pick(i){
 $("ph").onchange=async e=>{photos=[];$("pv").innerHTML="";for(const f of [...e.target.files].slice(0,3)){const u=await shrink(f);photos.push(u);const im=new Image();im.src=u;$("pv").appendChild(im)}};
 function shrink(f){return new Promise(r=>{const im=new Image();im.onload=()=>{const k=Math.min(1,640/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);r(c.toDataURL("image/jpeg",.72))};im.src=URL.createObjectURL(f)})}
 $("au").onchange=e=>{const f=e.target.files[0];if(!f)return;if(f.size>2e6){alert("Sauti ni kubwa mno. Chagua rekodi fupi (chini ya sekunde 60).");e.target.value="";return}const r=new FileReader();r.onload=()=>audio=r.result;r.readAsDataURL(f)};
-const payload=()=>({event:ev.id,style:mode,to:$("to").value.trim(),from:$("fr").value.trim(),m:[$("f0").value,$("f1").value,$("f2").value],ph:photos,au:audio,open:$("op").value||""});
+const payload=()=>({event:ev.id,style:mode,to:$("to").value.trim(),from:$("fr").value.trim(),m:[$("f0").value,$("f1").value,$("f2").value],ph:photos,au:audio});
 $("go").onclick=async()=>{
   if(!ev){alert("Chagua tukio kwanza");return}
   const to=$("to").value.trim();if(!to){alert("Andika jina la mpokeaji");$("to").focus();return}
@@ -105,7 +90,6 @@ $("go").onclick=async()=>{
 $("dl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([html],{type:"text/html"}));a.download=fname;document.body.appendChild(a);a.click();a.remove()};
 $("sh").onclick=async()=>{const f=new File([html],fname,{type:"text/html"});try{if(navigator.canShare&&navigator.canShare({files:[f]}))await navigator.share({files:[f],title:"Zawadi kwako"});else alert("Kifaa chako hakiruhusu kushiriki moja kwa moja. Tumia 'Pakua faili', kisha utume kwa WhatsApp.")}catch(e){}};
 $("lk").onclick=async()=>{
-  if(!$("ok").checked){alert("Kubali Masharti na Faragha kwanza.");return}
   const b=$("lk");b.disabled=true;b.textContent="⏳ Inaunda link...";
   try{
     const r=await fetch("/api/gifts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload())});
@@ -115,47 +99,5 @@ $("lk").onclick=async()=>{
   }catch(e){alert(e.message)}finally{b.disabled=false;b.textContent="🔗 Tengeneza Link ya Kutuma"}
 };
 $("cp").onclick=async()=>{try{await navigator.clipboard.writeText($("lkurl").value);$("cp").textContent="✅ Imenakiliwa"}catch(e){$("lkurl").select();document.execCommand("copy")}};
-let rec=null,chunks=[],recT=null;
-$("rec").onclick=async()=>{
-  if(rec){rec.stop();return}
-  try{
-    const st=await navigator.mediaDevices.getUserMedia({audio:true});
-    chunks=[];rec=new MediaRecorder(st);
-    rec.ondataavailable=e=>chunks.push(e.data);
-    rec.onstop=()=>{clearTimeout(recT);st.getTracks().forEach(t=>t.stop());const b=new Blob(chunks,{type:rec.mimeType||"audio/webm"});rec=null;$("rec").textContent="🎙️ Rekodi tena";
-      if(b.size>1.8e6){alert("Rekodi ni ndefu mno. Jaribu chini ya sekunde 60.");return}
-      const r=new FileReader();r.onload=()=>{audio=r.result;$("pa").src=audio;$("pa").classList.remove("hide")};r.readAsDataURL(b)};
-    rec.start();$("rec").textContent="⏹ Simamisha rekodi";recT=setTimeout(()=>rec&&rec.stop(),60000);
-  }catch(e){alert("Siwezi kutumia kipaza sauti. Ruhusu kipaza sauti kwenye kivinjari, au chagua faili la sauti.")}
-};
 $("bk").onclick=()=>{$("b").classList.add("hide");$("a").classList.remove("hide");$("pf").srcdoc=""};
-</script><button id="pwa" class="pwa-pill" hidden>📲 Weka app kwenye simu</button>
-<div id="pwam" class="pwa-modal" hidden><div class="pwa-card"><h3>📲 Weka app kwenye simu</h3><div id="pwab"></div><button id="pwax">Sawa, nimeelewa</button></div></div>
-<script>
-// ===== PWA: sajili service worker + kitufe cha kusakinisha (kinaonekana kila mara) =====
-if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})});
-(function(){
-  var pill=document.getElementById("pwa"),modal=document.getElementById("pwam"),dp=null;if(!pill)return;
-  if(matchMedia("(display-mode: standalone)").matches||navigator.standalone)return;   // tayari ni app
-  pill.hidden=false;
-  addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e});
-  addEventListener("appinstalled",function(){pill.hidden=true;modal.hidden=true});
-  var ua=navigator.userAgent;
-  function steps(){
-    if(/FBAN|FBAV|Instagram|WhatsApp|TikTok|Snapchat|Line\/|MicroMessenger|; wv\)/i.test(ua))
-      return "<p>Umefungua ndani ya app nyingine (WhatsApp, Facebook n.k.) ambayo hairuhusu kusakinisha.</p><ol><li>Bonyeza menyu <b>⋮</b> au <b>⋯</b></li><li>Chagua <b>Open in browser</b> (Fungua kwenye kivinjari) au <b>Open in Chrome</b></li><li>Kisha bonyeza kitufe hiki tena</li></ol>";
-    if(/iphone|ipad|ipod/i.test(ua))
-      return "<ol><li>Fungua kwa <b>Safari</b></li><li>Bonyeza kitufe cha <b>Share</b> (mraba wenye mshale wa juu)</li><li>Chagua <b>Add to Home Screen</b>, kisha <b>Add</b></li></ol>";
-    if(/android/i.test(ua))
-      return "<ol><li>Bonyeza menyu <b>⋮</b> juu kulia kwenye kivinjari</li><li>Chagua <b>Install app</b> au <b>Add to Home screen</b></li><li>Thibitisha kwa <b>Install</b></li></ol><p style='opacity:.8;font-size:13px'>Ukiona hazipo, tumia Chrome na usubiri ukurasa upakie kikamilifu.</p>";
-    return "<ol><li>Angalia upande wa kulia wa upau wa anwani wa kivinjari</li><li>Bonyeza ikoni ya <b>Install</b> (⊕ au kompyuta yenye mshale)</li></ol>";
-  }
-  pill.onclick=function(){
-    if(dp){dp.prompt();dp.userChoice.then(function(){dp=null});return}
-    document.getElementById("pwab").innerHTML=steps();modal.hidden=false;
-  };
-  document.getElementById("pwax").onclick=function(){modal.hidden=true};
-  modal.onclick=function(e){if(e.target===modal)modal.hidden=true};
-})();
-</script>
-</body></html>
+</script></body></html>

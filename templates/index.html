@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="sw"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="manifest" href="/manifest.webmanifest">
-<meta name="theme-color" content="#3a1c6b">
-<link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
-<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Zawadi">
 <title>Zawadi Kiganjani 🎁 | Tengeneza surprise ya kugusa moyo</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -24,28 +19,29 @@ h2{margin:34px 0 12px;font-size:21px;color:#ffd98a}
 .c{padding:14px 8px;border-radius:16px;background:#ffffff12;border:1px solid #ffffff22;font-size:14px}
 .c b{display:block;font-size:30px;margin-bottom:4px}
 footer{margin-top:40px;font-size:12px;opacity:.6}
+.tg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;text-align:left}
+.tg a{display:flex;gap:10px;align-items:center;padding:12px;border-radius:16px;background:#ffffff12;border:1px solid #ffffff22;color:#fff;text-decoration:none;font-size:13px;font-weight:600;line-height:1.25}
+.tg a b{font-size:26px}.cta.alt{background:#ffffff1c;border:1px solid #ffffff55;box-shadow:none;font-weight:600;margin-top:14px}
 .fl{position:fixed;font-size:22px;opacity:.25;animation:up linear infinite;pointer-events:none;z-index:1}
 @keyframes up{from{transform:translateY(105vh)}to{transform:translateY(-10vh)}}
-.pwa-pill{position:fixed;right:12px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;border:none;border-radius:30px;padding:12px 18px;background:linear-gradient(100deg,#9d00ff,#ee1a8f);color:#fff;font:700 14px system-ui,sans-serif;box-shadow:0 6px 24px #000a;cursor:pointer}
-.pwa-pill[hidden]{display:none}
-.pwa-modal{position:fixed;inset:0;z-index:60;background:#000b;display:flex;align-items:flex-end;justify-content:center;padding:16px}
-.pwa-modal[hidden]{display:none}
-.pwa-card{width:100%;max-width:440px;background:#1d1040;border:1px solid #ffd98a88;border-radius:22px;padding:20px;color:#fff;font:15px/1.7 system-ui,sans-serif}
-.pwa-card h3{color:#ffd98a;margin-bottom:8px}.pwa-card ol{padding-left:20px;margin:8px 0 14px}
-.pwa-card button{width:100%;border:none;border-radius:50px;padding:13px;background:#ffffff22;color:#fff;font:700 15px system-ui;cursor:pointer}
 </style></head><body>
 <div class="w">
 <div class="big">🎁</div>
 <h1>Zawadi Kiganjani</h1>
 <p class="lead">Tengeneza surprise ya kugusa moyo kwa dakika chache, kwa Kiswahili. Mpe mama, rafiki, mpenzi au mtu yeyote zawadi atakayoikumbuka.</p>
-<a class="cta" href="/create">✨ Anza Kutengeneza</a>
+<a class="cta" href="/templates">🧩 Templates {{ tpl_total }}</a><br>
+<a class="cta alt" href="/create">🎁 Chagua tukio na mtindo</a>
 
 <h2>Jinsi inavyofanya kazi</h2>
 <div class="steps">
-<div class="st"><b>1️⃣</b><span>Chagua tukio unalotaka</span></div>
+<div class="st"><b>1️⃣</b><span>Chagua template (harusi, kitabu, siri, duka…) au tukio unalotaka</span></div>
 <div class="st"><b>2️⃣</b><span>Jaza jina, kumbukumbu, picha na sauti yako</span></div>
 <div class="st"><b>3️⃣</b><span>Chagua mtindo, kisha upakue faili na umtumie kwa WhatsApp</span></div>
 </div>
+
+<h2>Templates {{ tpl_total }} za kushangaza</h2>
+<div class="tg">{% for t in tpls %}<a href="/t/{{ t.id }}"><b>{{ t.e }}</b>{{ t.n }}</a>{% endfor %}</div>
+<a class="cta alt" href="/templates">Ona zote {{ tpl_total }} →</a>
 
 <h2>Matukio</h2>
 <div class="g">{% for e in events %}<div class="c"><b>{{ e.e }}</b>{{ e.n }}</div>{% endfor %}</div>
@@ -53,40 +49,11 @@ footer{margin-top:40px;font-size:12px;opacity:.6}
 <h2>Mitindo</h2>
 <div class="g">{% for s in styles %}<div class="c"><b>{{ s.e }}</b>{{ s.n }}<br><small>{{ s.d }}</small></div>{% endfor %}</div>
 
-<a class="cta" href="/create">🎁 Tengeneza Sasa</a>
-<footer>Zawadi Kiganjani &middot; imetengenezwa kwa upendo<br><a href="/terms" style="color:#ffd98a">Masharti</a> &middot; <a href="/privacy" style="color:#ffd98a">Faragha</a></footer>
+<a class="cta" href="/templates">🎁 Tengeneza Sasa</a>
+<footer>Zawadi Kiganjani &middot; imetengenezwa kwa upendo</footer>
 </div>
 <script>
 // emoji zinazoelea nyuma
 ["💖","🌸","✨","🎁","💙","🌹","⭐","🎉"].forEach(function(e,i){for(var k=0;k<2;k++){var s=document.createElement("span");s.className="fl";s.textContent=e;s.style.left=(Math.random()*95)+"%";s.style.animationDuration=(9+Math.random()*10)+"s";s.style.animationDelay=(-Math.random()*12)+"s";document.body.appendChild(s)}});
-</script>
-<button id="pwa" class="pwa-pill" hidden>📲 Weka app kwenye simu</button>
-<div id="pwam" class="pwa-modal" hidden><div class="pwa-card"><h3>📲 Weka app kwenye simu</h3><div id="pwab"></div><button id="pwax">Sawa, nimeelewa</button></div></div>
-<script>
-// ===== PWA: sajili service worker + kitufe cha kusakinisha (kinaonekana kila mara) =====
-if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})});
-(function(){
-  var pill=document.getElementById("pwa"),modal=document.getElementById("pwam"),dp=null;if(!pill)return;
-  if(matchMedia("(display-mode: standalone)").matches||navigator.standalone)return;   // tayari ni app
-  pill.hidden=false;
-  addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e});
-  addEventListener("appinstalled",function(){pill.hidden=true;modal.hidden=true});
-  var ua=navigator.userAgent;
-  function steps(){
-    if(/FBAN|FBAV|Instagram|WhatsApp|TikTok|Snapchat|Line\/|MicroMessenger|; wv\)/i.test(ua))
-      return "<p>Umefungua ndani ya app nyingine (WhatsApp, Facebook n.k.) ambayo hairuhusu kusakinisha.</p><ol><li>Bonyeza menyu <b>⋮</b> au <b>⋯</b></li><li>Chagua <b>Open in browser</b> (Fungua kwenye kivinjari) au <b>Open in Chrome</b></li><li>Kisha bonyeza kitufe hiki tena</li></ol>";
-    if(/iphone|ipad|ipod/i.test(ua))
-      return "<ol><li>Fungua kwa <b>Safari</b></li><li>Bonyeza kitufe cha <b>Share</b> (mraba wenye mshale wa juu)</li><li>Chagua <b>Add to Home Screen</b>, kisha <b>Add</b></li></ol>";
-    if(/android/i.test(ua))
-      return "<ol><li>Bonyeza menyu <b>⋮</b> juu kulia kwenye kivinjari</li><li>Chagua <b>Install app</b> au <b>Add to Home screen</b></li><li>Thibitisha kwa <b>Install</b></li></ol><p style='opacity:.8;font-size:13px'>Ukiona hazipo, tumia Chrome na usubiri ukurasa upakie kikamilifu.</p>";
-    return "<ol><li>Angalia upande wa kulia wa upau wa anwani wa kivinjari</li><li>Bonyeza ikoni ya <b>Install</b> (⊕ au kompyuta yenye mshale)</li></ol>";
-  }
-  pill.onclick=function(){
-    if(dp){dp.prompt();dp.userChoice.then(function(){dp=null});return}
-    document.getElementById("pwab").innerHTML=steps();modal.hidden=false;
-  };
-  document.getElementById("pwax").onclick=function(){modal.hidden=true};
-  modal.onclick=function(e){if(e.target===modal)modal.hidden=true};
-})();
 </script>
 </body></html>
