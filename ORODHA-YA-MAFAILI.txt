@@ -1,47 +1,96 @@
-ORODHA YA MAFAILI YA KUPAKIA (kila moja liwe kwenye folda yake kama ilivyoandikwa)
+ORODHA YA MAFAILI: MAREKEBISHO (kila moja liwe kwenye folda yake kama ilivyoandikwa)
 ======================================================================
 
+KILICHOKOSEKANA KWENYE ZIP ULIYOPAKIA:
+  app.py, templates/create.html na templates/index.html zilikuwa za TOLEO LA ZAMANI (ziliandikwa juu ya zako mpya),
+  kwa hiyo app.py haikuwa na PWA, majibu, tarehe maalum wala masharti. Hizi ni zilizojengwa upya na kuunganishwa na templates 40.
+
+################  A. PAKIA (zinabadilisha au kuongeza)  ################
 
 FOLDA: (folda kuu ya repository)
-   - Procfile   -> amri ya kuanzisha gunicorn
-   - README.md   -> maelezo ya mradi
-   - app.py   -> kuu: link za zawadi, majibu, tarehe maalum, PWA, masharti
-   - db.py   -> hifadhidata (SQLite/Postgres) + majibu + tarehe maalum
-   - requirements.txt   -> inaongeza psycopg2-binary
-
-FOLDA: events
-   - 11-mtoto.json   -> MPYA: tukio jipya
-   - 12-mwalimu.json   -> MPYA: tukio jipya
-   - 13-mbali.json   -> MPYA: tukio jipya
+   - README.md   -> IMEBADILISHWA: maelezo ya mradi (yamesasishwa)
+   - app.py   -> IMEBADILISHWA: KUU: kurasa zote, majibu, tarehe maalum, PWA, masharti, templates 40 (ilikuwa toleo la zamani)
 
 FOLDA: static
-   - manifest.webmanifest   -> MPYA: manifest ya PWA
-
-FOLDA: static/icons
-   - apple-touch-icon.png   -> MPYA: ikoni ya app
-   - favicon-32.png   -> MPYA: ikoni ya app
-   - icon-192.png   -> MPYA: ikoni ya app
-   - icon-512.png   -> MPYA: ikoni ya app
-   - icon-maskable-512.png   -> MPYA: ikoni ya app
+   - .gitkeep   -> MPYA
 
 FOLDA: templates
-   - 404.html   -> ukurasa wa haipatikani
-   - create.html   -> kutengeneza: kurekodi sauti, tarehe, makubaliano, link
-   - index.html   -> ukurasa wa mwanzo + kitufe cha kusakinisha
-   - legal.html   -> MPYA: masharti na faragha
-   - manage.html   -> ukurasa wa mmiliki: majibu na tarehe
-   - offline.html   -> MPYA: ukurasa wa mtandao ukikatika
-   - pwa_check.html   -> MPYA: ukaguzi wa PWA
-   - sw.js   -> MPYA: service worker (PWA)
-   - waiting.html   -> MPYA: kuhesabu muda kabla ya zawadi kufunguka
+   - create.html   -> IMEBADILISHWA: kutengeneza: kurekodi sauti, tarehe maalum, makubaliano, link (ilikuwa toleo la zamani)
+   - fill.html   -> IMEBADILISHWA: fomu ya template: tarehe maalum + makubaliano
+   - index.html   -> IMEBADILISHWA: ukurasa wa mwanzo + Templates 40 + kitufe cha kusakinisha + Masharti/Faragha (ilikuwa toleo la zamani)
 
-FOLDA: templates/gifts
-   - book.html   -> mtindo wa kitabu (+ kisanduku cha majibu)
-   - cards.html   -> mtindo wa kadi (+ kisanduku cha majibu)
-   - phone.html   -> mtindo wa simu (+ kisanduku cha majibu)
+FOLDA: tests
+   - test_app.py   -> IMEBADILISHWA: majaribio 17 (PWA, majibu, tarehe maalum, usafi wa mradi)
 
-USIPAKIE (tayari unavyo, havijabadilika):
+################  B. FUTA kwenye repository yako (zip haiwezi kufuta)  ################
+
+   - Static/.gitkeep   -> folda "Static" (herufi kubwa) haitumiki; PWA inatoka pwa.py
+   - Static/Me.html   -> faili tupu la junk
+   - Static/icons/apple-touch-icon.png   -> folda "Static" (herufi kubwa) haitumiki; PWA inatoka pwa.py
+   - Static/icons/favicon-32.png   -> folda "Static" (herufi kubwa) haitumiki; PWA inatoka pwa.py
+   - Static/icons/icon-192.png   -> folda "Static" (herufi kubwa) haitumiki; PWA inatoka pwa.py
+   - Static/icons/icon-512.png   -> folda "Static" (herufi kubwa) haitumiki; PWA inatoka pwa.py
+   - Static/icons/icon-maskable-512.png   -> folda "Static" (herufi kubwa) haitumiki; PWA inatoka pwa.py
+   - Static/icons/me.html   -> faili tupu la junk
+   - Static/manifest.webmanifest   -> folda "Static" (herufi kubwa) haitumiki; PWA inatoka pwa.py
+   - catalog/me.html   -> faili tupu la junk
+   - catalog/pages/Me.html   -> faili tupu la junk
+   - events/me.html   -> faili tupu la junk
+   - index.html   -> toleo la zamani lisilotumika
+   - templates/gifts/me.html   -> faili tupu la junk
+   - templates/me.html   -> faili tupu la junk
+   - templates/partials/me.html   -> faili tupu la junk
+   - tests/me.html   -> faili tupu la junk
+   - tools/Me.html   -> faili tupu la junk
+
+################  C. USIPAKIE (tayari unavyo, havijabadilika)  ################
+
    - .gitignore
+   - ORODHA-YA-MAFAILI.txt
+   - Procfile
+   - catalog.py
+   - catalog/catalog.json
+   - catalog/pages/aichat.html
+   - catalog/pages/barua.html
+   - catalog/pages/cheti.html
+   - catalog/pages/cv.html
+   - catalog/pages/duka.html
+   - catalog/pages/galaksi.html
+   - catalog/pages/gurudumu.html
+   - catalog/pages/habari.html
+   - catalog/pages/harusi.html
+   - catalog/pages/hazina.html
+   - catalog/pages/hesabu.html
+   - catalog/pages/kadi.html
+   - catalog/pages/kapsuli.html
+   - catalog/pages/keki.html
+   - catalog/pages/kioo.html
+   - catalog/pages/kitabu.html
+   - catalog/pages/kitabukuu.html
+   - catalog/pages/kukwangua.html
+   - catalog/pages/kuponi.html
+   - catalog/pages/menyu.html
+   - catalog/pages/mnara.html
+   - catalog/pages/moto.html
+   - catalog/pages/mwaliko.html
+   - catalog/pages/nguvu.html
+   - catalog/pages/nyota.html
+   - catalog/pages/picha.html
+   - catalog/pages/quiz.html
+   - catalog/pages/ramani.html
+   - catalog/pages/safari.html
+   - catalog/pages/samahani.html
+   - catalog/pages/sikukuu.html
+   - catalog/pages/simu.html
+   - catalog/pages/slot.html
+   - catalog/pages/terminal.html
+   - catalog/pages/tochi.html
+   - catalog/pages/tukio.html
+   - catalog/pages/usiku.html
+   - catalog/pages/vyumba.html
+   - catalog/pages/whatsapp.html
+   - catalog/pages/wrapped.html
+   - db.py
    - events/01-kuzaliwa.json
    - events/02-shukrani.json
    - events/03-moyo.json
@@ -52,11 +101,31 @@ USIPAKIE (tayari unavyo, havijabadilika):
    - events/08-harusi.json
    - events/09-sikukuu.json
    - events/10-pole.json
+   - events/11-mtoto.json
+   - events/12-mwalimu.json
+   - events/13-mbali.json
+   - pwa.py
    - render.paid.yaml
    - render.yaml
-   - static/.gitkeep
+   - requirements.txt
    - styles.json
+   - templates/404.html
+   - templates/catalog.html
+   - templates/gifts/book.html
+   - templates/gifts/cards.html
+   - templates/gifts/phone.html
+   - templates/legal.html
+   - templates/manage.html
+   - templates/offline.html
    - templates/partials/engine.js
+   - templates/pwa_check.html
+   - templates/sw.js
+   - templates/waiting.html
+   - tools/build_catalog.js
+   - tools/templates-src.js
 
-MUHIMU: usipakie folda ya "data/" wala "__pycache__/". Usibadilishe render.yaml uliyoweka tayari.
-Baada ya kupakia, Render itajenga upya yenyewe (dakika 3 hadi 5).
+MUHIMU:
+  1) Usipakie folda ya "data/" wala "__pycache__/".
+  2) Usibadilishe render.yaml uliyoweka tayari.
+  3) Baada ya kupakia, endesha majaribio kwenye kompyuta (hiari):  python -m unittest discover -s tests -v   (yanapaswa kuonyesha OK).
+  4) Render itajenga upya yenyewe (dakika 3 hadi 5).
