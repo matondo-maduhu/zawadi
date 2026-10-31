@@ -2,6 +2,11 @@
 <html lang="sw"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zawadi Kiganjani 🎁 | Tengeneza surprise ya kugusa moyo</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#3a1c6b">
+<link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Zawadi">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,-apple-system,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 0,#3a1c6b,#12082e 60%,#05030f);min-height:100vh;overflow-x:hidden}
@@ -22,6 +27,7 @@ footer{margin-top:40px;font-size:12px;opacity:.6}
 .tg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;text-align:left}
 .tg a{display:flex;gap:10px;align-items:center;padding:12px;border-radius:16px;background:#ffffff12;border:1px solid #ffffff22;color:#fff;text-decoration:none;font-size:13px;font-weight:600;line-height:1.25}
 .tg a b{font-size:26px}.cta.alt{background:#ffffff1c;border:1px solid #ffffff55;box-shadow:none;font-weight:600;margin-top:14px}
+.ins{margin-top:12px;font-size:13px;opacity:.85;line-height:1.6}.ins b{color:#ffd98a}footer a{color:#ffd98a;text-decoration:none;margin:0 6px}
 .fl{position:fixed;font-size:22px;opacity:.25;animation:up linear infinite;pointer-events:none;z-index:1}
 @keyframes up{from{transform:translateY(105vh)}to{transform:translateY(-10vh)}}
 </style></head><body>
@@ -31,6 +37,8 @@ footer{margin-top:40px;font-size:12px;opacity:.6}
 <p class="lead">Tengeneza surprise ya kugusa moyo kwa dakika chache, kwa Kiswahili. Mpe mama, rafiki, mpenzi au mtu yeyote zawadi atakayoikumbuka.</p>
 <a class="cta" href="/templates">🧩 Templates {{ tpl_total }}</a><br>
 <a class="cta alt" href="/create">🎁 Chagua tukio na mtindo</a>
+<a class="cta alt" href="#" id="ins" hidden>📲 Sakinisha App</a>
+<p class="ins" id="ioshint" hidden>📲 Kwenye iPhone: gusa <b>Shiriki</b> (⬆️) kisha <b>Ongeza kwenye Skrini ya Mwanzo</b>.</p>
 
 <h2>Jinsi inavyofanya kazi</h2>
 <div class="steps">
@@ -50,9 +58,18 @@ footer{margin-top:40px;font-size:12px;opacity:.6}
 <div class="g">{% for s in styles %}<div class="c"><b>{{ s.e }}</b>{{ s.n }}<br><small>{{ s.d }}</small></div>{% endfor %}</div>
 
 <a class="cta" href="/templates">🎁 Tengeneza Sasa</a>
-<footer>Zawadi Kiganjani &middot; imetengenezwa kwa upendo</footer>
+<footer>Zawadi Kiganjani &middot; imetengenezwa kwa upendo<br><a href="/terms">Masharti</a>&middot;<a href="/privacy">Faragha</a></footer>
 </div>
 <script>
+// PWA: huduma ya nje ya mtandao + kitufe cha kusakinisha
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}
+(function(){var dp=null,b=document.getElementById("ins"),std=window.matchMedia&&matchMedia("(display-mode: standalone)").matches||navigator.standalone;
+ if(std)return;
+ window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();dp=e;window.__dp=e;window.__bip=true;b.hidden=false});
+ b.addEventListener("click",function(ev){ev.preventDefault();if(!dp)return;dp.prompt();dp.userChoice.finally(function(){dp=null;b.hidden=true})});
+ window.addEventListener("appinstalled",function(){b.hidden=true});
+ if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.MSStream)document.getElementById("ioshint").hidden=false;
+})();
 // emoji zinazoelea nyuma
 ["💖","🌸","✨","🎁","💙","🌹","⭐","🎉"].forEach(function(e,i){for(var k=0;k<2;k++){var s=document.createElement("span");s.className="fl";s.textContent=e;s.style.left=(Math.random()*95)+"%";s.style.animationDuration=(9+Math.random()*10)+"s";s.style.animationDelay=(-Math.random()*12)+"s";document.body.appendChild(s)}});
 </script>
